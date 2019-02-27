@@ -462,7 +462,8 @@ needmoreshare2:
 
 # Google Webmaster tools verification setting
 # See: https://www.google.com/webmasters/
-#google_site_verification:
+google_site_verification: Vi2JgRixg6-a8V4yXGbbyQ1auGfqAdAovzvni2zp_QI
+baidu_site_verification: Bnpl6Gxg95
 
 # Google Analytics
 #google_analytics:
@@ -802,7 +803,6 @@ vendors:
   # needMoreShare2
   # https://github.com/revir/need-more-share2
   needMoreShare2:
-
 
 # Assets
 css: css
