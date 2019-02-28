@@ -3,7 +3,7 @@ title: 动态import来拆分代码后发布问题
 date: 2019-01-30 15:25:54
 tags: 
   - dynamic import
-categories: javascript
+categories: JavaScript
 ---
 当使用SPA（单页应用）的时候，为了提高性能，我们经常使用`动态import`来拆分代码。这种情况发布的时候可能会有这样的问题：
 
@@ -20,12 +20,12 @@ categories: javascript
 
 2. 给动态引入的JS加上hash值，这一块不懂的可以看[这篇文章](/blog/2019/01/30/dynamic-import-named/ "webpack中动态import()打包后的文件名称定义")
 
-```javascript
+```JavaScript
 //动态import处代码
 import(/* webpackChunkName: "[request]" */`../../containers/${requestPath}`)
 ```
 
-```javascript
+```JavaScript
 //webpack.config.js
 //... 其他代码
 output: {
@@ -38,7 +38,7 @@ output: {
 
 3. 设置缓存头信息
 
-```javascript
+```JavaScript
 //我这里使用的是koa2做为服务器的 根据使用的服务器来设置响应头信息就可以了
 app.use(require('koa-static')(__dirname + '/public',{
     maxage:1209600000//这个时间根据具体的项目来自己定

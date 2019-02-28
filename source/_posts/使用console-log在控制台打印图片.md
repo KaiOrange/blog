@@ -6,10 +6,10 @@ tags:
   - console.log
   - JS API
   - 控制台图片
-categories: javascript
+categories: JavaScript
 ---
 
-在项目的开发中我们经常使用`console.log`方法在控制台输入数据，看数据是否正确。`console`是全局变量`window`（或`global`）下的一个对象，它给我们提供了很多的方法，我们可以打印一下这个对象，如下：
+在项目的开发中我们经常使用`console.log`方法在控制台输出数据，看数据是否正确。`console`是全局变量`window`（或`global`）下的一个对象，它给我们提供了很多的方法，我们可以打印一下这个对象，如下：
 
 ![console对象的方法](1.png)
 
