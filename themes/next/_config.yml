@@ -360,7 +360,7 @@ baidu_analytics: 6594cdc4e60fe2cda8b79d9537e2968c
 
 # Disqus
 disqus:
-  enable: true
+  enable: false
   shortname: Orange
   count: true
 
