@@ -81,4 +81,20 @@ categories: JavaScript
   点评:
   **`[]`访问属性的时候对于对象会调用`toString`方法，b和c的`toString`的结果都是`[object Object]`**
 
+5.  下面输出的是什么
+
+  ```JavaScript
+  var a = {n:1};
+  var b = a;
+  a.x = a = {n:2};
+  console.log(a.x);
+  console.log(b.x);
+  ```
+
+  答案：
+  > undefined
+  > {n: 2}
+
+  点评:
+  **执行第三行那个等式的时候，a.x先进入栈，此时a和b应该是一样的。之后后面那个等式进栈并执行，后面的结果把a改了，也就是a变成{n:2}了，返回的结果也是{n:2}。此时前面的a.x的地址就是b.x的地址，所以b.x = {n:2}。**
 
