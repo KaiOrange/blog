@@ -238,3 +238,26 @@ console.log(new F3());
 
 点评:
 **new的时候如果构造方法返回的是一个对象，那么new的结果就是这个对象，否则创建一个对象，新创建的对象的原型指向构造方法的原型。**
+
+### 下面输出的是什么 ###
+
+```JavaScript
+function fn (){
+	try{
+		return 0;
+		throw new Error("我就要抛出错误");
+	} catch (e){
+		return 1;
+	} finally {
+		return 2;
+	}
+}
+
+console.log(fn());
+```
+
+答案：
+> 2
+
+点评:
+**finally一定会执行，即使有return也阻止不了。**
