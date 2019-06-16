@@ -98,12 +98,12 @@
 <meta property="og:site_name" content="Orange&#39;s Blog">
 <meta property="og:description" content="好多公司有这样的需求，需要把公司内部的依赖包放在npm服务器上这样安装的时候直接使用npm install安装了。同时，公司可能不希望自己的代码被别人看到，那么建立自己的npm镜像服务器是最好的选择。最近我也遇到同样的问题，希望在自己公司内部搭建一个npm镜像服务器。 搭建这个服务器有两种办法，一种是使用cnpm来做，优点是功能强大；还有一种解决办法就是使用sinopia。 cnpm方式是最常用的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://www.kai666666.top/2019/06/15/建立自己的npm镜像服务器/1.png">
-<meta property="og:updated_time" content="2019-06-15T03:35:54.248Z">
+<meta property="og:image" content="https://www.kai666666.top/2019/06/15/建立自己的npm镜像服务器/1.jpeg">
+<meta property="og:updated_time" content="2019-06-15T07:43:43.755Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="建立自己的npm镜像服务器">
 <meta name="twitter:description" content="好多公司有这样的需求，需要把公司内部的依赖包放在npm服务器上这样安装的时候直接使用npm install安装了。同时，公司可能不希望自己的代码被别人看到，那么建立自己的npm镜像服务器是最好的选择。最近我也遇到同样的问题，希望在自己公司内部搭建一个npm镜像服务器。 搭建这个服务器有两种办法，一种是使用cnpm来做，优点是功能强大；还有一种解决办法就是使用sinopia。 cnpm方式是最常用的">
-<meta name="twitter:image" content="https://www.kai666666.top/2019/06/15/建立自己的npm镜像服务器/1.png">
+<meta name="twitter:image" content="https://www.kai666666.top/2019/06/15/建立自己的npm镜像服务器/1.jpeg">
 
 
 
@@ -412,7 +412,7 @@
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sinopia</span><br></pre></td></tr></table></figure>
 <p>好了吗？没错好了！这个时候你已经可以访问了。当你启动以后不出意外的话，最后两行日志大概是这个样子的：</p>
-<p><img src="/2019/06/15/建立自己的npm镜像服务器/1.png" alt="《最后2行日志》"></p>
+<p><img src="/2019/06/15/建立自己的npm镜像服务器/1.jpeg" alt="《最后2行日志》"></p>
 <p>这两行是比较重要的，其中第一行是sinopia的配置文件路径，第二行是镜像源的URL，通常我们需要开放到整个内网中，那么我们不太希望使用<code>localhost</code>去访问，更多情况下希望使用IP或者域名去访问，这个时候就得修改配置了。</p>
 <h2 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h2><p>打开配置文件<code>/Users/admin/.config/sinopia/config.yaml</code>（具体文件路径，可以参考上面第一行日志），然后在最下面添加一行：<code>listen: 0.0.0.0:4873</code>。</p>
 <p>另外我们的国内的镜像源一般是使用淘宝镜像去下载东西的，那么可以把我们的镜像源的来源设置为淘宝的镜像源，这样可以提高国内的下载速度。做法也是修改这个配置文件，找到<code>uplinks</code>下面两行把url替换一下，具体的如下：</p>
@@ -493,6 +493,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/15/Canvas系列（1）：直线图形/" rel="prev" title="Canvas系列（1）：直线图形">
+                Canvas系列（1）：直线图形 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -576,7 +580,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -587,7 +591,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -598,7 +602,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
