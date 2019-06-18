@@ -10,9 +10,9 @@ categories: node
 
 好多公司有这样的需求，需要把公司内部的依赖包放在npm服务器上这样安装的时候直接使用`npm install`安装了。同时，公司可能不希望自己的代码被别人看到，那么建立自己的npm镜像服务器是最好的选择。最近我也遇到同样的问题，希望在自己公司内部搭建一个npm镜像服务器。
 
-搭建这个服务器有两种办法，一种是使用cnpm来做，优点是功能强大；还有一种解决办法就是使用[sinopia](https://github.com/rlidwka/sinopia)。
+搭建这个服务器有两种办法，一种是使用cnpm来做，优点是功能强大；还有一种解决办法就是使用[verdaccio](https://github.com/verdaccio/verdaccio)。
 
-cnpm方式是最常用的，网上有好多简绍，这里就不重复了，感兴趣的可以看[这篇](https://juejin.im/post/5a386b0d6fb9a0450f220c59)，我们这里讲的是第二种方法。为什么使用第二种方式呢，因为这种方式实在是太简单了（开箱即用），对于一般的小公司来说这种方式非常合适。
+cnpm方式是最常用的，网上有好多简绍，这里就不重复了，感兴趣的可以看[这篇](https://www.cnblogs.com/jymz/p/4511284.html)，我们这里讲的是第二种方法。为什么使用第二种方式呢，因为这种方式实在是太简单了（开箱即用），对于一般的小公司来说这种方式非常合适。如果你看过其他的资料可能会了解到一个库叫`sinopia`也是干这事的，它和`verdaccio`的用法基本差不多，实际上`verdaccio`就是fork`sinopia`的，而`verdaccio`能活下来，说明`verdaccio`要更加优秀，所以我们这里就主要简绍一下`verdaccio`的使用。
 
 ----
 
@@ -20,25 +20,25 @@ cnpm方式是最常用的，网上有好多简绍，这里就不重复了，感�
 
 1. 下载全局依赖
 
-```shell
-npm install -g sinopia
-```
+    ```shell
+    npm install -g verdaccio
+    ```
 
 2. 启动
 
-```shell
-sinopia
-```
+    ```shell
+    verdaccio
+    ```
 
-好了吗？没错好了！这个时候你已经可以访问了。当你启动以后不出意外的话，最后两行日志大概是这个样子的：
+好了吗？没错好了！这个时候你已经可以访问了。当你启动以后不出意外的话，会有4行日志，大概是这个样子的：
 
-![《最后2行日志》](1.jpeg)
+![《4行日志》](1.png)
 
-这两行是比较重要的，其中第一行是sinopia的配置文件路径，第二行是镜像源的URL，通常我们需要开放到整个内网中，那么我们不太希望使用`localhost`去访问，更多情况下希望使用IP或者域名去访问，这个时候就得修改配置了。
+这4行是比较重要的，其中第一行是verdaccio的配置文件路径，第二行和第三行是插件加载信息，第二行是镜像源的URL，通常我们需要开放到整个内网中，那么我们不太希望使用`localhost`去访问，更多情况下希望使用IP或者域名去访问，这个时候就得修改配置了。
 
 ## 修改配置 ##
 
-打开配置文件`/Users/admin/.config/sinopia/config.yaml`（具体文件路径，可以参考上面第一行日志），然后在最下面添加一行：`listen: 0.0.0.0:4873`。
+打开配置文件`/Users/admin/.config/verdaccio/config.yaml`（具体文件路径，可以参考上面第一行日志），然后在最下面添加一行：`listen: 0.0.0.0:4873`。
 
 另外我们的国内的镜像源一般是使用淘宝镜像去下载东西的，那么可以把我们的镜像源的来源设置为淘宝的镜像源，这样可以提高国内的下载速度。做法也是修改这个配置文件，找到`uplinks`下面两行把url替换一下，具体的如下：
 
@@ -49,7 +49,7 @@ uplinks:
     url: https://registry.npm.taobao.org/
 ```
 
-配置好后就大功告成了，把配置文件保存一下，然后重启`sinopia`（命令行中`Ctrl + C`，然后重新运行`sinopia`命令）。
+配置好后就大功告成了，把配置文件保存一下，然后重启`verdaccio`（命令行中`Ctrl + C`，然后重新运行`verdaccio`命令）。
 
 此时可以在浏览器键入`http://你的IP:4873/`或者`http://localhost:4873/`来访问管理页面。
 
@@ -65,11 +65,20 @@ npm config set registry http://你的IP:4873/
 
 ```shell
 npm install -g nrm
-nrm add sinopia http://你的IP:4873/
-nrm use sinopia
+nrm add verdaccio http://你的IP:4873/
+nrm use verdaccio
 ```
 
-这里我把我们的镜像源命名为`sinopia`，你也可以定义为你喜欢的名字，你可以使用`nrm ls`查看所有镜像源，还可以使用`nrm use XXX`换成镜像源列表中的其他镜像源。
+这里我把我们的镜像源命名为`verdaccio`，你也可以定义为你喜欢的名字，公司内部建议使用公司的名称。你也可以使用`nrm ls`查看所有镜像源，还可以使用`nrm use XXX`换成镜像源列表中的其他镜像源。
+
+## 使用pm2启动 ##
+
+我们上面直接运行命令`verdaccio`启动的，这样是没问题的，有的时候为了更加严谨的方式可以使用`pm2`。`pm2`是一款非常优秀的进程管理工具，使用方式也很简单，我们这里就直接使用它启动了，更多使用方法可以看[这里](https://github.com/Unitech/pm2)。
+
+```shell
+npm install -g pm2
+pm2 start verdaccio
+```
 
 ## 上传一个依赖包 ##
 
