@@ -79,7 +79,7 @@
 
 
 
-  <meta name="keywords" content="Orange, Blog">
+  <meta name="keywords" content="Canvas,">
 
 
 
@@ -90,16 +90,23 @@
 
 
 
-<meta name="description" content="励志改变人生，编程改变命运">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Orange&#39;s Blog">
-<meta property="og:url" content="https://www.kai666666.top/tags/正则表达式/index.html">
+<meta name="description" content="CSS3中有一个很重要的点，就是形变。他分为移动，缩放、旋转和倾斜。在Canvas中，形变都是基于坐标做的，所以，并没有直接的API支持倾斜，其它几种都是有独立的API来支持，命名和CSS是一样的。今天我们就看一下这几种吧。  平移平移是最简单的一种形变，我们直接来看一个例子吧： 12345678context.fillRect(10,10,20,20);// x平移20px y平移20pxcon">
+<meta name="keywords" content="Canvas">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Canvas系列（7）：形变">
+<meta property="og:url" content="https://www.kai666666.top/2019/06/22/Canvas系列（7）：形变/index.html">
 <meta property="og:site_name" content="Orange&#39;s Blog">
-<meta property="og:description" content="励志改变人生，编程改变命运">
+<meta property="og:description" content="CSS3中有一个很重要的点，就是形变。他分为移动，缩放、旋转和倾斜。在Canvas中，形变都是基于坐标做的，所以，并没有直接的API支持倾斜，其它几种都是有独立的API来支持，命名和CSS是一样的。今天我们就看一下这几种吧。  平移平移是最简单的一种形变，我们直接来看一个例子吧： 12345678context.fillRect(10,10,20,20);// x平移20px y平移20pxcon">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://www.kai666666.top/2019/06/22/Canvas系列（7）：形变/1.jpeg">
+<meta property="og:image" content="https://www.kai666666.top/2019/06/22/Canvas系列（7）：形变/2.jpeg">
+<meta property="og:image" content="https://www.kai666666.top/2019/06/22/Canvas系列（7）：形变/3.jpeg">
+<meta property="og:image" content="https://www.kai666666.top/2019/06/22/Canvas系列（7）：形变/4.jpeg">
+<meta property="og:updated_time" content="2019-06-22T08:56:30.309Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Orange&#39;s Blog">
-<meta name="twitter:description" content="励志改变人生，编程改变命运">
+<meta name="twitter:title" content="Canvas系列（7）：形变">
+<meta name="twitter:description" content="CSS3中有一个很重要的点，就是形变。他分为移动，缩放、旋转和倾斜。在Canvas中，形变都是基于坐标做的，所以，并没有直接的API支持倾斜，其它几种都是有独立的API来支持，命名和CSS是一样的。今天我们就看一下这几种吧。  平移平移是最简单的一种形变，我们直接来看一个例子吧： 12345678context.fillRect(10,10,20,20);// x平移20px y平移20pxcon">
+<meta name="twitter:image" content="https://www.kai666666.top/2019/06/22/Canvas系列（7）：形变/1.jpeg">
 
 
 
@@ -129,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="https://www.kai666666.top/tags/正则表达式/">
+  <link rel="canonical" href="https://www.kai666666.top/2019/06/22/Canvas系列（7）：形变/">
 
 
 
 
 
-  <title>标签: 正则表达式 | Orange's Blog</title>
+  <title>Canvas系列（7）：形变 | Orange's Blog</title>
   
 
 
@@ -164,7 +171,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     <a href="https://github.com/KaiOrange" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
@@ -292,52 +299,213 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>正则表达式<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.kai666666.top/2019/06/22/Canvas系列（7）：形变/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Orange">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/24317428?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Orange's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/04/13/JavaScript中的正则表达式/" itemprop="url">
-              
-                <span itemprop="name">JavaScript中的正则表达式</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Canvas系列（7）：形变</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-13T14:35:29+08:00" content="2019-04-13">
-          04-13
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-22T13:54:04+08:00">
+                2019-06-22
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Canvas/" itemprop="url" rel="index">
+                    <span itemprop="name">Canvas</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>CSS3中有一个很重要的点，就是形变。他分为移动，缩放、旋转和倾斜。在Canvas中，形变都是基于坐标做的，所以，并没有直接的API支持倾斜，其它几种都是有独立的API来支持，命名和CSS是一样的。今天我们就看一下这几种吧。</p>
+<hr>
+<h2 id="平移"><a href="#平移" class="headerlink" title="平移"></a>平移</h2><p>平移是最简单的一种形变，我们直接来看一个例子吧：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">context.fillRect(<span class="number">10</span>,<span class="number">10</span>,<span class="number">20</span>,<span class="number">20</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// x平移20px y平移20px</span></span><br><span class="line">context.translate(<span class="number">20</span>, <span class="number">20</span>);</span><br><span class="line">context.fillRect(<span class="number">10</span>,<span class="number">10</span>,<span class="number">20</span>,<span class="number">20</span>);</span><br><span class="line"></span><br><span class="line">context.translate(<span class="number">20</span>, <span class="number">20</span>);</span><br><span class="line">context.fillRect(<span class="number">10</span>,<span class="number">10</span>,<span class="number">20</span>,<span class="number">20</span>);</span><br></pre></td></tr></table></figure>
+<p>效果：<br><img src="/2019/06/22/Canvas系列（7）：形变/1.jpeg" alt="平移形变"></p>
+<p>通过上面我们可以看到，<strong>平移（形变）移动的是坐标系，移动以后会以新的坐标系进行绘图，当多次平移（形变）以后每次都会以上一次的坐标系为准。</strong>此时你可能会问，那形变不是很危险吗，每次使用了形变就会使用新的坐标系，以后所有绘制的图片都会受到影响？没错是这样的，那改怎么解决呢？还记得之前的<a href="/2019/06/16/Canvas系列（3）：路径与状态/#more">状态</a>吗？现在给一个简单的例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 形变前往往需要保存状态</span></span><br><span class="line">context.save();</span><br><span class="line"></span><br><span class="line">context.translate(<span class="number">20</span>, <span class="number">20</span>);</span><br><span class="line">context.fillRect(<span class="number">10</span>,<span class="number">10</span>,<span class="number">20</span>,<span class="number">20</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 形变结束，恢复之前的状态</span></span><br><span class="line">context.restore();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 此时以之前的坐标系绘制</span></span><br><span class="line">context.beginPath();</span><br><span class="line">context.fillStyle=<span class="string">'red'</span>;</span><br><span class="line">context.fillRect(<span class="number">10</span>,<span class="number">10</span>,<span class="number">20</span>,<span class="number">20</span>);</span><br></pre></td></tr></table></figure>
+<p>效果：<br><img src="/2019/06/22/Canvas系列（7）：形变/2.jpeg" alt="使用保存状态"></p>
+<h2 id="缩放"><a href="#缩放" class="headerlink" title="缩放"></a>缩放</h2><p>缩放也是相对于坐标系来说的，看一下这个例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">context.strokeStyle=<span class="string">'red'</span>;</span><br><span class="line">context.lineWidth=<span class="number">10</span>;</span><br><span class="line">context.strokeRect(<span class="number">20</span>, <span class="number">20</span>, <span class="number">50</span>, <span class="number">50</span>);</span><br><span class="line"></span><br><span class="line">context.beginPath();</span><br><span class="line"><span class="comment">// x是原来的1.5倍 y是原来的1.5倍</span></span><br><span class="line">context.save();</span><br><span class="line">context.scale(<span class="number">1.5</span>, <span class="number">1.5</span>);</span><br><span class="line">context.strokeStyle=<span class="string">'blue'</span>;</span><br><span class="line">context.strokeRect(<span class="number">20</span>, <span class="number">20</span>, <span class="number">50</span>, <span class="number">50</span>);</span><br><span class="line">context.restore();</span><br></pre></td></tr></table></figure>
+<p>效果：<br><img src="/2019/06/22/Canvas系列（7）：形变/3.jpeg" alt="缩放"></p>
+<p>可以看到，缩放改变的也是坐标系，在新的坐标系系中，宽度也放大了，一个像素已经不再是真正的一个像素了，而是放大以后的大小。所以可以看到都是10个像素的边框，宽度也不一样了。需要注意的是缩放的值大于1的时候是放大，0~1之间是缩小，1和原来是一样大的。</p>
+<h2 id="旋转"><a href="#旋转" class="headerlink" title="旋转"></a>旋转</h2><p>直接上代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">context.strokeStyle=<span class="string">'red'</span>;</span><br><span class="line">context.lineWidth=<span class="number">10</span>;</span><br><span class="line">context.strokeRect(<span class="number">80</span>, <span class="number">20</span>, <span class="number">50</span>, <span class="number">50</span>);</span><br><span class="line"></span><br><span class="line">context.beginPath();</span><br><span class="line"><span class="comment">// x是原来的1.5倍 y是原来的1.5倍</span></span><br><span class="line">context.save();</span><br><span class="line">context.rotate(<span class="built_in">Math</span>.PI / <span class="number">180</span> * <span class="number">45</span>);</span><br><span class="line"></span><br><span class="line">context.strokeStyle=<span class="string">'blue'</span>;</span><br><span class="line">context.strokeRect(<span class="number">80</span>, <span class="number">20</span>, <span class="number">50</span>, <span class="number">50</span>);</span><br><span class="line">context.restore();</span><br></pre></td></tr></table></figure>
+<p>效果：<br><img src="/2019/06/22/Canvas系列（7）：形变/4.jpeg" alt="旋转"></p>
+<p>可以看到旋转是基于<strong>坐标的原点的</strong>，如果不希望按照原点旋转的话，可以先平移再旋转。另外旋转也是根据弧度来旋转的而不是角度。</p>
+<h2 id="矩阵变换"><a href="#矩阵变换" class="headerlink" title="矩阵变换"></a>矩阵变换</h2><p>矩阵变换使用的API是<code>context.transform(a, b, c, d, e, f);</code>，所对应的矩阵的位置是下面这个样子：</p>
+<p>$$\left[<br>\begin{matrix}<br>a &amp; c &amp; e \\<br>b &amp; d &amp; f \\<br>0 &amp; 0 &amp; 1<br>\end{matrix}<br>\right] $$</p>
+<p>什么，看不懂？前方高能！！！多年前欠下的线性代数债，现在要还了。</p>
+<p>对于形变，假设开始的坐标是($x_0$,$y_0$)，结束的坐标是($x_1$,$y_1$)，那么假如($x_1$,$y_1$)是$x_0$平移了e个单位，$y_0$平移了f个单位后得到的结果，那么$x_1$和$y_1$就等于如下：<br>$$<br>  x_1 = x_0 + e \\<br>  y_1 = y_0 + f<br>$$</p>
+<p>使用矩阵的笛卡尔积（左边值的第几行第几列中的值，就是右边第一个矩阵的第几行与第二个矩阵的第几列的乘积之和就是）的样子就是这个样子：</p>
+<p>$$\left[<br>\begin{matrix}<br>x_1 \\<br>y_1 \\<br>1 \\<br>\end{matrix}<br>\right] =<br>\left[<br>\begin{matrix}<br>1 &amp; 0 &amp; e \\<br>0 &amp; 1 &amp; f \\<br>0 &amp; 0 &amp; 1<br>\end{matrix}<br>\right]<br>\left[<br>\begin{matrix}<br>x_0 \\<br>y_0 \\<br>1 \\<br>\end{matrix}<br>\right] $$</p>
+<p>上面矩阵是平移时候的矩阵，将中间的矩阵带入矩阵的API有：<code>context.transform(1, 0, 0, 1, e, f);</code>。也就是说<code>context.translate(e, f);</code>等价于<code>context.transform(1, 0, 0, 1, e, f);</code>。</p>
+<p>对于缩放，同样假设开始的坐标是($x_0$,$y_0$)，结束的坐标是($x_1$,$y_1$)，那么假如$x_0$缩放了a个单位，$y_0$缩放d个单位，那么$x_1$和$y_1$就等于如下：<br>$$<br>  x_1 = a * x_0 \\<br>  y_1 = d * y_0<br>$$</p>
+<p>使用矩阵的笛卡尔积就是这个样子：</p>
+<p>$$\left[<br>\begin{matrix}<br>x_1 \\<br>y_1 \\<br>1 \\<br>\end{matrix}<br>\right] =<br>\left[<br>\begin{matrix}<br>a &amp; 0 &amp; 0 \\<br>0 &amp; d &amp; 0 \\<br>0 &amp; 0 &amp; 1<br>\end{matrix}<br>\right]<br>\left[<br>\begin{matrix}<br>x_0 \\<br>y_0 \\<br>1 \\<br>\end{matrix}<br>\right] $$</p>
+<p>也就是说<code>context.scale(a, d);</code>等价于<code>context.transform(a, 0, 0, d, 0, 0);</code>。</p>
+<p>旋转有点复杂，坐标($x_0$,$y_0$)和($x_1$,$y_1$)的意义和上面一下，旋转有如下公式（可以自行推到，并不难）：</p>
+<p>$$<br>  x_1 = x_0 * cos\theta - y_0 * sin\theta \\<br>  y_1 = x_0 * sin\theta + y_0 * cos\theta<br>$$</p>
+<p>使用矩阵的笛卡尔积就是这个样子：</p>
+<p>$$\left[<br>\begin{matrix}<br>x_1 \\<br>y_1 \\<br>1 \\<br>\end{matrix}<br>\right] =<br>\left[<br>\begin{matrix}<br>cos\theta &amp; -sin\theta &amp; 0 \\<br>sin\theta &amp; cos\theta &amp; 0 \\<br>0 &amp; 0 &amp; 1<br>\end{matrix}<br>\right]<br>\left[<br>\begin{matrix}<br>x_0 \\<br>y_0 \\<br>1 \\<br>\end{matrix}<br>\right] $$</p>
+<p>也就是说<code>context.rotate(angle);</code>等价于<code>context.transform(cos(angle), sin(angle), -sin(angle), cos(angle), 0, 0);</code>。</p>
+<p>所以我们上面的几个例子，我们做下面的等价替换，效果是一样的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">context.translate(<span class="number">20</span>, <span class="number">20</span>);</span><br><span class="line"><span class="comment">// 等价于</span></span><br><span class="line">context.transform(<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">20</span>, <span class="number">20</span>);</span><br><span class="line"></span><br><span class="line">context.scale(<span class="number">1.5</span>, <span class="number">1.5</span>);</span><br><span class="line"><span class="comment">// 等价于</span></span><br><span class="line">context.transform(<span class="number">1.5</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1.5</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">context.rotate(<span class="built_in">Math</span>.PI / <span class="number">180</span> * <span class="number">45</span>);</span><br><span class="line"><span class="comment">// 等价于</span></span><br><span class="line"><span class="keyword">var</span> theta = <span class="built_in">Math</span>.PI / <span class="number">180</span> * <span class="number">45</span>;</span><br><span class="line">context.transform(<span class="built_in">Math</span>.cos(theta), <span class="built_in">Math</span>.sin(theta), - <span class="built_in">Math</span>.sin(theta), <span class="built_in">Math</span>.cos(theta), <span class="number">0</span>, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<p>除了<code>transform</code>外还有一个矩阵变换的方法叫<code>setTransform</code>，参数是一模一样的<code>context.setTransform(a, b, c, d, e, f);</code>。两者的区别是后者始终以最初的坐标做为参照，而<code>transform</code>以上次变换后的坐标做为参照（类似于前面的三个API）。</p>
 
       
     </div>
+    
+    
+    
 
+    <div>
+        
+        <div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-paw"></i> 感谢您的阅读-------------</div>
+
+</div>
+        
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Canvas/" rel="tag"># Canvas</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/19/Canvas系列（6）：绘制图片/" rel="next" title="Canvas系列（6）：绘制图片">
+                <i class="fa fa-chevron-left"></i> Canvas系列（6）：绘制图片
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -345,6 +513,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80Mjk3Mi8xOTUxOA=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -365,8 +542,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -428,6 +614,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#平移"><span class="nav-number">1.</span> <span class="nav-text">平移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缩放"><span class="nav-number">2.</span> <span class="nav-text">缩放</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#旋转"><span class="nav-number">3.</span> <span class="nav-text">旋转</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵变换"><span class="nav-number">4.</span> <span class="nav-text">矩阵变换</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -569,6 +771,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -597,6 +803,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
