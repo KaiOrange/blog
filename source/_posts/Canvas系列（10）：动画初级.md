@@ -46,118 +46,96 @@ window.cancelAnimationFrame = (function(){
 
 ## 匀速直线运动 ##
 
-匀速直线运动是最简单的动画，由于我们现在需要不断地檫除然后重新绘制，所以我们需要重新封装一下我们的HTML，全部代码如下：
+匀速直线运动是最简单的动画，由于我们现在需要不断地檫除然后重新绘制，所以我们需要重新给出我们此时的JavaScript代码，如下：
 
-```HTML
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Canvas系列</title>
-  <style type="text/css" >
-    #canvas{
-      background: #f5f5f5;
+```JavaScript
+var canvas = document.getElementById("canvas");
+var context = canvas.getContext('2d');
+var sW = 1;
+var lW = 4;
+var spacing = 10;
+
+// 绘制坐标系
+function drawCoordinate(){
+  context.beginPath();
+  for (var x = 0; x < canvas.width; x+=spacing) {
+    context.moveTo(x, 0);
+    if(x % (spacing * 5) === 0){
+      context.lineTo(x, lW);
+    } else {
+      context.lineTo(x, sW);
     }
-  </style>
-</head>
-<body>
-
-  <canvas id="canvas" ></canvas>
-
-  <script type="text/javascript">
-    var canvas = document.getElementById("canvas");
-    var context = canvas.getContext('2d');
-    var sW = 1;
-    var lW = 4;
-    var spacing = 10;
-
-    // 绘制坐标系
-    function drawCoordinate(){
-      context.beginPath();
-      for (var x = 0; x < canvas.width; x+=spacing) {
-        context.moveTo(x, 0);
-        if(x % (spacing * 5) === 0){
-          context.lineTo(x, lW);
-        } else {
-          context.lineTo(x, sW);
-        }
-      }
-      for (let y = 0; y < canvas.height; y+=spacing) {
-        context.moveTo(0, y);
-        if(y % (spacing * 5) === 0){
-          context.lineTo(lW, y);
-        } else {
-          context.lineTo(sW, y);
-        }
-      }
-      context.strokeStyle='black';
-      context.stroke();
+  }
+  for (let y = 0; y < canvas.height; y+=spacing) {
+    context.moveTo(0, y);
+    if(y % (spacing * 5) === 0){
+      context.lineTo(lW, y);
+    } else {
+      context.lineTo(sW, y);
     }
+  }
+  context.strokeStyle='black';
+  context.stroke();
+}
 
 
-    // 其他代码
+// 其他代码
 
-    // 中心坐标(centerX,centerY)
-    var centerX = canvas.width / 2;
-    var centerY = canvas.height / 2;
+// 中心坐标(centerX,centerY)
+var centerX = canvas.width / 2;
+var centerY = canvas.height / 2;
 
-    // 小球圆心的坐标
-    var ballX = centerX;
-    var ballY = centerY;
-    // 小球的半径
-    var ballRadius = 20;
+// 小球圆心的坐标
+var ballX = centerX;
+var ballY = centerY;
+// 小球的半径
+var ballRadius = 20;
 
-    // 更新小球
-    function updateBall(){
-      ballX += 1;
-      // 如果超出去 那么回到初始位置
-      if (ballX > 300 + ballRadius) {
-        ballX = -ballRadius;
-      }
-    }
+// 更新小球
+function updateBall(){
+  ballX += 1;
+  // 如果超出去 那么回到初始位置
+  if (ballX > 300 + ballRadius) {
+    ballX = -ballRadius;
+  }
+}
 
-    // 绘制小球
-    function drawBall(){
-      context.beginPath();
-      context.arc(ballX, ballY, ballRadius, Math.PI / 180 * 0, Math.PI / 180 * 360);
-      context.closePath();
-      context.fillStyle='orange';
-      context.fill();
-    }
+// 绘制小球
+function drawBall(){
+  context.beginPath();
+  context.arc(ballX, ballY, ballRadius, Math.PI / 180 * 0, Math.PI / 180 * 360);
+  context.closePath();
+  context.fillStyle='orange';
+  context.fill();
+}
 
-    // 此时没有轨迹的绘制 所以就是一个空函数
-    function drawLocus(){}
+// 此时没有轨迹的绘制 所以就是一个空函数
+function drawLocus(){}
 
-    function animate(){
-      // 清屏
-      context.clearRect(0, 0, canvas.width, canvas.height);
+function animate(){
+  // 清屏
+  context.clearRect(0, 0, canvas.width, canvas.height);
 
-      // 绘制坐标系
-      drawCoordinate();
+  // 绘制坐标系
+  drawCoordinate();
 
-      //绘制轨迹 有可能会用到 当前是空
-      drawLocus();
+  //绘制轨迹 有可能会用到 当前是空
+  drawLocus();
 
-      // 更新小球位置
-      updateBall();
-      // 绘制球
-      drawBall();
+  // 更新小球位置
+  updateBall();
+  // 绘制球
+  drawBall();
 
-      // 递归调用
-      requestAnimationFrame(animate);
-    }
+  // 递归调用
+  requestAnimationFrame(animate);
+}
 
-    // 启动动画
-    requestAnimationFrame(animate);
-
-  </script>
-</body>
-</html>
+// 启动动画
+requestAnimationFrame(animate);
 ```
 
-看到`animate`还是了吗，此函数是canvas动画的“套路”，一定要熟悉它，此时出来的效果如下：
+看到`animate`还是了吗，此函数是canvas动画的“套路”，一定要熟悉它，几乎所有动画相关的代码都有该函数的身影。此时的效果如下：
 
 ![匀速直线运动](1.gif)
 
