@@ -109,15 +109,6 @@ window.cancelAnimationFrame = (function(){
     // 小球的半径
     var ballRadius = 20;
 
-    // 绘制小球
-    function drawBall(){
-      context.beginPath();
-      context.arc(ballX, ballY, ballRadius, Math.PI / 180 * 0, Math.PI / 180 * 360);
-      context.closePath();
-      context.fillStyle='orange';
-      context.fill();
-    }
-
     // 更新小球
     function updateBall(){
       ballX += 1;
@@ -125,6 +116,15 @@ window.cancelAnimationFrame = (function(){
       if (ballX > 300 + ballRadius) {
         ballX = -ballRadius;
       }
+    }
+
+    // 绘制小球
+    function drawBall(){
+      context.beginPath();
+      context.arc(ballX, ballY, ballRadius, Math.PI / 180 * 0, Math.PI / 180 * 360);
+      context.closePath();
+      context.fillStyle='orange';
+      context.fill();
     }
 
     // 此时没有轨迹的绘制 所以就是一个空函数
