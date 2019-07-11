@@ -46,7 +46,8 @@ window.cancelAnimationFrame = (function(){
 
 ## 匀速直线运动 ##
 
-匀速直线运动是最简单的动画，由于我们现在需要不断地檫除然后重新绘制，所以我们需要重新给出我们此时的JavaScript代码，如下：
+匀速直线运动是最简单的动画，由于我们现在需要不断地檫除然后重新绘制，所以我们需要重新给出我们此时的JavaScript代码，如下，也可以在[这里](https://github.com/KaiOrange/canvas-demo)查看：
+
 
 ```JavaScript
 var canvas = document.getElementById("canvas");
@@ -272,6 +273,12 @@ function updateBall(){
 更多的时候我们会遇到带有一定角度的匀速运动，比如速度是每次更新2个像素，那么实际上x和y都是他的一个分量，现在看一下代码：
 
 ```JavaScript
+// 小球圆心的坐标
+var ballX = 0;
+var ballY = 0;
+// 小球的半径
+var ballRadius = 20;
+
 // 这里写角度看起来比较直观
 var angle = 45;
 var spend = 2;

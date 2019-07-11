@@ -9,6 +9,8 @@ categories: Canvas
 
 在前端最令人兴奋的技术莫过于Canvas技术。它可以制作出更加绚丽的效果，甚至完全可以胜任游戏开发。最近我也在学习Canvas相关的技术，总是想拿出来跟大家一起分享分享，由于这块技术比较庞大，所以我就分章节一章一章地跟大家分享。这几章节中我们并不涉及webGL相关的知识，感兴趣的可以自己玩一玩。
 
+我们的全部代码可以在这个网址查看：[https://github.com/KaiOrange/canvas-demo](https://github.com/KaiOrange/canvas-demo)。
+
 ----
 
 ## 快速上手 ##

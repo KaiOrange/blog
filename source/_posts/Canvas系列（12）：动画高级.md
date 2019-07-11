@@ -210,3 +210,5 @@ function updateBall(){
 效果如下：
 
 ![带有摩擦力的弹性动画](5.gif)
+
+建议你自己写一写代码，或者自己把代码下载下来运行一下，代码地址：[https://github.com/KaiOrange/canvas-demo](https://github.com/KaiOrange/canvas-demo)。
