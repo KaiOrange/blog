@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[图片由彩色渐变到黑白动画]]></title>
+    <url>%2F2019%2F07%2F23%2F%E5%9B%BE%E7%89%87%E7%94%B1%E5%BD%A9%E8%89%B2%E6%B8%90%E5%8F%98%E5%88%B0%E9%BB%91%E7%99%BD%E5%8A%A8%E7%94%BB%2F</url>
+    <content type="text"><![CDATA[把图片变成黑白的效果使用Canvas就可以实现，那如何使图片渐变成黑白色呢？其实Canvas完全可以胜任，但是有更简单的办法就是CSS的滤镜。 首先上一下HTML的代码： 123&lt;img src="https://www.kai666666.top/2019/06/29/Canvas系列（8）：像素操作/lufei.jpeg" class="pic" /&gt; 此时的效果如下： CSS代码也很简单： 123456.pic &#123; transition: filter .8s ease;&#125;.pic:hover&#123; filter: grayscale(100%) ;&#125; 当然我们还可以添加多个滤镜，效果会更好，就比如再添加一个透明度变化的效果： 123456.pic &#123; transition: filter .8s ease;&#125;.pic:hover&#123; filter: grayscale(100%) opacity(66%);&#125; 更多滤镜效果请看这里，本示例代码请点击这里。]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS效果</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[构造方法或new返回该对象]]></title>
     <url>%2F2019%2F07%2F18%2F%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E6%88%96new%E8%BF%94%E5%9B%9E%E8%AF%A5%E5%AF%B9%E8%B1%A1%2F</url>
     <content type="text"><![CDATA[一个小技巧，调用构造方法或都new返回该对象： 1234567891011121314151617function Person()&#123; // ... // 不是new的时候this指向的是调用者 默认是window if (!(this instanceof Person)) &#123; return new Person(); &#125;&#125;Person.prototype.sayHello = function ()&#123; console.log("Hello World!");&#125;var lufei = Person();lufei.sayHello();var nami = new Person();nami.sayHello();]]></content>
