@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[使用Node在浏览器打开某个网页]]></title>
+    <url>%2F2019%2F07%2F29%2F%E4%BD%BF%E7%94%A8Node%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%93%E5%BC%80%E6%9F%90%E4%B8%AA%E7%BD%91%E9%A1%B5%2F</url>
+    <content type="text"><![CDATA[使用Node在浏览器打开某个网页，其实就是使用子进程来用命令行打开网页链接就可以了，需要注意的是Mac系统使用的是open命令，Windows系统使用的是start命令，Linux等系统使用xdg-open命令。针对不同的操作系统使用不同的命令。 代码首先创建一个index.js文件，然后写我们的代码： 1234567891011121314151617181920const child_process = require('child_process');var openURL = function (url) &#123; // 判断平台 switch (process.platform) &#123; // Mac 使用open case "darwin": child_process.spawn('open', [url]); break; // Windows使用start case "win32": child_process.spawn('start', [url]); break; // Linux等使用xdg-open default: child_process.spawn('xdg-open', [url]); &#125;&#125;;openURL("https://www.kai666666.top/"); 运行在当前命令行运行下面命令，可以看到浏览器已经打开我们的网页了。 1node index.js 优化往往在代码中直接写死地址是不好的，我们使用传过来的参数视为打开的URL，修改index.js文件最后1行代码： 1234567- openURL("https://www.kai666666.top/");+ let url = process.argv[2];+ if (url) &#123;+ openURL(url);+ &#125; else &#123;+ console.log("请输入URL");+ &#125; 上面process.argv是一个数组，其中0下标的数据是node的路径，1下标的数据是执行文件也就是这里的index.js文件的路径，2到多下标中的数据是后面传入的数据，上面我们只检查2下标的数据。 最后使用下面命令启动： 1node index.js https://www.kai666666.top/ 更多看到上面这你会不会想到，自己封装一下打开网页的方法呢？其实已经有人这么做了，你可以看看open库，它就是使用代码来打开网页的（其实不仅仅是网页），著名的webpack插件open-browser-webpack-plugin就是使用它在启动的时候打开一个页面。当然它是需要用代码来启动的，你可能希望直接在命令行来启动，就像我们上面那样，那你可以看看open库作者的另一个库：open-cli，内部也是使用open库来启动的，只是封装了一层命令行传URL的过程。]]></content>
+      <categories>
+        <category>Node</category>
+      </categories>
+      <tags>
+        <tag>Node</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[图片由彩色渐变到黑白动画]]></title>
     <url>%2F2019%2F07%2F23%2F%E5%9B%BE%E7%89%87%E7%94%B1%E5%BD%A9%E8%89%B2%E6%B8%90%E5%8F%98%E5%88%B0%E9%BB%91%E7%99%BD%E5%8A%A8%E7%94%BB%2F</url>
     <content type="text"><![CDATA[把图片变成黑白的效果使用Canvas就可以实现，那如何使图片渐变成黑白色呢？其实Canvas完全可以胜任，但是有更简单的办法就是CSS的滤镜。 首先上一下HTML的代码： 123&lt;img src="https://www.kai666666.top/2019/06/29/Canvas系列（8）：像素操作/lufei.jpeg" class="pic" /&gt; 此时的效果如下： CSS代码也很简单： 123456.pic &#123; transition: filter .8s ease;&#125;.pic:hover&#123; filter: grayscale(100%) ;&#125; 当然我们还可以添加多个滤镜，效果会更好，就比如再添加一个透明度变化的效果： 123456.pic &#123; transition: filter .8s ease;&#125;.pic:hover&#123; filter: grayscale(100%) opacity(66%);&#125; 更多滤镜效果请看这里，本示例代码请点击这里。]]></content>
