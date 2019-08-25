@@ -5,10 +5,25 @@
   padding: 25px 0 20px;
   clearfix();
 
+  .site-brand-wrapper {
+    +mobile() {
+      clearfix();
+    }
+  }
+
   +mobile() {
     width: auto;
     margin-bottom: 50px;
     padding: 10px;
+  }
+}
+
+.github-corner{
+  svg {
+    top:0;
+    +mobile() {
+      top: 60px;
+    }
   }
 }
 

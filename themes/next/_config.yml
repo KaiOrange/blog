@@ -63,7 +63,7 @@ footer:
     version: false
   # -------------------------------------------------------------
   # Any custom text can be defined here.
-  custom_text: 感谢您的访问，由于作者技术水平有限，如有不正确的地方请及时<a href="https://github.com/KaiOrange/blog/issues/new">与我联系</a>
+  custom_text: 由于作者技术水平有限，如有不正确的地方请及时<a href="https://github.com/KaiOrange/blog/issues/new">与我联系</a>
 
 # ---------------------------------------------------------------
 # SEO Settings
@@ -696,7 +696,7 @@ pace: true
 pace_theme: pace-theme-minimal
 
 # Canvas-nest
-canvas_nest: true
+canvas_nest: false
 
 # three_waves
 three_waves: false
