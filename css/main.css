@@ -1168,7 +1168,7 @@ pre .javascript .function {
 @media (max-width: 767px) {
   .site-nav {
     display: none;
-    margin: 0 -10px;
+    margin: 10px -10px 0;
     padding: 0 10px;
     clear: both;
     border-top: 1px solid #ddd;
@@ -1822,7 +1822,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #c2ffdb;
+  background: #2efcbf;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2621,10 +2621,28 @@ hr {
   clear: both;
 }
 @media (max-width: 767px) {
+  .header-inner .site-brand-wrapper:before,
+  .header-inner .site-brand-wrapper:after {
+    content: " ";
+    display: table;
+  }
+  .header-inner .site-brand-wrapper:after {
+    clear: both;
+  }
+}
+@media (max-width: 767px) {
   .header-inner {
     width: auto;
     margin-bottom: 50px;
     padding: 10px;
+  }
+}
+.github-corner svg {
+  top: 0;
+}
+@media (max-width: 767px) {
+  .github-corner svg {
+    top: 60px;
   }
 }
 .site-meta {
