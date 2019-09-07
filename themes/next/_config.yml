@@ -45,7 +45,7 @@ rss:
 footer:
   # Specify the date when the site was setup.
   # If not defined, current year will be used.
-  #since: 2015
+  since: 2019
 
   # Icon between year and copyright info.
   icon: user
@@ -126,8 +126,9 @@ scheme: Mist
 # Key is the link label showing to end users.
 # Value before `||` delimeter is the target permalink.
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, globe icon will be loaded.
-#social:
-  #GitHub: https://github.com/yourname || github
+social:
+  GitHub: https://github.com/KaiOrange || github
+  掘金: https://juejin.im/user/58e7b2f1da2f60005ff74b41 || html5
   #E-Mail: mailto:yourname@gmail.com || envelope
   #Google: https://plus.google.com/yourname || google
   #Twitter: https://twitter.com/yourname || twitter
@@ -142,6 +143,7 @@ social_icons:
   enable: true
   icons_only: false
   transition: false
+  掘金: html5
 
 # Blog rolls
 links_icon: link
@@ -242,10 +244,10 @@ post_wordcount:
   #description: ex. subscribe to my blog by scanning my public wechat account
 
 # Reward
-#reward_comment: Donate comment here
-#wechatpay: /images/wechatpay.jpg
-#alipay: /images/alipay.jpg
-#bitcoin: /images/bitcoin.png
+# reward_comment: Donate comment here
+wechatpay: /images/wechatpay.png
+alipay: /images/alipay.jpeg
+# bitcoin: /images/bitcoin.png
 
 # Declare license on posts
 post_copyright:
