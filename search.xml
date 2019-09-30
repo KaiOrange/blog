@@ -20,7 +20,9 @@
       
         <tags>
             
-            <tag> JavaScript electron </tag>
+            <tag> JavaScript </tag>
+            
+            <tag> Electron </tag>
             
         </tags>
       
@@ -588,7 +590,7 @@
       
       <categories>
           
-          <category> node </category>
+          <category> Node </category>
           
       </categories>
       
@@ -1134,9 +1136,9 @@
       
         <tags>
             
-            <tag> 算法 </tag>
-            
             <tag> JavaScript </tag>
+            
+            <tag> 算法 </tag>
             
             <tag> 数据结构 </tag>
             
@@ -1273,9 +1275,7 @@
       
         <tags>
             
-            <tag> console.log </tag>
-            
-            <tag> JS API </tag>
+            <tag> JavaScript </tag>
             
             <tag> 控制台图片 </tag>
             
