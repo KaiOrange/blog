@@ -113,3 +113,41 @@ math:
     js: # custom_js_source # not used
     config:
       # KaTeX config
+
+jsonContent:
+  meta: true
+  dafts: false
+  file: content.json
+  dateFormat: YYYY-MM-DD HH:mm:ss
+  pages:
+    title: true
+    slug: true
+    date: true
+    updated: true
+    comments: true
+    path: true
+    link: true
+    permalink: true
+    excerpt: true
+    keywords: false
+    text: false
+    raw: false
+    content: false
+    author: true
+  posts:
+    title: true
+    slug: true
+    date: true
+    updated: true
+    comments: true
+    path: true
+    link: true
+    permalink: true
+    excerpt: true
+    keywords: false
+    text: false
+    raw: false
+    content: false
+    author: true
+    categories: true
+    tags: true
