@@ -3,8 +3,7 @@ title: 使用console.log在控制台打印图片
 date: 2019-02-21 14:00:00
 author: Orange
 tags:
-  - console.log
-  - JS API
+  - JavaScript
   - 控制台图片
 categories: JavaScript
 ---

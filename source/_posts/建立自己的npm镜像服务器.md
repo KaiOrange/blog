@@ -5,7 +5,7 @@ author: Orange
 tag:
 	- npm镜像
 	- npm源
-categories: node
+categories: Node
 ---
 
 好多公司有这样的需求，需要把公司内部的依赖包放在npm服务器上这样安装的时候直接使用`npm install`安装了。同时，公司可能不希望自己的代码被别人看到，那么建立自己的npm镜像服务器是最好的选择。最近我也遇到同样的问题，希望在自己公司内部搭建一个npm镜像服务器。

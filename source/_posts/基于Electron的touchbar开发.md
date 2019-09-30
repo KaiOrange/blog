@@ -3,7 +3,8 @@ title: 基于Electron的touchbar开发
 date: 2019-09-21 13:31:35
 author: Orange
 tags:
-  - JavaScript electron
+  - JavaScript
+  - Electron
 categories: JavaScript
 ---
 
