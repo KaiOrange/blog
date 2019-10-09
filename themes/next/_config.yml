@@ -667,10 +667,11 @@ motion:
     # slideUpIn | slideUpOut | slideDownIn | slideDownOut | slideLeftIn | slideLeftOut | slideRightIn | slideRightOut
     # slideUpBigIn | slideUpBigOut | slideDownBigIn | slideDownBigOut | slideLeftBigIn | slideLeftBigOut | slideRightBigIn | slideRightBigOut
     # perspectiveUpIn | perspectiveUpOut | perspectiveDownIn | perspectiveDownOut | perspectiveLeftIn | perspectiveLeftOut | perspectiveRightIn | perspectiveRightOut
-    post_block:
-    post_header: flipBounceXIn
-    post_body: slideDownIn
-    coll_header: slideLeftIn
+    # 使用动动画会使得页面加载过慢 sidebar去掉以后侧边栏则不会显示
+    # post_block:
+    # post_header: flipBounceXIn
+    # post_body: slideDownIn
+    # coll_header: slideLeftIn
     # Only for Pisces | Gemini.
     sidebar: fadeIn
 
