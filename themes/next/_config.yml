@@ -156,7 +156,8 @@ links_layout: block
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.gif
 # in site  directory(source/uploads): /uploads/avatar.gif
-avatar: https://avatars1.githubusercontent.com/u/24317428?s=460&v=4
+#avatar: https://avatars1.githubusercontent.com/u/24317428?s=460&v=4
+avatar: /images/avatar.png
 
 # Table Of Contents in the Sidebar
 toc:
@@ -761,7 +762,7 @@ vendors:
 
   # Internal version: 4.6.2
   # See: http://fontawesome.io/
-  fontawesome:
+  fontawesome: https://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css
 
   # Internal version: 1
   # https://www.algolia.com
@@ -778,7 +779,7 @@ vendors:
 
   # Internal version: 1.0.0
   # https://github.com/hustcc/canvas-nest.js
-  canvas_nest:
+  canvas_nest: https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js
 
   # three
   three:
