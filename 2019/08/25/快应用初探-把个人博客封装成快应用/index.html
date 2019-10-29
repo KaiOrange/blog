@@ -65,7 +65,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 <link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
 
@@ -113,7 +115,7 @@
 <meta property="og:image" content="https://www.kai666666.top/2019/08/25/快应用初探-把个人博客封装成快应用/7.png">
 <meta property="og:image" content="https://www.kai666666.top/2019/08/25/快应用初探-把个人博客封装成快应用/8.png">
 <meta property="og:image" content="https://www.kai666666.top/2019/08/25/快应用初探-把个人博客封装成快应用/9.gif">
-<meta property="og:updated_time" content="2019-09-05T11:38:46.589Z">
+<meta property="og:updated_time" content="2019-10-29T10:15:16.670Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="快应用初探--把个人博客封装成快应用">
 <meta name="twitter:description" content="最近公司在做快应用的需求，经过2周的努力，淘粉吧快应用已经上线了，现在借此机会跟大家聊聊快应用。  杂谈自从Java语言创立以后，一场跨平台软件的革命拉开了序幕，从此一份代码可以在不同的操作系统上运行了。近两年小程序更是把跨平台的应用推上了一个新的高度，用完即走,不做停留的理念更是深入人心。随着宽带的普及，移动流量费用的降低，现在的应用越来越快，同时越来越轻。就在这样的大环境下，国内手机厂商们不想">
@@ -329,7 +331,7 @@
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Orange">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars1.githubusercontent.com/u/24317428?s=460&v=4">
+      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -449,6 +451,9 @@
 <p>最后的最后把<code>/src/Common/logo.png</code>下的图片换成我们的，然后生成一个桌面图标，最后出来的效果如下，简直和原生APP一模一样。</p>
 <p><img src="/2019/08/25/快应用初探-把个人博客封装成快应用/9.gif" alt="完整版"></p>
 <p>快应用版本的博客就做好了，当然你可以利用快应用的能力来新增更多的功能，也可以做自己喜欢的快应用。最后提交到应用市场上，让更多小伙伴访问。提交到应用市场无非就2步，一步就是<a href="https://www.quickapp.cn/docCenter/post/71" target="_blank" rel="noopener">注册</a>，另一步就是<a href="https://www.quickapp.cn/docCenter/post/72" target="_blank" rel="noopener">上传自己的快应用</a>。</p>
+<blockquote>
+<p>PS：通过亲测，发现单纯的用web标签包一层外部web页面是很难通过审核的。好在有像<a href="https://github.com/alexbruno/hexo-generator-json-content" target="_blank" rel="noopener">hexo-generator-json-content</a>这样的库，可以帮助生成一个关于博客信息的JSON对象，这样就可以包装一下我们的快应用，使得前几个页面不是单纯的外部web页面就可以了。通过几次尝试以后发现，只要<strong>前2级页面</strong>没有使用外部页面就可以通过的。现在本博客的快应用已经上线，如果你使用的是安卓手机，那么用原生的浏览器打开现在这个页面，就可能（具体还得看手机厂商和型号）会唤起本博客的快应用。</p>
+</blockquote>
 
       
     </div>
@@ -572,7 +577,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="https://avatars1.githubusercontent.com/u/24317428?s=460&v=4" alt="Orange">
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Orange">
             
               <p class="site-author-name" itemprop="name">Orange</p>
               <p class="site-description motion-element" itemprop="description">励志改变人生，编程改变命运</p>
@@ -585,7 +590,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">56</span>
+                  <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -607,7 +612,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">50</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
