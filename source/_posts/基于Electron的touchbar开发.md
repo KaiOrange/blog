@@ -266,3 +266,7 @@ app.once('ready', () => {
 ```
 
 ![组件展示](3.jpg)
+
+---
+
+PS：学会了这个，就有了后来的一个小项目[touchbar-emoji](https://github.com/KaiOrange/touchbar-emoji)，使用touchbar来控制飘落emoji表情雨。
