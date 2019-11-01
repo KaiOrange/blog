@@ -7,7 +7,11 @@ $(document).ready(function () {
     // $("body").append('<script type="text/javascript" src="https://cdn.bootcss.com/canvas-nest.js/2.0.4/canvas-nest.js" ></script>');
     $("body").append('<script type="text/javascript" src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>');
   } else if ($env.isAndroid) {
-    location.href = 'hap://app/top.kai666666.blog/Webview/url='+location.href
+    var url = 'hap://app/top.kai666666.blog';
+    if (location.pathname && location.pathname !== '/') {
+      url = 'hap://app/top.kai666666.blog/Webview?url='+ encodeURIComponent(decodeURIComponent(location.href));
+    }
+    location.href = url;
   }
 });
 
