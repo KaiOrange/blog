@@ -813,6 +813,13 @@ css: css
 js: js
 images: images
 
+feed:
+    type: rss2
+    path: rss2.xml
+    limit: 5
+    hub:
+    content: 'true'
+
 passage_end_tag:
   enabled: true
 # Theme version
