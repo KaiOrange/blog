@@ -7,6 +7,11 @@
   </span>
   <span class="author" itemprop="copyrightHolder">{{ theme.footer.copyright || config.author }}</span>
 
+  <span class="with-love">
+    <span><i class="fa fa-line-chart"></i>
+  </span>
+  博客全站共{{ totalcount(site) }}字</span>
+
   {% if theme.post_wordcount.totalcount %}
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
