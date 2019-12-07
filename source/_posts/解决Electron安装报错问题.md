@@ -33,7 +33,9 @@ Error: Electron failed to install correctly ...
   ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/ npm install
 
   # Windows系统
-  set "ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron" && npm install
+  # 全局依赖cross-env为了把参数写入环境变量 当然直接修改环境变量也可以
+  npm install -g cross-env
+  cross-env ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron npm install
   ```
 
   然后稍等片刻就可以了。
@@ -104,7 +106,9 @@ defaultValue
 # Macos
 "PYTHON_MIRROR=http://npm.taobao.org/mirrors/python" npm install --global --production windows-build-tools
 # Windows
-set "PYTHON_MIRROR=http://npm.taobao.org/mirrors/python" && npm install --global --production windows-build-tools
+# 若全局已经安装过cross-env那么就不需要再安装了
+npm install -g cross-env
+cross-env PYTHON_MIRROR=http://npm.taobao.org/mirrors/python npm install --global --production windows-build-tools
 ```
 
 淘宝更多的开源软件的镜像可以参考[这里](https://npm.taobao.org/mirrors)。
