@@ -8,9 +8,12 @@
   <span class="author" itemprop="copyrightHolder">{{ theme.footer.copyright || config.author }}</span>
 
   <span class="with-love">
-    <span><i class="fa fa-line-chart"></i>
+    <span><i class="fa fa-line-chart"></i></span>博客全站共{{ totalcount(site) }}字
   </span>
-  博客全站共{{ totalcount(site) }}字</span>
+
+  <span class="with-love">
+    <span><i class="fa fa-shield"></i></span><a href="http://www.beian.miit.gov.cn/"> 浙ICP备19052357号</a>
+  </span>
 
   {% if theme.post_wordcount.totalcount %}
     <span class="post-meta-divider">|</span>
