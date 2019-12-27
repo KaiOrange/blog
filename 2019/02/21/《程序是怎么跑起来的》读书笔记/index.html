@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="google-site-verification" content="Vi2JgRixg6-a8V4yXGbbyQ1auGfqAdAovzvni2zp_QI">
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="Bnpl6Gxg95">
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="计算机通用知识,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="橙光笔记" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="最近看了矢泽久雄[日]的另一本书《程序是怎么跑起来的》，同样把大学学到的知识又复习了一遍，主要包括计算机组成原理、操作系统、数字逻辑、数据结构、编程语言等知识。下面是我记录的一些书中的重点：   CPU 是英文 Central Processing Unit（中央处理器）的缩写，相当于计算机的大脑，它的内部由数百万至数亿个晶体管构成。 CPU 和内存是由许多晶体管组成的电子部件，通常称为 IC（I">
+<meta name="keywords" content="计算机通用知识">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《程序是怎么跑起来的》读书笔记">
+<meta property="og:url" content="https://www.kai666666.top/2019/02/21/《程序是怎么跑起来的》读书笔记/index.html">
+<meta property="og:site_name" content="橙光笔记">
+<meta property="og:description" content="最近看了矢泽久雄[日]的另一本书《程序是怎么跑起来的》，同样把大学学到的知识又复习了一遍，主要包括计算机组成原理、操作系统、数字逻辑、数据结构、编程语言等知识。下面是我记录的一些书中的重点：   CPU 是英文 Central Processing Unit（中央处理器）的缩写，相当于计算机的大脑，它的内部由数百万至数亿个晶体管构成。 CPU 和内存是由许多晶体管组成的电子部件，通常称为 IC（I">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://www.kai666666.top/2019/02/21/《程序是怎么跑起来的》读书笔记/1.jpg">
+<meta property="og:updated_time" content="2019-05-26T04:37:10.091Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《程序是怎么跑起来的》读书笔记">
+<meta name="twitter:description" content="最近看了矢泽久雄[日]的另一本书《程序是怎么跑起来的》，同样把大学学到的知识又复习了一遍，主要包括计算机组成原理、操作系统、数字逻辑、数据结构、编程语言等知识。下面是我记录的一些书中的重点：   CPU 是英文 Central Processing Unit（中央处理器）的缩写，相当于计算机的大脑，它的内部由数百万至数亿个晶体管构成。 CPU 和内存是由许多晶体管组成的电子部件，通常称为 IC（I">
+<meta name="twitter:image" content="https://www.kai666666.top/2019/02/21/《程序是怎么跑起来的》读书笔记/1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"sidebar":"fadeIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://www.kai666666.top/2019/02/21/《程序是怎么跑起来的》读书笔记/">
+
+
+
+
+
+  <title>《程序是怎么跑起来的》读书笔记 | 橙光笔记</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?6594cdc4e60fe2cda8b79d9537e2968c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/KaiOrange" id="github-corner" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">橙光笔记</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-top">
+          <a href="/top/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-signal"></i> <br>
+            
+            top
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.kai666666.top/2019/02/21/《程序是怎么跑起来的》读书笔记/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Orange">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="橙光笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">《程序是怎么跑起来的》读书笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-21T11:00:00+08:00">
+                2019-02-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">读书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/02/21/《程序是怎么跑起来的》读书笔记/" class="leancloud_visitors" data-flag-title="《程序是怎么跑起来的》读书笔记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近看了矢泽久雄[日]的另一本书《程序是怎么跑起来的》，同样把大学学到的知识又复习了一遍，主要包括计算机组成原理、操作系统、数字逻辑、数据结构、编程语言等知识。下面是我记录的一些书中的重点：</p>
+<p><img src="/2019/02/21/《程序是怎么跑起来的》读书笔记/1.jpg" alt="《程序是怎么跑起来的》"></p>
+<hr>
+<p>CPU 是英文 Central Processing Unit（中央处理器）的缩写，相当于计算机的大脑，它的内部由数百万至数亿个晶体管构成。</p>
+<p>CPU 和内存是由许多晶体管组成的电子部件，通常称为 IC（Integrated Circuit，集成电路）。从功能方面来看，如图 1-2 所示，CPU 的内部由寄存器、控制器、运算器和时钟四个部分构成，各部分之间由电流信号相互连通。寄存器 可用来暂存指令、数据等处理对象，可以将其看作是内存的一种。</p>
+<p>一个 CPU 内部会有 20～100 个寄存器。控制器 负责把内存上的指令、数据等读入寄存器，并根据指令的执行结果来控制整个计算机。运算器 负责运算从内存读入寄存器的数据。时钟 负责发出 CPU 开始计时的时钟信号。不过，也有些计算机的时钟位于 CPU 的外部。</p>
+<p>通常所说的内存指的是计算机的主存储器（main memory），简称主存。主存通过控制芯片等与 CPU 相连，主要负责存储指令和数据。主存由可读写的元素构成，每个字节（1 字节 = 8 位 ）都带有一个地址编号。CPU 可以通过该地址读取主存中的指令和数据，当然也可以写入数据。但有一点需要注意，主存中存储的指令和数据会随着计算机的关机而自动清除。</p>
+<p>通常我们将汇编语言编写的程序转化成机器语言的过程称为汇编 ；反之，机器语言程序转化成汇编语言程序的过程则称为反汇编 。</p>
+<p>机器语言是指 CPU 能直接解释和执行的语言。</p>
+<p>编译是指将使用高级编程语言编写的程序转换为机器语言的过程，其中，用于转换的程序被称为编译器（compiler）。</p>
+<table>
+<thead>
+<tr>
+<th>寄存器</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>累加寄存器（accumulator register）</td>
+<td>存储执行运算的数据和运算后的数据</td>
+</tr>
+<tr>
+<td>标志寄存器（flag register）</td>
+<td>存储运算处理后的CPU的状态</td>
+</tr>
+<tr>
+<td>程序计数器（program counter）</td>
+<td>存储下一条指令所在内存的地址</td>
+</tr>
+<tr>
+<td>基址寄存器（base register）</td>
+<td>存储数据内存的起始地址</td>
+</tr>
+<tr>
+<td>变址寄存器（index register）</td>
+<td>存储基址寄存器的相对地址</td>
+</tr>
+<tr>
+<td>通用寄存器（general purpose register）</td>
+<td>存储任意数据</td>
+</tr>
+<tr>
+<td>指令寄存器（instruction register）</td>
+<td>存储指令。CPU内部使用，程序员无法通过程序对该寄存器进行读写操作</td>
+</tr>
+<tr>
+<td>栈寄存器（stack register）</td>
+<td>存储栈区域的起始地址</td>
+</tr>
+</tbody>
+</table>
+<p>储执行运算的数据和运算后的数据 </p>
+<p>CPU 是具有各种功能的寄存器的集合体。其中，程序计数器、累加寄存器、标志寄存器、指令寄存器和栈寄存器都只有一个，其他的寄存器一般有多个。程序计数器和标志寄存器比较特殊。另外，存储指令的指令寄存器等寄存器，由于不需要程序员做多关注。</p>
+<p>操作系统（operating system）是指管理和控制计算机硬件与软件资源的计算机程序。</p>
+<p>程序的流程分为顺序执行、条件分支和循环三种。顺序执行 是指按照地址内容的顺序执行指令。条件分支 是指根据条件执行任意地址的指令。循环 是指重复执行同一地址的指令。</p>
+<p>变址寄存器的值就相当于高级编程语言程序中数组的索引功能。</p>
+<p>CPU 则会把基址寄存器＋变址寄存器的值解释为实际查看的内存地址。变址寄存器的值就相当于高级编程语言程序中数组的索引功能。</p>
+<p>8 位 = 1 字节</p>
+<p>计算机处理信息的最小单位——位 ，就相当于二进制中的一位。位的英文 bit 是二进制数位（binary digit）的缩写。</p>
+<p>字节是最基本的信息计量单位。位是最小单位，字节是基本单位。内存和磁盘都使用字节单位来存储和读写数据，使用位单位则无法读写数据。因此，字节是信息的基本单位。</p>
+<p>用字节单位处理数据时，如果数字小于存储数据的字节数（= 二进制数的位数），那么高位上就用 0 填补。例如，100111 这个 6 位二进制数，用 8 位（= 1 字节）表示时为 00100111，用 16 位（= 2 字节）表示时为 0000000000100111。</p>
+<p>移位运算 指的是将二进制数值的各数位进行左右移位（shift = 移位）的运算。移位有左移（向高位方向）和右移（向低位方向）两种。</p>
+<p>二进制数左移后就会变成原来的 2 倍、4 倍、8 倍……反之，二进制数右移后则会变成原来的 1/2、1/4、1/8……</p>
+<p>进制数中表示负数值时，一般会把最高位作为符号来使用，因此我们把这个最高位称为符号位。符号位是 0 时表示正数 ，符号位 是 1 时表示负数。</p>
+<p>补码，我们需要将二进制数的各数位的数值全部取反6 ，然后再将结果加 1。</p>
+<p>负数用补码表示</p>
+<p>移位后需要在最高位补 0。类似于霓虹灯往右滚动的效果。这就称为逻辑右移。</p>
+<p>将二进制数作为带符号的数值进行运算时，移位后要在最高位填充移位前符号位的值（0 或 1）。这就称为算术右移。</p>
+<p>符号扩充 就是指在保持值不变的前提下将其转换成 16 位和 32 位的二进制数。将 01111111 这个正的 8 位二进制数转换成 16 位二进制数时，很容易就能得出 0000000001111111 这个正确结果，但是像 11111111 这样用补数来表示的数值，该如何处理比较好呢？实际上处理方法非常简单，将其表示成 1111111111111111 就可以了。也就是说，不管是正数还是用补数表示的负数，都只需用符号位的值（0 或者 1）填充高位即可。这就是符号扩充的方法。</p>
+<p>算术运算 是指加减乘除四则运算。逻辑运算 是指对二进制数各数字位的 0 和 1 分别进行处理的运算，包括逻辑非（NOT 运算）、逻辑与（AND 运算）、逻辑或（OR 运算）和逻辑异或（XOR 运算9 ）四种。</p>
+<p>逻辑非 指的是 0 变成 1、1 变成 0 的取反操作。逻辑与 指的是“两个都是 1”时，运算结果为 1，其他情况下运算结果都为 0 的运算。逻辑或 指的是“至少有一方是 1”时，运算结果为 1，其他情况下运算结果都是 0 的运算。逻辑异或 指的是排斥相同数值的运算。“两个数值不同”，也就是说，当“其中一方是 1，另一方是 0”时运算结果是 1，其他情况下结果都是 0。</p>
+<p>有一些十进制数的小数无法转换成二进制数”。例如，十进制数 0.1，就无法用二进制数正确表示，小数点后面即使有几百位也无法表示。</p>
+<p>很多编程语言中都提供了两种表示小数的数据类型，分别是双精度浮点数和单精度浮点数。双精度浮点数类型 用 64 位、单精度浮点数类型 用 32 位来表示全体小数。在 C 语言中，双精度浮点数类型和单精度浮点数类型分别用 double 和 float 来表示。</p>
+<p>浮点数 是指用符号、尾数、基数和指数这四部分来表示的小数。</p>
+<p>符号部分 是指使用一个数据位来表示数值的符号。该数据位是 1 时表示负，为 0 时则表示“正或者 0”</p>
+<p>在二进制数中，我们使用的是“将小数点前面的值固定为 1 的正则表达式 ”。</p>
+<p>指针 也是一种变量，它所表示的不是数据的值，而是存储着数据的内存的地址。通过使用指针，就可以对任意指定地址的数据进行读写。</p>
+<p>数组 是指多个同样数据类型的数据在内存中连续排列的形式。作为数组元素的各个数据会通过连续的编号被区分开来，这个编号称为索引 （index）。</p>
+<p>栈用的是 LIFO（Last Input First Out，后入先出）方式，而队列用的则是 FIFO（First Input First Out，先入先出）方式。</p>
+<p>在数组的各个元素中，除了数据的值之外，通过为其附带上下一个元素的索引，即可实现链表 。</p>
+<p>二叉查找树是指在链表的基础上往数组中追加元素时，考虑到数据的大小关系，将其分成左右两个方向的表现形式。</p>
+<p>内存和磁盘也都被归类为存储部件。不过，利用电流来实现存储的内存，同利用磁效应来实现存储的磁盘，还是有差异的。而从存储容量来看，内存是高速高价，而磁盘则是低速廉价。</p>
+<p>一般把输入装置、输出装置、存储器、运算器和控制器这 5 种部件设备称 为计算机的 5 大部件。</p>
+<p>内存主要是指主内存（负责存储 CPU 中运行的程序指令和数据的内存），磁盘主要是指硬盘。</p>
+<p>存储在磁盘中的程序需要读入到内存后才能运行。</p>
+<p>磁盘缓存 指的是把从磁盘中读出的数据存储到内存空间中的方式。这样一来，当接下来需要读取同一数据时，就不用通过实际的磁盘，而是从磁盘缓存中把内容读出。使用磁盘缓存可以大大改善磁盘数据的访问速度</p>
+<p>虚拟内存 是指把磁盘的一部分作为假想的内存来使用。这与磁盘缓存是假想的磁盘（实际上是内存）相对，虚拟内存是假想的内存（实际上是磁盘）。</p>
+<p>为了实现虚拟内存，就必须把实际内存 （也可称为物理内存 ）的内容，和磁盘上的虚拟内存的内容进行部分置换（swap），并同时运行程序。</p>
+<p>虚拟内存的方法有分页式 和分段式 两种。Windows 采用的是分页式。该方式是指，在不考虑程序构造的情况下，把运行的程序按照一定大小的页（page）进行分割，并以页为单位在内存和磁盘间进行置换。在分页式中，我们把磁盘的内容读出到内存称为 Page In，把内存的内容写入磁盘称为 Page Out。一般情况下，Windows 计算机的页的大小是 4KB。</p>
+<p>为了实现虚拟内存功能，Windows 在磁盘上提供了虚拟内存用的文件（page file，页文件 ）。该文件由 Windows 自动做成和管理。文件的大小也就是虚拟内存的大小，通常是实际内存的相同程度至两倍程度。</p>
+<p>虚拟内存无法彻底解决内存不足的问题。</p>
+<p>DLL （Dynamic Link Library）文件 ，顾名思义，是在程序运行时可以动态加载 Library（函数和数据的集合）的文件。此外，还有一个需要大家注意的地方，那就是多个应用可以共有同一个 DLL 文件。而通过共有同一个 DLL 文件则可以达到节约内存的效果。</p>
+<p>栈清理处理 是指，把不需要的数据从接收和传递函数的参数时使用的内存上的栈区域中清理出去。</p>
+<p>磁盘是通过把其物理表面划分成多个空间来使用的。划分的方式有扇区方式 和可变长方式 两种，前者是指将磁盘划分为固定长度的空间，后者则是指把磁盘划分为长度可变的空间。一般的 Windows 计算机所使用的硬盘和软盘，采用的都是扇区方式。扇区方式中，把磁盘表面分成若干个同心圆的空间就是磁道 ，把磁道按照固定大小（能存储的数据长度相同）划分而成的空间就是扇区。</p>
+<p>扇区是对磁盘进行物理读写的最小单位。Windows 中使用的磁盘，一般 1 个扇区是 512 字节。</p>
+<p>Windows 在逻辑方面（软件方面）对磁盘进行读写的单位是扇区整数倍簇 。根据磁盘容量的不同，1 簇可以是 512 字节（1 簇 = 1 扇区）、1KB（1 簇 = 2 扇区）。</p>
+<p>不管是硬盘还是软盘，不同的文件是不能存储在同一个簇中的，否则就会导致只有一方的文件不能被删除。因此，不管是多么小的文件，都会占用 1 簇的空间。这样一来，所有的文件都会占用 1 簇的整数倍的磁盘空间。</p>
+<p>文件是将数据存储在磁盘等存储媒介中的一种形式。程序文件中存储数据的单位是字节。</p>
+<p>把文件内容用“数据 × 重复次数”的形式来表示的压缩方法称为 RLE（Run Length Encoding，行程长度编码）算法。</p>
+<p>虽然针对相同数据经常连续出现的图像、文件等，RLE 算法可以发挥不错的效果，但它并不适合文本文件的压缩。</p>
+<p>我们把能还原到压缩前状态的压缩称为可逆压缩 ，无法还原到压缩前状态的压缩称为非可逆压缩。</p>
+<p>运行环境 = 操作系统 ＋ 硬件</p>
+<p>CPU 只能解释其自身固有的机器语言。不同的 CPU 能解释的机器语言的种类也是不同的。</p>
+<p>机器语言的程序称为本地代码 （native code）。程序员用 C 语言等编写的程序，在编写阶段仅仅是文本文件。文本文件（排除文字编码的问题）在任何环境下都能显示和编辑。我们称之为源代码 。通过对源代码进行编译，就可以得到本地代码。</p>
+<p>同样机型的计算机，可安装的操作系统类型也会有多种选择。</p>
+<p>BIOS 存储在 ROM 中，是预先内置在计算机主机内部的程序。BIOS 除了键盘、磁盘、显卡等基本控制程序外，还有启动“引导程序”的功能。引导程序 是存储在启动驱动器起始区域的小程序。操作系统的启动驱动器一般是硬盘，不过有时也可以是 CD-ROM 或软盘。 开机后，BIOS 会确认硬件是否正常运行，没有问题的话就会启动引导程序。引导程序的功能是把在硬盘等记录的 OS 加载到内存中运行。虽然启动应用是 OS 的功能，但 OS 并不能自己启动自己，而是通过引导程序来启动。</p>
+<p>Dump 是指把文件的内容，每个字节用 2 位十六进制数来表示的方式。</p>
+<p>能够把 C 语言等高级编程语言编写的源代码转换成本地代码的程 序称为编译器 。每个编写源代码的编程语言都需要其专用的编译器。将 C 语言编写的源代码转换成本地代码的编译器称为 C 编译器。</p>
+<p>编译器首先读入代码的内容，然后再把源代码转换成本地代码。</p>
+<p>读入的源代码还要经过语法解析、句法解析、语义解析等，才能生成本地代码</p>
+<p>此外，还有一种交叉编译器 ，它生成的是和运行环境中的 CPU 不同的 CPU 所使用的本地代码。</p>
+<p>编译器转换源代码后，就会生成本地文件。不过，本地文件是无法直接运行的。为了得到可以运行的 EXE 文件，编译之后还需要进行“链接”处理。</p>
+<p>编译后生成的不是 EXE 文件，而是扩展名为“.obj”的目标文件。</p>
+<p>把多个目标文件结合，生成 1 个 EXE 文件的处理就是链接 ，运行连接的程序就称为链接器 （linkage editor 或连结器）。</p>
+<p>Windows 以函数的形式为应用提供了各种功能。这些形式的函数称为 API （Application Programming Interface，应用程序接口）。</p>
+<p>Windows 中，API 的目标文件，并不是存储在通常的库文件中，而是存储在名为 DLL （Dynamic Link Library）文件 的特殊库文件中。</p>
+<p>无论是 C 语言还是 C++，如果没有在程序中明确释放堆的内存空间，那么即使在处理完毕后，该内存空间仍会一直残留。这个现象称为内存泄露 （memory leak），它是令 C 语言及 C++ 的程序员们十分头疼的一个 bug（程序的错误）。如果内存泄露一直存在的话，就有可能会造成内存不足而导致宕机。这就好比，如果水龙头一直嘀嗒嘀嗒地漏水，那么一晚上的时间水桶就可能会装满并溢出。</p>
+<p>操作系统（Operating System）也称为基础软件。操作系统是计算机运行时不可或缺的控制程序，以及在控制程序下运转的为其他软件运行提供操作环境的软件的统称。另外，在操作系统上运行的应用也称为“应用程序”。</p>
+<p>汇编语言源文件的扩展名，通常用“.asm”来表示。</p>
+<p>栈 是存储临时数据的区域，它的特点是通过 push 指令和 pop 指令进行数据的存储和读出。往栈中存储数据称为“入栈”，从栈中读出数据称为“出栈”。</p>
+<p>IN 指令 通过指定端口号的端口输入数据，并将其存储在 CPU 内部的寄存器中。OUT 指令 则是把 CPU 寄存器中存储的数据，输出到指定端口号的端口。</p>
+<p>I/O 是 Input/Output 的缩写。显示器、键盘等外围设备都有各自专用的 I/O 控制器。I/O 控制器中有用于临时保存输入输出数据的内存。这个内存就是端口 。</p>
+<p>各端口之间通过端口号 进行区分。端口号也称为 I/O 地址 。</p>
+<p>IRQ 是用来暂停当前正在运行的程序，并跳转到其他程序运行的必要机制。该机制称为中断处理 。中断处理在硬件控制中担当着重要角色。因为如果没有中断处理，就有可能出现处理无法顺畅进行的情况</p>
+<p>获取伪随机数的公式。该公式称为线性同余法 。如果把 Ri 作为当前随机数的话，那么下一个出现的随机数 Ri + 1 就可以用下面的公式来获取。<br>R i + 1 = (a × Ri + b ) mod c</p>
+<p>这种周期性是伪随机数的特征，也是为什么不是真随机数的原因。</p>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+        
+        <div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-paw"></i> 感谢您的阅读-------------</div>
+
+</div>
+        
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/计算机通用知识/" rel="tag"># 计算机通用知识</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/20/《计算机是怎样跑起来的》读书笔记/" rel="next" title="《计算机是怎样跑起来的》读书笔记">
+                <i class="fa fa-chevron-left"></i> 《计算机是怎样跑起来的》读书笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/21/使用console-log在控制台打印图片/" rel="prev" title="使用console.log在控制台打印图片">
+                使用console.log在控制台打印图片 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80Mjk3Mi8xOTUxOA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Orange">
+            
+              <p class="site-author-name" itemprop="name">Orange</p>
+              <p class="site-description motion-element" itemprop="description">励志改变人生，编程改变命运</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">63</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/KaiOrange" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://juejin.im/user/58e7b2f1da2f60005ff74b41" target="_blank" title="掘金">
+                      
+                        <i class="fa fa-fw fa-html5"></i>掘金</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Orange</span>
+
+  <span class="with-love">
+    <span><i class="fa fa-line-chart"></i></span>博客全站共90k字
+  </span>
+
+  <span class="with-love">
+    <span><i class="fa fa-shield"></i></span><a href="http://www.beian.miit.gov.cn/" target="_blank"> 浙ICP备19052357号</a>
+  </span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">由于作者技术水平有限，如有不正确的地方请及时<a href="https://github.com/KaiOrange/blog/issues/new">与我联系</a></div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/fastclick/1.0.6/fastclick.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/velocity/1.2.1/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/velocity/1.2.1/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("5hMjWYdBcTn2DNzg8Np0EiDt-gzGzoHsz", "tmetR6q0QiHA7NnHo19uXnAX");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/clicklove.js"></script>
+  <!-- 注入环境变量 -->
+  <script type="text/javascript" src="/js/src/env.js"></script>
+  <!-- 页面定制化 -->
+  <script type="text/javascript" src="/js/src/customization.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/nito.model.json"},"display":{"position":"right","hOffset":65,"vOffset":0,"width":230,"height":300},"mobile":{"show":false},"dialog":{"enable":true,"hitokoto":true},"log":false});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end --></body>
+</html>
