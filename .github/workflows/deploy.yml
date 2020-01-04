@@ -24,7 +24,6 @@ jobs:
       - name: npm install
         run: |
           npm install
-          npm install hexo-cli -g
           echo 'PATH="$PATH:./node_modules/.bin"' >> ~/.profile
         env:
           CI: true
