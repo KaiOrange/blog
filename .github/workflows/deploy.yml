@@ -17,7 +17,13 @@ jobs:
       - name: npm install
         run: |
           npm install
+          npm install hexo -g
           npm install hexo-cli -g
+        env:
+          CI: true
+      # build
+      - name: hexo build
+        run: |
           hexo clean
           hexo generate
         env:
