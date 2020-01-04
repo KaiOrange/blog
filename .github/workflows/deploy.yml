@@ -17,14 +17,14 @@ jobs:
       - name: npm install
         run: |
           npm install
-          npm install -g hexo
+          npm install hexo-cli -g
         env:
           CI: true
       # build
       - name: hexo build
         run: |
-          hexo c
-          hexo g
+          hexo clean
+          hexo generate
 
       # Deploy
       - name: Deploy
