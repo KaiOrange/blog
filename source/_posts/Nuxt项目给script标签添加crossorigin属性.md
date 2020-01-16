@@ -51,3 +51,49 @@ hooks: {
 ```
 
 `Nuxt`更多hooks相关内容可以看[这里](https://zh.nuxtjs.org/api/configuration-hooks/#hooks-%E5%B1%9E%E6%80%A7)。
+
+## 编译时添加crossorigin ##
+
+还有一种情况就是类似于`动态import`，他生成script标签的时候是受babel来控制的。这时就需要修改webpack打包时候的配置了，好在`Nuxt`是支持修改配置的，再修改`nuxt.config.js`文件如下：
+
+```JavaScript
+build:{
+  // ... 其他配置
+  extend(config) {
+    config.output.crossOriginLoading = 'anonymous'
+  },
+}
+```
+
+webpack配置`crossOriginLoading`可以看[这里](https://www.webpackjs.com/configuration/output/#output-crossoriginloading)。
+
+## 总结 ##
+
+综上，需要在`nuxt.config.js`文件中添加如下代码：
+
+```JavaScript
+module.exports = {
+
+  build:{
+    // ... 其他配置
+
+    extend(config) {
+      config.output.crossOriginLoading = 'anonymous'
+    },
+  },
+
+  hooks: {
+    'vue-renderer': {
+      ssr: {
+        templateParams(templateParams) {
+          templateParams.APP = templateParams.APP.replace(
+            /<script/gi,
+            '<script crossorigin'
+          )
+        }
+      }
+    }
+  }
+}
+
+```
