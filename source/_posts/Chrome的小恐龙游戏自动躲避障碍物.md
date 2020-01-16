@@ -53,7 +53,7 @@ document.dispatchEvent(event);
 ```JavaScript
 (function (){
   var __update = Runner.prototype.update;
-  var JUMPMINTIME = 17;
+  var JUMPMINTIME = 18;
 
   Runner.prototype.update = function (){
     var tRex = Runner.instance_.tRex;
@@ -76,4 +76,4 @@ document.dispatchEvent(event);
 })()
 ```
 
-上述代码中使用了自执行函数，为了避免污染全局变量。变量`JUMPMINTIME`的值`17`完全是一个经验值，试了几次这个值还是比较准确的，当然可能不是最优的，你可以调一调。现在拷贝上述代码到浏览器控制台并按回车试试看吧。
+上述代码中使用了自执行函数，为了避免污染全局变量。变量`JUMPMINTIME`的值`18`完全是一个经验值，试了几次这个值还是比较准确的，当然可能不是最优的，你可以调一调。现在拷贝上述代码到浏览器控制台并按回车键试试看吧。
