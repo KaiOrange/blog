@@ -35,7 +35,7 @@ favicon:
   #ms_browserconfig: /images/browserconfig.xml
 
 # Set default keywords (Use a comma to separate)
-keywords: "Orange, Blog"
+keywords: "橙光笔记"
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
@@ -98,6 +98,7 @@ menu:
   categories: /categories/ || th
   archives: /archives/ || archive
   top: /top/ || signal
+  links: /links/ || link
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
@@ -151,8 +152,8 @@ links_icon: link
 links_title: Links
 links_layout: block
 #links_layout: inline
-#links:
-  #Title: http://example.com/
+# links:
+#   Title: http://example.com/
 
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.gif
@@ -400,6 +401,7 @@ valine:
 # Support for LiveRe comments system.
 # You can get your uid from https://livere.com/insight/myCode (General web site)
 livere_uid: MTAyMC80Mjk3Mi8xOTUxOA==
+livere_refer: kai666666.top
 
 # Gitment
 # Introduction: https://imsun.net/posts/gitment-introduction/
@@ -823,5 +825,23 @@ feed:
 
 passage_end_tag:
   enabled: true
+
+mylinks:
+
+- nickname: 阮一峰的网络日志  #友链名称
+  avatar: http://www.ruanyifeng.com/blog/images/person2_s.jpg  #友链头像
+  site: http://www.ruanyifeng.com/blog/archives.html  #友链地址
+  info: 《ES6标准入门》作者，常年关注前沿技术。  #友链说明
+
+- nickname: 张鑫旭
+  avatar: https://pic.huodongjia.com/event-content/2019-03-12/1552375801.86385.jpg
+  site: https://www.zhangxinxu.com/wordpress/category/js/
+  info: 鑫空间，鑫生活
+
+- nickname: 冴羽的博客
+  avatar: https://avatars1.githubusercontent.com/u/11458263?s=460&v=4
+  site: https://github.com/mqyqingfeng/Blog
+  info: 冴羽写博客的地方，预计写四个系列：JavaScript深入系列、JavaScript专题系列、ES6系列、React系列。
+
 # Theme version
 version: 5.1.4

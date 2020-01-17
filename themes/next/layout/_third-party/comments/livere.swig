@@ -3,6 +3,13 @@
   {% if page.comments and theme.livere_uid %}
     <script type="text/javascript">
       (function(d, s) {
+
+        {% if theme.livere_refer %}
+          window.livereOptions = {
+            refer: '{{theme.livere_refer}}'+location.pathname
+          }
+        {% endif %}
+
         var j, e = d.getElementsByTagName(s)[0];
         if (typeof LivereTower === 'function') { return; }
         j = d.createElement(s);

@@ -8,6 +8,11 @@
     #}{{ __('title.category') + page_title_suffix }}{#
   #}{% elif page.type === "tags" and not page.title %}{#
     #}{{ __('title.tag') + page_title_suffix }}{#
+
+     <!-- 友情链接-->
+  #}{% elif page.type === 'links' and not page.title %}{#
+    #}{{ __('title.links') + page_title_suffix }}{#
+
   #}{% else %}{#
     #}{{ page.title + page_title_suffix }}{#
   #}{% endif %}{#
@@ -46,6 +51,11 @@
               {{ list_categories() }}
             </div>
           </div>
+
+        <!-- 友情链接-->
+        {% elif page.type === 'links' %}
+        {% include 'links.swig' %}
+
         {% else %}
           {{ page.content }}
         {% endif %}
