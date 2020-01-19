@@ -83,7 +83,7 @@
                     <div class="card">
                         <img class="ava" src="{{ link.avatar }}"/>
                         <div class="card-header">
-                        <div><a href="{{ link.site }}" target="_blank">@ {{ link.nickname }}</a></div>
+                        <div><a href="{{ link.site }}" target="_blank" rel="external nofollow">@ {{ link.nickname }}</a></div>
                         <div class="info" title="{{ link.info }}">{{ link.info }}</div>
                         </div>
                     </div>
