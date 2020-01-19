@@ -829,7 +829,7 @@ passage_end_tag:
 mylinks:
 
 - nickname: 阮一峰的网络日志  #友链名称
-  avatar: http://www.ruanyifeng.com/blog/images/person2_s.jpg  #友链头像
+  avatar: https://user-gold-cdn.xitu.io/2018/1/12/160e97863a952fe8?imageView2/1/w/180/h/180/q/85/format/webp/interlace/1  #友链头像
   site: http://www.ruanyifeng.com/blog/archives.html  #友链地址
   info: 《ES6标准入门》作者，常年关注前沿技术。  #友链说明
 
@@ -839,9 +839,14 @@ mylinks:
   info: 鑫空间，鑫生活
 
 - nickname: 冴羽的博客
-  avatar: https://avatars1.githubusercontent.com/u/11458263?s=460&v=4
+  avatar: https://mirror-gold-cdn.xitu.io/168e084832fd5ec238f?imageView2/1/w/180/h/180/q/85/format/webp/interlace/1
   site: https://github.com/mqyqingfeng/Blog
   info: 冴羽写博客的地方，预计写四个系列：JavaScript深入系列、JavaScript专题系列、ES6系列、React系列。
+
+- nickname: Zgh
+  avatar: https://hundren.github.io/avatar.JPG
+  site: https://hundren.github.io/
+  info: Just do IT!
 
 # Theme version
 version: 5.1.4
