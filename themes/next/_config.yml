@@ -470,13 +470,14 @@ needmoreshare2:
 # See: https://www.google.com/webmasters/
 google_site_verification: Vi2JgRixg6-a8V4yXGbbyQ1auGfqAdAovzvni2zp_QI
 baidu_site_verification: Bnpl6Gxg95
+360_site_verification: d05ee7b907219e8315616ec0d33e6173
 
 # Google Analytics
 #google_analytics:
 
 # Bing Webmaster tools verification setting
 # See: https://www.bing.com/webmaster/
-#bing_site_verification:
+bing_site_verification: FB13B92CC5325ADB079D001997D2D2E7
 
 # Yandex Webmaster tools verification setting
 # See: https://webmaster.yandex.ru/
