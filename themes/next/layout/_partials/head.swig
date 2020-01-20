@@ -45,8 +45,8 @@
 {% endif %}
 
 
-{% if theme.360_site_verification %}
-  <meta name="360-site-verification" content="{{ theme.360_site_verification }}" />
+{% if theme.three_six_zero_site_verification %}
+  <meta name="360-site-verification" content="{{ theme.three_six_zero_site_verification }}" />
 {% endif %}
 
 {% if theme.baidu_site_verification %}
