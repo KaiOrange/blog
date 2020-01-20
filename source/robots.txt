@@ -10,5 +10,5 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: http://www.kai666666.top/sitemap.xml
-Sitemap: http://www.kai666666.top/baidusitemap.xml
+Sitemap: https://www.kai666666.top/sitemap.xml
+Sitemap: https://www.kai666666.top/baidusitemap.xml
