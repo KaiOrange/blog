@@ -849,5 +849,10 @@ mylinks:
   site: https://hundren.github.io/
   info: Just do IT!
 
+- nickname: DVA
+  avatar: https://image.start-here.cn/logo.jpg
+  site: https://start-here.cn/
+  info: 今日事 今日毕
+
 # Theme version
 version: 5.1.4
