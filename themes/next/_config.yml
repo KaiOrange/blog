@@ -830,7 +830,7 @@ passage_end_tag:
 mylinks:
 
 - nickname: 阮一峰的网络日志  #友链名称
-  avatar: https://user-gold-cdn.xitu.io/2018/1/12/160e97863a952fe8?imageView2/1/w/180/h/180/q/85/format/webp/interlace/1  #友链头像
+  avatar: http://www.ruanyifeng.com/blog/images/person2.jpg  #友链头像
   site: http://www.ruanyifeng.com/blog/archives.html  #友链地址
   info: 《ES6标准入门》作者，常年关注前沿技术。  #友链说明
 
@@ -853,6 +853,11 @@ mylinks:
   avatar: https://image.start-here.cn/logo.jpg
   site: https://start-here.cn/
   info: 今日事 今日毕
+
+- nickname: HCLonely
+  avatar: https://blog.hclonely.com/img/avatar.jpg
+  site: https://blog.hclonely.com/
+  info: 一个懒人的博客
 
 # Theme version
 version: 5.1.4
