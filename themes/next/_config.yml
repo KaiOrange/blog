@@ -859,5 +859,10 @@ mylinks:
   site: https://blog.hclonely.com/
   info: 一个懒人的博客
 
+- nickname: LFhacks.com
+  avatar: https://www.lfhacks.com/logo.gif
+  site: https://www.lfhacks.com/
+  info: 小猫两三只
+
 # Theme version
 version: 5.1.4
