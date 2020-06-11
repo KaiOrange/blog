@@ -3,10 +3,13 @@
   {% if page.comments and theme.livere_uid %}
     <script type="text/javascript">
       (function(d, s) {
-
+        var url = location.pathname.replace(/index\.html$/g,'')
+        if(url && url[url.length - 1] !== '/'){
+          url += '/'
+        }
         {% if theme.livere_refer %}
           window.livereOptions = {
-            refer: '{{theme.livere_refer}}'+location.pathname
+            refer: '{{theme.livere_refer}}' + url
           }
         {% endif %}
 
