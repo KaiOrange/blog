@@ -80,21 +80,25 @@ comments: true
 <div class="we-favorites" id="we-favorites"></div>
 
 <script type="text/javascript">
-$.ajax({
-  dataType: 'json',
-  url: '/web-effect-favorites/index.json',
-  success: function(data) {
-    var html = "";
-    (data.list || []).forEach(function (item){
-      html += ('<a href="' + item.link + '" class="we-favorite">' +
-      '  <div class="img-box">' +
-      '      <div class="img" style="background-image:url(\'' + item.img + '\')"></div>' +
-      '  </div>' +
-      '  <div class="we-favorite-title">' + item.title + '</div>' +
-      '</a>')
-    });
-    $('#we-favorites').html(html);
-  }
-});
+(function (){
+  var xhr=new XMLHttpRequest();
+  xhr.onreadystatechange = function (){
+    if(xhr.readyState === 4 && xhr.status === 200){
+      var html = "";
+      let list = JSON.parse(xhr.responseText).list || [];
+      list.forEach(function (item){
+        html += ('<a href="' + item.link + '" class="we-favorite" ' + (item.link.indexOf('javascript:') === -1? 'target="_blank"':'' ) + '>' +
+        '  <div class="img-box">' +
+        '      <div class="img" style="background-image:url(\'' + item.img + '\')"></div>' +
+        '  </div>' +
+        '  <div class="we-favorite-title">' + item.title + '</div>' +
+        '</a>')
+      });
+      document.getElementById('we-favorites').innerHTML = html;
+    }
+  };
+  xhr.open("GET",'/web-effect-favorites/index.json',true);
+  xhr.send(null);
+})();
 </script>
 
