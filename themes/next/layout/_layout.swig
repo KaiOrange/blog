@@ -10,6 +10,7 @@
   {% include '_partials/head.swig' %}
   <title>{% block title %}{% endblock %}</title>
   {% include '_third-party/analytics/index.swig' %}
+  {% include '_scripts/vendors.swig' %}
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="{{ page.lang || page.language || config.language }}">
@@ -70,7 +71,6 @@
 
   </div>
 
-  {% include '_scripts/vendors.swig' %}
   {% include '_scripts/commons.swig' %}
 
   {% set scheme_script = '_scripts/schemes/' + theme.scheme | lower + '.swig' %}
