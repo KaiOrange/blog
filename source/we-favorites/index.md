@@ -74,6 +74,11 @@ comments: true
   font-size: 14px;
   text-align: center;
 }
+@media (max-width: 567px) {
+  .we-favorites .we-favorite {
+    width: 100%;
+  }
+}
 </style>
 
 <h4 class="we-favorites-header" >据说，能完成下面任意一个效果的程序猿月薪都不会低于2W！</h4>
@@ -97,7 +102,7 @@ comments: true
       document.getElementById('we-favorites').innerHTML = html;
     }
   };
-  xhr.open("GET",'/web-effect-favorites/index.json',true);
+  xhr.open("GET",'https://kai666666.top/web-effect-favorites/index.json',true);
   xhr.send(null);
 })();
 </script>
