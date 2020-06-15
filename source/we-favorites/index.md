@@ -102,7 +102,7 @@ comments: true
       document.getElementById('we-favorites').innerHTML = html;
     }
   };
-  xhr.open("GET",'https://kai666666.top/web-effect-favorites/index.json',true);
+  xhr.open("GET",'/web-effect-favorites/index.json',true);
   xhr.send(null);
 })();
 </script>
