@@ -57,18 +57,24 @@ document.dispatchEvent(event);
 
   Runner.prototype.update = function (){
     var tRex = Runner.instance_.tRex;
-    var obstacles =  Runner.instance_.horizon.obstacles;
-    var index = 0;
-    while(index < obstacles.length){
-      var xDistance = obstacles[index].xPos - tRex.xPos;
-      if(xDistance > 0){
-        if (!tRex.jumping && xDistance / Runner.instance_.currentSpeed < JUMPMINTIME) {
-          var event =  new KeyboardEvent('keydown',{ code:'Space', keyCode:32, key: " " });
-          document.dispatchEvent(event);
+    // 没有起跳的时候才去判断是否触发跳跃
+    if(!tRex.jumping) {
+      var obstacles =  Runner.instance_.horizon.obstacles;
+      var index = 0;
+      while(index < obstacles.length){
+        var xDistance = obstacles[index].xPos - tRex.xPos;
+        // 找到小恐龙前面的障碍物
+        if(xDistance > 0){
+          // 当小恐龙可以跳过去的时候
+          if (xDistance / Runner.instance_.currentSpeed < JUMPMINTIME) {
+            // 触发跳跃
+            var event =  new KeyboardEvent('keydown',{ code:'Space', keyCode:32, key: " " });
+            document.dispatchEvent(event);
+          }
+          break;
+        } else {
+          index ++;
         }
-        break;
-      } else {
-        index ++;
       }
     }
     __update.call(this)
