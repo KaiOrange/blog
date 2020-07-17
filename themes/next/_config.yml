@@ -881,5 +881,10 @@ mylinks:
   site: https://tstrs.me/
   info: SatyLeo的自留地。
 
+- nickname: Brain's Blog
+  avatar: https://cdn.lichangao.com//handsomeavatar.jpeg
+  site: https://blog.lichangao.com/
+  info: 月色真美，只要心还跳。
+
 # Theme version
 version: 5.1.4
