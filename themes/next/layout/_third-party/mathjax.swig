@@ -1,5 +1,15 @@
 {% if theme.mathjax.enable %}
   {% if not theme.mathjax.per_page or (page.total or page.mathjax) %}
+    <style>
+      mjx-mspace {
+        display: block;
+        margin-top: 10px;
+      }
+      mjx-math {
+        text-align: center;
+      }
+    </style>
+
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
         tex2jax: {
