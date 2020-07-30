@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="google-site-verification" content="Vi2JgRixg6-a8V4yXGbbyQ1auGfqAdAovzvni2zp_QI">
+
+
+
+  <meta name="msvalidate.01" content="FB13B92CC5325ADB079D001997D2D2E7">
+
+
+
+
+
+
+  <meta name="360-site-verification" content="d05ee7b907219e8315616ec0d33e6173">
+
+
+
+  <meta name="baidu-site-verification" content="Bnpl6Gxg95">
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Keep,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="橙光笔记" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="最近在研究运动软件Keep，就是那个自律给我自由的Keep。主要方法是使用Charles来抓包，然后查看接口。由于Charles是一款Mac的应用，所以Windows系统，可能不能实践了。另外安卓手机限制不能抓包HTTPS的协议，所以也不能实践了。 现在分享一下我的研究成果，本文可能触及到Keep软件的一些特殊操作，大家谨慎使用，本文仅供学习和交流使用，如果侵犯到Keep的相关利益，请联系我。">
+<meta name="keywords" content="Keep">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Keep APP技术研究">
+<meta property="og:url" content="https://www.kai666666.top/2020/07/14/Keep-APP技术研究/index.html">
+<meta property="og:site_name" content="橙光笔记">
+<meta property="og:description" content="最近在研究运动软件Keep，就是那个自律给我自由的Keep。主要方法是使用Charles来抓包，然后查看接口。由于Charles是一款Mac的应用，所以Windows系统，可能不能实践了。另外安卓手机限制不能抓包HTTPS的协议，所以也不能实践了。 现在分享一下我的研究成果，本文可能触及到Keep软件的一些特殊操作，大家谨慎使用，本文仅供学习和交流使用，如果侵犯到Keep的相关利益，请联系我。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://www.kai666666.top/2020/07/14/Keep-APP技术研究/1.png">
+<meta property="og:image" content="https://www.kai666666.top/2020/07/14/Keep-APP技术研究/2.png">
+<meta property="og:image" content="https://www.kai666666.top/2020/07/14/Keep-APP技术研究/3.png">
+<meta property="og:image" content="https://www.kai666666.top/2020/07/14/Keep-APP技术研究/4.png">
+<meta property="og:image" content="https://www.kai666666.top/2020/07/14/Keep-APP技术研究/5.png">
+<meta property="og:image" content="https://www.kai666666.top/2020/07/14/Keep-APP技术研究/6.png">
+<meta property="og:image" content="https://www.kai666666.top/2020/07/14/Keep-APP技术研究/7.png">
+<meta property="og:updated_time" content="2020-07-14T09:47:26.320Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Keep APP技术研究">
+<meta name="twitter:description" content="最近在研究运动软件Keep，就是那个自律给我自由的Keep。主要方法是使用Charles来抓包，然后查看接口。由于Charles是一款Mac的应用，所以Windows系统，可能不能实践了。另外安卓手机限制不能抓包HTTPS的协议，所以也不能实践了。 现在分享一下我的研究成果，本文可能触及到Keep软件的一些特殊操作，大家谨慎使用，本文仅供学习和交流使用，如果侵犯到Keep的相关利益，请联系我。">
+<meta name="twitter:image" content="https://www.kai666666.top/2020/07/14/Keep-APP技术研究/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"sidebar":"fadeIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://www.kai666666.top/2020/07/14/Keep-APP技术研究/">
+
+
+
+
+
+  <title>Keep APP技术研究 | 橙光笔记</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?6594cdc4e60fe2cda8b79d9537e2968c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/KaiOrange" id="github-corner" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">橙光笔记</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-top">
+          <a href="/top/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-signal"></i> <br>
+            
+            热度
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-we-favorites">
+          <a href="/we-favorites/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
+            
+            特效收藏馆
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-link"></i> <br>
+            
+            友链
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.kai666666.top/2020/07/14/Keep-APP技术研究/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Orange">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="橙光笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Keep APP技术研究</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-14T10:03:23+08:00">
+                2020-07-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/运动与健身/" itemprop="url" rel="index">
+                    <span itemprop="name">运动与健身</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/07/14/Keep-APP技术研究/" class="leancloud_visitors" data-flag-title="Keep APP技术研究">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近在研究运动软件<a href="https://www.gotokeep.com/" target="_blank" rel="noopener">Keep</a>，就是那个<code>自律给我自由</code>的Keep。主要方法是使用<a href="https://www.charlesproxy.com/" target="_blank" rel="noopener">Charles</a>来抓包，然后查看接口。由于<code>Charles</code>是一款Mac的应用，所以<code>Windows</code>系统，可能不能实践了。另外安卓手机限制不能抓包HTTPS的协议，所以也不能实践了。</p>
+<p>现在分享一下我的研究成果，本文可能触及到Keep软件的一些特殊操作，大家谨慎使用，本文仅供学习和交流使用，如果侵犯到Keep的相关利益，请联系我。</p>
+<hr>
+<p>Keep是典型的混合式开发，也就是<code>前端H5 + 后端 + 移动端（安卓和iOS）</code>，大多界面都是使用了前端技术开发的，主要前端框架是基于VUE来做的。</p>
+<h2 id="主要域名"><a href="#主要域名" class="headerlink" title="主要域名"></a>主要域名</h2><blockquote>
+<p>后端服务域名：<a href="https://api.gotokeep.com" target="_blank" rel="noopener">https://api.gotokeep.com</a><br>主站H5：<a href="https://show.gotokeep.com" target="_blank" rel="noopener">https://show.gotokeep.com</a><br>活动等H5：<a href="https://m.gotokeep.com" target="_blank" rel="noopener">https://m.gotokeep.com</a><br>静态资源CDN：<a href="https://static1.keepcdn.com" target="_blank" rel="noopener">https://static1.keepcdn.com</a><br>监控：<a href="https://apm.gotokeep.com" target="_blank" rel="noopener">https://apm.gotokeep.com</a><br>智能设备：<a href="https://kit.gotokeep.com" target="_blank" rel="noopener">https://kit.gotokeep.com</a></p>
+</blockquote>
+<h2 id="userAgent"><a href="#userAgent" class="headerlink" title="userAgent"></a>userAgent</h2><p><code>userAgent</code>是混合开发中，H5用来识别APP内部与外部的重要依据。前端可以通过<code>JavaScript</code>代码<code>window.navigator.userAgent</code>来获取，<code>Keep</code>的userAgent`如下：</p>
+<blockquote>
+<p>Mozilla/5.0 (iPhone; CPU iPhone OS 13_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;Keep/6.43.0 (iPhone; iOS 13.5.1; Scale/2.00);Keep/6.43.0 (iPhone; iOS 13.5.1; Scale/2.00)</p>
+</blockquote>
+<p>当然不同系统是不一样的，其中最重要的是最后<code>Keep/版本号(其他信息)</code>这一段，至于为什么要写2遍，我也不清楚，难道客户端植入的时候多写了一遍？</p>
+<h2 id="调试页面"><a href="#调试页面" class="headerlink" title="调试页面"></a>调试页面</h2><p>Keep线上的页面都是线上环境，调试线上环境的其实也没有多大的意义。由于我们拿不到Keep的源代码，所以只能通过线上代码简单地看看Keep页面的结构。</p>
+<p>Keep使用了<code>vue + vue-router + vuex</code>这样的框架组合，它的页面链接的最后一级是用户的userId，我们以“我的等级”页面为例，如：<code>https://show.gotokeep.com/experience/grades/xxxxxxxxxxxxxxxxxxxxxxxx?kg=16</code>其中<code>xxxxxxxxxxxxxxxxxxxxxxxx</code>就是userId，由于用户的userId是隐私数据，所以我就那x来代替了（下面所有有userId的地方，我都会用<code>xxxxxxxxxxxxxxxxxxxxxxxx</code>来代替）。</p>
+<p>浏览器直接打开这个页面，发现报错了，仔细一看，你会发现是接口<code>https://api.gotokeep.com/diamond/v1/users/xxxxxxxxxxxxxxxxxxxxxxxx/privilegeWall/levels</code>返回了<code>401</code>，接口<code>401</code>说明没有授权。为了让页面实现在Keep中同样的效果，可以做下面的几步：</p>
+<ol>
+<li><p>让H5页面识别浏览器为Keep站内。</p>
+<p> 要识别站内就是使用上面的<code>userAgent</code>，打开开发者工具，然后选择<code>Network conditions</code>面板，去掉<code>Select automatically</code>的勾选，然后把上面的<code>userAgent</code>粘贴到下面的输入框中，如下，然后刷新一下<code>userAgent</code>就生效了。</p>
+<p> <img src="/2020/07/14/Keep-APP技术研究/1.png" alt="修改userAgent"></p>
+</li>
+<li><p>获取cookie。</p>
+<p> Keep接口认证是基于<code>JWT</code>来实现的。我们使用<code>Charles</code>来查看任一接口的<code>cookie</code>，会发现有一个<code>authorization</code>的字段，这个就是<code>JWT</code>的关键，如下：</p>
+<p> <img src="/2020/07/14/Keep-APP技术研究/2.png" alt="查看cookie"></p>
+</li>
+<li><p>设置cookie。</p>
+<p> 为了页面能正常运行，我们把所有的<code>cookie</code>信息，都设置进去。打开浏览器的开发者工具，然后依次把<code>cookie</code>粘贴进去，如下：</p>
+<p> <img src="/2020/07/14/Keep-APP技术研究/3.png" alt="设置cookie"></p>
+</li>
+</ol>
+<p>此时刷新页面，可以看到页面已经可以正常运行了，如下：</p>
+<p><img src="/2020/07/14/Keep-APP技术研究/4.png" alt="运行的页面"></p>
+<h2 id="客户端事件"><a href="#客户端事件" class="headerlink" title="客户端事件"></a>客户端事件</h2><p>客户端事件是H5和客户端（这里只有移动端）交互的指令，其实就是一个特定协议的字符串，前端使用<code>location.href = 客户端事件字符串</code>来执行客户端事件，在Keep中为了方便调试，也可以扫码来执行这些事件。举个例子，打开webview的事件是<code>keep://webview/</code>后面跟着encode的URI就可以实现跳转页面了，比如要使用Keep来跳转本博客，就可以如下：<code>keep://webview/https%3a%2f%2fwww.kai666666.top%2f</code>，你可以使用<a href="http://tool.chinaz.com/tools/urlencode.aspx" target="_blank" rel="noopener">这个工具</a>来encode，把刚才的事件，转换为二维码，如下：</p>
+<p><img src="/2020/07/14/Keep-APP技术研究/5.png" alt="二维码"></p>
+<p>现在打开Keep扫一扫，上面的二维码，你就可以用Keep进入本博客网站了。要把字符串转换为二维码可以使用<a href="https://cli.im/text" target="_blank" rel="noopener">草料二维码</a>。</p>
+<p>在<code>https://api.gotokeep.com/config/v2/basic?refresh=true</code>接口中定义了更多的事件：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">描述</th>
+<th style="text-align:left">事件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">精选</td>
+<td style="text-align:left">keep://discover_web</td>
+</tr>
+<tr>
+<td style="text-align:center">训练</td>
+<td style="text-align:left">keep://discover_course</td>
+</tr>
+<tr>
+<td style="text-align:center">饮食</td>
+<td style="text-align:left">keep://discover_food</td>
+</tr>
+<tr>
+<td style="text-align:center">商城</td>
+<td style="text-align:left">keep://discover_store</td>
+</tr>
+<tr>
+<td style="text-align:center">精选</td>
+<td style="text-align:left">keep://discovery/explore</td>
+</tr>
+<tr>
+<td style="text-align:center">训练</td>
+<td style="text-align:left">keep://discovery/course</td>
+</tr>
+<tr>
+<td style="text-align:center">攻略</td>
+<td style="text-align:left">keep://discovery/guide</td>
+</tr>
+<tr>
+<td style="text-align:center">饮食</td>
+<td style="text-align:left">keep://discovery/diet</td>
+</tr>
+<tr>
+<td style="text-align:center">商城</td>
+<td style="text-align:left">keep://discovery/product</td>
+</tr>
+<tr>
+<td style="text-align:center">推荐</td>
+<td style="text-align:left">keep://hottabs/hot</td>
+</tr>
+<tr>
+<td style="text-align:center">热门视频</td>
+<td style="text-align:left">keep://hottabs/video</td>
+</tr>
+<tr>
+<td style="text-align:center">运动时刻</td>
+<td style="text-align:left">keep://hottabs/story</td>
+</tr>
+<tr>
+<td style="text-align:center">training_训练课程</td>
+<td style="text-align:left">keep://discover_course/</td>
+</tr>
+<tr>
+<td style="text-align:center">activity_热门活动</td>
+<td style="text-align:left">keep://hot_activities</td>
+</tr>
+<tr>
+<td style="text-align:center">hashtag_话题讨论</td>
+<td style="text-align:left">keep://hashtags_index</td>
+</tr>
+<tr>
+<td style="text-align:center">group_小组推荐</td>
+<td style="text-align:left">keep://groups_index/</td>
+</tr>
+<tr>
+<td style="text-align:center">kol_达人推荐</td>
+<td style="text-align:left">keep://recommend_keepers/</td>
+</tr>
+<tr>
+<td style="text-align:center">article_精选文章</td>
+<td style="text-align:left">keep://selections</td>
+</tr>
+<tr>
+<td style="text-align:center">热门</td>
+<td style="text-align:left">keep://timeline/hot</td>
+</tr>
+<tr>
+<td style="text-align:center">关注</td>
+<td style="text-align:left">keep://timeline/follow</td>
+</tr>
+<tr>
+<td style="text-align:center">逛逛</td>
+<td style="text-align:left">keep://timeline/wander</td>
+</tr>
+<tr>
+<td style="text-align:center">训练</td>
+<td style="text-align:left">keep://homepage/content?tabId=ZnVsbENvbnRlbnQ=</td>
+</tr>
+<tr>
+<td style="text-align:center">跑步</td>
+<td style="text-align:left">keep://homepage/running?tabId=cnVubmluZw==</td>
+</tr>
+<tr>
+<td style="text-align:center">瑜伽</td>
+<td style="text-align:left">keep://homepage/yoga?tabId=eW9nYQ==</td>
+</tr>
+<tr>
+<td style="text-align:center">行走</td>
+<td style="text-align:left">keep://homepage/hiking?tabId=aGlraW5n</td>
+</tr>
+<tr>
+<td style="text-align:center">骑行</td>
+<td style="text-align:left">keep://homepage/cycling?tabId=Y3ljbGluZw==</td>
+</tr>
+<tr>
+<td style="text-align:center">Kit</td>
+<td style="text-align:left">keep://homepage/keloton?tabId=a2Vsb3Rvbg==</td>
+</tr>
+<tr>
+<td style="text-align:center">数据中心</td>
+<td style="text-align:left">keep://datacenter?type=all&amp;period=day</td>
+</tr>
+<tr>
+<td style="text-align:center">跑步历史记录</td>
+<td style="text-align:left">keep://datacenter?type=running&amp;period=day</td>
+</tr>
+<tr>
+<td style="text-align:center">每周目标</td>
+<td style="text-align:left">keep://weeklypurpose</td>
+</tr>
+<tr>
+<td style="text-align:center">身体档案</td>
+<td style="text-align:left">keep://bodydata</td>
+</tr>
+<tr>
+<td style="text-align:center">运动能力</td>
+<td style="text-align:left">keep://physical_test_list</td>
+</tr>
+<tr>
+<td style="text-align:center">运动概况</td>
+<td style="text-align:left">keep://physical_summary</td>
+</tr>
+<tr>
+<td style="text-align:center">运动日记</td>
+<td style="text-align:left"><a href="https://show.gotokeep.com/usersfulldiary" target="_blank" rel="noopener">https://show.gotokeep.com/usersfulldiary</a></td>
+</tr>
+<tr>
+<td style="text-align:center">步数记录</td>
+<td style="text-align:left">keep://steps_dashboard</td>
+</tr>
+<tr>
+<td style="text-align:center">连接应用和设备</td>
+<td style="text-align:left">keep://oauth/list</td>
+</tr>
+<tr>
+<td style="text-align:center">我的收藏</td>
+<td style="text-align:left">keep://my_favorites</td>
+</tr>
+<tr>
+<td style="text-align:center">我的活动</td>
+<td style="text-align:left">keep://activities</td>
+</tr>
+<tr>
+<td style="text-align:center">训练营历史</td>
+<td style="text-align:left">keep://bootcamp/history</td>
+</tr>
+<tr>
+<td style="text-align:center">我的路线</td>
+<td style="text-align:left">keep://my_running_routes</td>
+</tr>
+<tr>
+<td style="text-align:center">我的运动小队</td>
+<td style="text-align:left"><a href="https://show.gotokeep.com/outdoor/groups/list" target="_blank" rel="noopener">https://show.gotokeep.com/outdoor/groups/list</a></td>
+</tr>
+<tr>
+<td style="text-align:center">我的最佳成绩</td>
+<td style="text-align:left">keep://running/best_records</td>
+</tr>
+<tr>
+<td style="text-align:center">我的 Class</td>
+<td style="text-align:left">keep://classes/mine</td>
+</tr>
+<tr>
+<td style="text-align:center">购物车</td>
+<td style="text-align:left">keep://shopping_cart</td>
+</tr>
+<tr>
+<td style="text-align:center">我的钱包</td>
+<td style="text-align:left"><a href="https://show.gotokeep.com/wallet" target="_blank" rel="noopener">https://show.gotokeep.com/wallet</a></td>
+</tr>
+<tr>
+<td style="text-align:center">优惠券</td>
+<td style="text-align:left">keep://store_coupons</td>
+</tr>
+<tr>
+<td style="text-align:center">购买记录</td>
+<td style="text-align:left">keep://purchase_history</td>
+</tr>
+<tr>
+<td style="text-align:center">Keepland 课程</td>
+<td style="text-align:left"><a href="https://keepland.gotokeep.com/my_course?pulldownrefresh=true" target="_blank" rel="noopener">https://keepland.gotokeep.com/my_course?pulldownrefresh=true</a></td>
+</tr>
+</tbody>
+</table>
+<p>从上面可以看到很多<code>https://show.gotokeep.com</code>开头的地址用Keep扫码也是可以直接进入的，但是我们自己的<code>https</code>网站却不能，可见Keep对自己的白名单内的域名做了特殊处理（相当于其他页面使用了<code>keep://webview/</code>事件）。</p>
+<h2 id="小应用"><a href="#小应用" class="headerlink" title="小应用"></a>小应用</h2><p>Keep并没有提供一种查看自己跑了多少个全马，或者跑了多少个半马这样的功能。现在我们写个脚本把自己的跑步数据存入我们自己的数据库中，并通过SQL查询出我们跑了多少个半马。</p>
+<p>这里假设你已经安装了<code>MySQL</code>，并且已经建立了一个名叫<code>keep_running</code>的数据库。</p>
+<p>建表脚本如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> running_data;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> running_data (</span><br><span class="line">  <span class="keyword">id</span> <span class="built_in">VARCHAR</span>(<span class="number">100</span>) <span class="literal">NULL</span>,</span><br><span class="line">  statsType <span class="built_in">VARCHAR</span>(<span class="number">100</span>) <span class="literal">NULL</span>,</span><br><span class="line">  trainingCourseType <span class="built_in">VARCHAR</span>(<span class="number">100</span>) <span class="literal">NULL</span>,</span><br><span class="line">  <span class="keyword">subtype</span> <span class="built_in">VARCHAR</span>(<span class="number">100</span>) <span class="literal">NULL</span>,</span><br><span class="line">  statsName <span class="built_in">VARCHAR</span>(<span class="number">100</span>) <span class="literal">NULL</span>,</span><br><span class="line">  doneDate <span class="built_in">VARCHAR</span>(<span class="number">100</span>) <span class="literal">NULL</span>,</span><br><span class="line">  icon <span class="built_in">VARCHAR</span>(<span class="number">100</span>) <span class="literal">NULL</span>,</span><br><span class="line">  statsSchema <span class="built_in">VARCHAR</span>(<span class="number">100</span>) <span class="literal">NULL</span>,</span><br><span class="line">  workoutFinishTimes <span class="built_in">INT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="keyword">duration</span> <span class="built_in">INT</span> <span class="literal">NULL</span>,</span><br><span class="line">  distance <span class="built_in">INT</span> <span class="literal">NULL</span>,</span><br><span class="line">  steps <span class="built_in">INT</span> <span class="literal">NULL</span>,</span><br><span class="line">  kmDistance <span class="keyword">DOUBLE</span> <span class="literal">NULL</span>,</span><br><span class="line">  calorie <span class="built_in">INT</span> <span class="literal">NULL</span>,</span><br><span class="line">  averagePace <span class="keyword">DOUBLE</span> <span class="literal">NULL</span>,</span><br><span class="line">  averageSpeed <span class="keyword">DOUBLE</span> <span class="literal">NULL</span>,</span><br><span class="line">  exerciseInfo <span class="built_in">VARCHAR</span>(<span class="number">500</span>) <span class="literal">NULL</span>,</span><br><span class="line">  statsStatus <span class="built_in">INT</span> <span class="literal">NULL</span>,</span><br><span class="line">  trackWaterMark <span class="built_in">VARCHAR</span>(<span class="number">100</span>) <span class="literal">NULL</span>,</span><br><span class="line">  workoutId <span class="built_in">VARCHAR</span>(<span class="number">100</span>) <span class="literal">NULL</span>,</span><br><span class="line">  vendorSource <span class="built_in">VARCHAR</span>(<span class="number">100</span>) <span class="literal">NULL</span>,</span><br><span class="line">  vendorManufacturer <span class="built_in">VARCHAR</span>(<span class="number">100</span>) <span class="literal">NULL</span>,</span><br><span class="line">  vendorGenre <span class="built_in">VARCHAR</span>(<span class="number">100</span>) <span class="literal">NULL</span>,</span><br><span class="line">  vendorDeviceModel <span class="built_in">VARCHAR</span>(<span class="number">100</span>) <span class="literal">NULL</span>,</span><br><span class="line">  vendorRecordId <span class="built_in">VARCHAR</span>(<span class="number">100</span>) <span class="literal">NULL</span>,</span><br><span class="line">  heartRates <span class="built_in">TEXT</span> <span class="literal">NULL</span>,</span><br><span class="line">  averageHeartRate <span class="keyword">DOUBLE</span> <span class="literal">NULL</span>,</span><br><span class="line">  maxHeartRate <span class="built_in">VARCHAR</span>(<span class="number">100</span>) <span class="literal">NULL</span>,</span><br><span class="line">  isDoubtful <span class="built_in">VARCHAR</span>(<span class="number">100</span>) <span class="literal">NULL</span>,</span><br><span class="line">  logsType <span class="built_in">VARCHAR</span>(<span class="number">100</span>) <span class="literal">NULL</span>,</span><br><span class="line">  statsDate <span class="built_in">VARCHAR</span>(<span class="number">100</span>) <span class="literal">NULL</span>,</span><br><span class="line">  calorieSum <span class="built_in">INT</span> <span class="literal">NULL</span>,</span><br><span class="line">  durationSum <span class="built_in">INT</span> <span class="literal">NULL</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>要得到自己的跑步数据，可以调用<code>https://api.gotokeep.com/pd/v3/stats/detail</code>接口来获取，由于浏览器端会有跨域的问题，所以我们就直接跑一个node脚本就行了。</p>
+<p>这里需要用到额外的两个库，一个是<a href="https://github.com/axios/axios" target="_blank" rel="noopener">axios</a>，用来发送http请求的；另一个库就是<a href="https://github.com/mysqljs/mysql" target="_blank" rel="noopener">mysql</a>，用来把数据存到数据库的。大家自己运行npm install一下。</p>
+<p>脚本大致如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> axios = <span class="built_in">require</span>(<span class="string">'axios'</span>).default</span><br><span class="line"><span class="keyword">const</span> mysql = <span class="built_in">require</span>(<span class="string">'mysql'</span>);</span><br><span class="line"><span class="keyword">const</span> connection = mysql.createConnection(&#123;</span><br><span class="line">  host     : <span class="string">"localhost"</span>,</span><br><span class="line">  user     : <span class="string">"root"</span>,</span><br><span class="line">  password : <span class="string">"自己的数据库密码"</span>,</span><br><span class="line">  database : <span class="string">"keep_running"</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">connection.connect();</span><br><span class="line"></span><br><span class="line">queryAndInsert(connection);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> globalIndex = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">queryAndInsert</span>(<span class="params">connection,lastDate</span>)</span>&#123;</span><br><span class="line">  axios.get(<span class="string">'https://api.gotokeep.com/pd/v3/stats/detail'</span>, &#123;</span><br><span class="line">    params: &#123; <span class="attr">dateUnit</span>: <span class="string">'all'</span>,<span class="attr">type</span>:<span class="string">'running'</span>,lastDate &#125;,</span><br><span class="line">    withCredentials: <span class="literal">true</span>,</span><br><span class="line">    headers:&#123;</span><br><span class="line">      <span class="comment">// <span class="doctag">TODO:</span>这里是headers的数据，需要使用你自己的 不然查询会失败的</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> sql =</span><br><span class="line">    <span class="string">`INSERT INTO running_data (</span></span><br><span class="line"><span class="string">      id, statsType, trainingCourseType, subtype, statsName,</span></span><br><span class="line"><span class="string">      doneDate, icon, statsSchema, workoutFinishTimes, duration,</span></span><br><span class="line"><span class="string">      distance, steps, kmDistance, calorie, averagePace,</span></span><br><span class="line"><span class="string">      averageSpeed, exerciseInfo, statsStatus, trackWaterMark, workoutId,</span></span><br><span class="line"><span class="string">      vendorSource, vendorManufacturer, vendorGenre, vendorDeviceModel, vendorRecordId,</span></span><br><span class="line"><span class="string">      heartRates, averageHeartRate, maxHeartRate, isDoubtful, logsType,</span></span><br><span class="line"><span class="string">      statsDate, calorieSum, durationSum)</span></span><br><span class="line"><span class="string">      VALUES(?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?, ?,?,?,?,?, ?,?,?);`</span></span><br><span class="line">    <span class="keyword">let</span> data = res.data.data</span><br><span class="line">    <span class="keyword">let</span> lastTimestamp = data.lastTimestamp</span><br><span class="line">    <span class="keyword">if</span> (lastTimestamp === <span class="number">0</span> || !data.records || data.records.length === <span class="number">0</span>) &#123;</span><br><span class="line">      connection.end();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">let</span> posts = []</span><br><span class="line">      data.records.forEach(<span class="function"><span class="params">record</span>=&gt;</span>&#123;</span><br><span class="line">        (record.logs||[]).forEach(<span class="function"><span class="params">log</span>=&gt;</span>&#123;</span><br><span class="line">          <span class="keyword">let</span> stats = log.stats</span><br><span class="line">          <span class="keyword">if</span> (stats) &#123;</span><br><span class="line">            stats.vendor = stats.vendor || &#123;&#125;</span><br><span class="line">            stats.heartRate = stats.heartRate || &#123;&#125;</span><br><span class="line">            posts.push([</span><br><span class="line">              stats.id, stats.type, stats.trainingCourseType, stats.subtype, stats.name,</span><br><span class="line">              stats.doneDate, stats.icon, stats.schema, stats.workoutFinishTimes, stats.duration,</span><br><span class="line">              stats.distance, stats.steps, stats.kmDistance, stats.calorie, stats.averagePace,</span><br><span class="line">              stats.averageSpeed, stats.exerciseInfo, stats.status, stats.trackWaterMark, stats.workoutId,</span><br><span class="line">              stats.vendor.source, stats.vendor.manufacturer, stats.vendor.genre, stats.vendor.deviceModel, stats.vendor.vendorRecordId,</span><br><span class="line">              stats.heartRate.heartRates, stats.heartRate.averageHeartRate, stats.heartRate.maxHeartRate, stats.isDoubtful, log.type,</span><br><span class="line">              record.date,  record.calorieSum,  record.durationSum</span><br><span class="line">            ])</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;)</span><br><span class="line"></span><br><span class="line">      posts.forEach(<span class="function"><span class="params">post</span>=&gt;</span>&#123;</span><br><span class="line">        connection.query(sql, post, <span class="function"><span class="keyword">function</span> (<span class="params">error, results, fields</span>) </span>&#123;</span><br><span class="line">          <span class="keyword">if</span> (error) <span class="keyword">throw</span> error;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'成功插入了一条数据：'</span> + globalIndex);</span><br><span class="line">          globalIndex++;</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;)</span><br><span class="line"></span><br><span class="line">      queryAndInsert(connection,lastTimestamp)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意上面<code>headers</code>处，需要换成自己数据的键值对形式，在<code>Charles</code>中获取方式如下：</p>
+<p><img src="/2020/07/14/Keep-APP技术研究/6.png" alt="获取headers数据"></p>
+<p>最后你就可以通过SQL语句查询数据了：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 全马</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> running_data <span class="keyword">WHERE</span> distance &gt; <span class="number">42195</span> <span class="keyword">ORDER</span> <span class="keyword">BY</span> distance <span class="keyword">DESC</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 半马</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> running_data <span class="keyword">WHERE</span> distance &gt;= <span class="number">21097.5</span> <span class="keyword">and</span>  distance &lt; <span class="number">42195</span> <span class="keyword">ORDER</span> <span class="keyword">BY</span> distance <span class="keyword">DESC</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 10公里</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> running_data <span class="keyword">WHERE</span> distance &gt;= <span class="number">10000</span> <span class="keyword">and</span>  distance &lt; <span class="number">21097.5</span> <span class="keyword">ORDER</span> <span class="keyword">BY</span> distance <span class="keyword">DESC</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 5公里</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> running_data <span class="keyword">WHERE</span> distance &gt;= <span class="number">5000</span> <span class="keyword">and</span>  distance &lt; <span class="number">10000</span> <span class="keyword">ORDER</span> <span class="keyword">BY</span> distance <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+<p>通过数据查询可以看出我自己跑了10个半马了😀。</p>
+<p><img src="/2020/07/14/Keep-APP技术研究/7.png" alt="我的成绩"></p>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+        
+        <div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-paw"></i> 感谢您的阅读-------------</div>
+
+</div>
+        
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Keep/" rel="tag"># Keep</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/06/20/《33个理财窍门》读书笔记/" rel="next" title="《33个理财窍门》读书笔记">
+                <i class="fa fa-chevron-left"></i> 《33个理财窍门》读书笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/07/28/Canvas系列（14）：实战-小球碰撞/" rel="prev" title="Canvas系列（14）：实战-小球碰撞">
+                Canvas系列（14）：实战-小球碰撞 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80Mjk3Mi8xOTUxOA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Orange">
+            
+              <p class="site-author-name" itemprop="name">Orange</p>
+              <p class="site-description motion-element" itemprop="description">励志改变人生，编程改变命运</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">72</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/KaiOrange" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://juejin.im/user/58e7b2f1da2f60005ff74b41" target="_blank" title="掘金">
+                      
+                        <i class="fa fa-fw fa-html5"></i>掘金</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#主要域名"><span class="nav-number">1.</span> <span class="nav-text">主要域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#userAgent"><span class="nav-number">2.</span> <span class="nav-text">userAgent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调试页面"><span class="nav-number">3.</span> <span class="nav-text">调试页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#客户端事件"><span class="nav-number">4.</span> <span class="nav-text">客户端事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小应用"><span class="nav-number">5.</span> <span class="nav-text">小应用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Orange</span>
+
+  <span class="with-love">
+    <span><i class="fa fa-line-chart"></i></span>博客全站共111.1k字
+  </span>
+
+  <span class="with-love">
+    <span><i class="fa fa-shield"></i></span><a href="http://www.beian.miit.gov.cn/" target="_blank"> 浙ICP备19052357号</a>
+  </span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">由于作者技术水平有限，如有不正确的地方请及时<a href="https://github.com/KaiOrange/blog/issues/new">与我联系</a></div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/fastclick/1.0.6/fastclick.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/velocity/1.2.1/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/velocity/1.2.1/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var url = location.pathname.replace(/index\.html$/g,'')
+        if(url && url[url.length - 1] !== '/'){
+          url += '/'
+        }
+        
+          window.livereOptions = {
+            refer: 'https://www.kai666666.top' + url
+          }
+        
+
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("5hMjWYdBcTn2DNzg8Np0EiDt-gzGzoHsz", "tmetR6q0QiHA7NnHo19uXnAX");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <style>
+      mjx-mspace {
+        display: block;
+        margin-top: 10px;
+      }
+      mjx-math {
+        text-align: center;
+      }
+    </style>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+
+
+  
+
+  
+
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/clicklove.js"></script>
+  <!-- 注入环境变量 -->
+  <script type="text/javascript" src="/js/src/env.js"></script>
+  <!-- 页面定制化 -->
+  <script type="text/javascript" src="/js/src/customization.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/nito.model.json"},"display":{"position":"right","hOffset":65,"vOffset":0,"width":230,"height":300},"mobile":{"show":false},"dialog":{"enable":true,"hitokoto":true},"log":false});</script></body>
+</html>

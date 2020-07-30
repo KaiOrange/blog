@@ -40,8 +40,14 @@
 
 
 
+  <meta name="msvalidate.01" content="FB13B92CC5325ADB079D001997D2D2E7">
 
 
+
+
+
+
+  <meta name="360-site-verification" content="d05ee7b907219e8315616ec0d33e6173">
 
 
 
@@ -112,7 +118,7 @@
 <meta property="og:image" content="https://www.kai666666.top/2019/06/22/Canvas系列（7）：形变/2.jpeg">
 <meta property="og:image" content="https://www.kai666666.top/2019/06/22/Canvas系列（7）：形变/3.jpeg">
 <meta property="og:image" content="https://www.kai666666.top/2019/06/22/Canvas系列（7）：形变/4.jpeg">
-<meta property="og:updated_time" content="2019-06-29T02:37:39.751Z">
+<meta property="og:updated_time" content="2020-07-28T09:35:58.028Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Canvas系列（7）：形变">
 <meta name="twitter:description" content="CSS3中有一个很重要的点，就是形变。他分为移动，缩放、旋转和倾斜。在Canvas中，形变都是基于坐标做的，所以，并没有直接的API支持倾斜，其它几种都是有独立的API来支持，命名和CSS是一样的。今天我们就看一下这几种吧。  平移平移是最简单的一种形变，我们直接来看一个例子吧： 12345678context.fillRect(10,10,20,20);// x平移20px y平移20pxcon">
@@ -264,7 +270,27 @@
             
               <i class="menu-item-icon fa fa-fw fa-signal"></i> <br>
             
-            top
+            热度
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-we-favorites">
+          <a href="/we-favorites/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
+            
+            特效收藏馆
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-link"></i> <br>
+            
+            友链
           </a>
         </li>
       
@@ -452,15 +478,15 @@
 <h2 id="矩阵变换"><a href="#矩阵变换" class="headerlink" title="矩阵变换"></a>矩阵变换</h2><p>矩阵变换使用的API是<code>context.transform(a, b, c, d, e, f);</code>，所对应的矩阵的位置是下面这个样子：</p>
 <p>$$\left[<br>\begin{matrix}<br>a &amp; c &amp; e \\<br>b &amp; d &amp; f \\<br>0 &amp; 0 &amp; 1<br>\end{matrix}<br>\right] $$</p>
 <p>什么，看不懂？前方高能！！！多年前欠下的线性代数债，现在要还了。</p>
-<p>对于形变，假设开始的坐标是($x_0$,$y_0$)，结束的坐标是($x_1$,$y_1$)，那么假如($x_1$,$y_1$)是$x_0$平移了e个单位，$y_0$平移了f个单位后得到的结果，那么$x_1$和$y_1$就等于如下：<br>$$<br>  x_1 = x_0 + e \\<br>  y_1 = y_0 + f<br>$$</p>
+<p>对于形变，假设开始的坐标是(\(x_0\),\(y_0\)，结束的坐标是(\(x_1\),\(y_1\))，那么假如(\(x_1\),\(y_1\))是\(x_0\)平移了e个单位，\(y_0\)平移了f个单位后得到的结果，那么\(x_1\)和\(y_1\)就等于如下：<br>$$<br>  x_1 = x_0 + e \\<br>  y_1 = y_0 + f<br>$$</p>
 <p>使用矩阵的笛卡尔积（左边值的第几行第几列中的值，就是右边第一个矩阵的第几行与第二个矩阵的第几列的乘积之和就是）的样子就是这个样子：</p>
 <p>$$\left[<br>\begin{matrix}<br>x_1 \\<br>y_1 \\<br>1 \\<br>\end{matrix}<br>\right] =<br>\left[<br>\begin{matrix}<br>1 &amp; 0 &amp; e \\<br>0 &amp; 1 &amp; f \\<br>0 &amp; 0 &amp; 1<br>\end{matrix}<br>\right]<br>\left[<br>\begin{matrix}<br>x_0 \\<br>y_0 \\<br>1 \\<br>\end{matrix}<br>\right] $$</p>
 <p>上面矩阵是平移时候的矩阵，将中间的矩阵带入矩阵的API有：<code>context.transform(1, 0, 0, 1, e, f);</code>。也就是说<code>context.translate(e, f);</code>等价于<code>context.transform(1, 0, 0, 1, e, f);</code>。</p>
-<p>对于缩放，同样假设开始的坐标是($x_0$,$y_0$)，结束的坐标是($x_1$,$y_1$)，那么假如$x_0$缩放了a个单位，$y_0$缩放d个单位，那么$x_1$和$y_1$就等于如下：<br>$$<br>  x_1 = a * x_0 \\<br>  y_1 = d * y_0<br>$$</p>
+<p>对于缩放，同样假设开始的坐标是(\(x_0\),\(y_0\))，结束的坐标是(\(x_1\),\(y_1\))，那么假如\(x_0\)缩放了a个单位，\(y_0\)缩放d个单位，那么\(x_1\)和\(y_1\)就等于如下：<br>$$<br>  x_1 = a * x_0 \\<br>  y_1 = d * y_0<br>$$</p>
 <p>使用矩阵的笛卡尔积就是这个样子：</p>
 <p>$$\left[<br>\begin{matrix}<br>x_1 \\<br>y_1 \\<br>1 \\<br>\end{matrix}<br>\right] =<br>\left[<br>\begin{matrix}<br>a &amp; 0 &amp; 0 \\<br>0 &amp; d &amp; 0 \\<br>0 &amp; 0 &amp; 1<br>\end{matrix}<br>\right]<br>\left[<br>\begin{matrix}<br>x_0 \\<br>y_0 \\<br>1 \\<br>\end{matrix}<br>\right] $$</p>
 <p>也就是说<code>context.scale(a, d);</code>等价于<code>context.transform(a, 0, 0, d, 0, 0);</code>。</p>
-<p>旋转有点复杂，坐标($x_0$,$y_0$)和($x_1$,$y_1$)的意义和上面一下，旋转有如下公式（可以自行推到，并不难）：</p>
+<p>旋转有点复杂，坐标(\(x_0\),\(y_0\))和(\(x_1\),\(y_1\))的意义和上面一下，旋转有如下公式（可以自行推到，并不难）：</p>
 <p>$$<br>  x_1 = x_0 * cos\theta - y_0 * sin\theta \\<br>  y_1 = x_0 * sin\theta + y_0 * cos\theta<br>$$</p>
 <p>使用矩阵的笛卡尔积就是这个样子：</p>
 <p>$$\left[<br>\begin{matrix}<br>x_1 \\<br>y_1 \\<br>1 \\<br>\end{matrix}<br>\right] =<br>\left[<br>\begin{matrix}<br>cos\theta &amp; -sin\theta &amp; 0 \\<br>sin\theta &amp; cos\theta &amp; 0 \\<br>0 &amp; 0 &amp; 1<br>\end{matrix}<br>\right]<br>\left[<br>\begin{matrix}<br>x_0 \\<br>y_0 \\<br>1 \\<br>\end{matrix}<br>\right] $$</p>
@@ -604,7 +630,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">63</span>
+                  <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -615,7 +641,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -626,7 +652,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-count">55</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -709,7 +735,7 @@
   <span class="author" itemprop="copyrightHolder">Orange</span>
 
   <span class="with-love">
-    <span><i class="fa fa-line-chart"></i></span>博客全站共90k字
+    <span><i class="fa fa-line-chart"></i></span>博客全站共111.1k字
   </span>
 
   <span class="with-love">
@@ -862,6 +888,16 @@
   
     <script type="text/javascript">
       (function(d, s) {
+        var url = location.pathname.replace(/index\.html$/g,'')
+        if(url && url[url.length - 1] !== '/'){
+          url += '/'
+        }
+        
+          window.livereOptions = {
+            refer: 'https://www.kai666666.top' + url
+          }
+        
+
         var j, e = d.getElementsByTagName(s)[0];
         if (typeof LivereTower === 'function') { return; }
         j = d.createElement(s);
@@ -1339,6 +1375,16 @@
 
   
   
+    <style>
+      mjx-mspace {
+        display: block;
+        margin-top: 10px;
+      }
+      mjx-math {
+        text-align: center;
+      }
+    </style>
+
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
         tex2jax: {
@@ -1357,7 +1403,7 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   
 
 
@@ -1372,10 +1418,7 @@
   <!-- 注入环境变量 -->
   <script type="text/javascript" src="/js/src/env.js"></script>
   <!-- 页面定制化 -->
-  <script type="text/javascript" src="/js/src/customization.js"></script>
-
-
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/nito.model.json"},"display":{"position":"right","hOffset":65,"vOffset":0,"width":230,"height":300},"mobile":{"show":false},"dialog":{"enable":true,"hitokoto":true},"log":false});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  <script type="text/javascript" src="/js/src/customization.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config("");
 </script>
@@ -1392,5 +1435,8 @@
 <script type="text/javascript" src="">
 </script>
 <!-- End: Injected MathJax -->
-<!-- hexo-inject:end --></body>
+<!-- hexo-inject:end -->
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/nito.model.json"},"display":{"position":"right","hOffset":65,"vOffset":0,"width":230,"height":300},"mobile":{"show":false},"dialog":{"enable":true,"hitokoto":true},"log":false});</script></body>
 </html>

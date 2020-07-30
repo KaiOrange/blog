@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="google-site-verification" content="Vi2JgRixg6-a8V4yXGbbyQ1auGfqAdAovzvni2zp_QI">
+
+
+
+  <meta name="msvalidate.01" content="FB13B92CC5325ADB079D001997D2D2E7">
+
+
+
+
+
+
+  <meta name="360-site-verification" content="d05ee7b907219e8315616ec0d33e6173">
+
+
+
+  <meta name="baidu-site-verification" content="Bnpl6Gxg95">
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Three.js,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="橙光笔记" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="Three.js的作用就是做3D效果，一说到3D就绕不过一个话题，那就是阴影。而要出现阴影的效果，那么就要涉及光源。本章介绍Three.js中光源相关的知识。  光源简介光源是THREE.Light类的子类。所有光源都有2个属性，一个是color，是一个THREE.Color类型的值，表示光源的颜色；另一个是intensity，一个浮点型的值，表示光照强度。本章所有的光源都有这2个值，你可以在本章">
+<meta name="keywords" content="Three.js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Three.js教程（5）：光源">
+<meta property="og:url" content="https://www.kai666666.top/2020/01/30/Three.js教程（5）：光源/index.html">
+<meta property="og:site_name" content="橙光笔记">
+<meta property="og:description" content="Three.js的作用就是做3D效果，一说到3D就绕不过一个话题，那就是阴影。而要出现阴影的效果，那么就要涉及光源。本章介绍Three.js中光源相关的知识。  光源简介光源是THREE.Light类的子类。所有光源都有2个属性，一个是color，是一个THREE.Color类型的值，表示光源的颜色；另一个是intensity，一个浮点型的值，表示光照强度。本章所有的光源都有这2个值，你可以在本章">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://www.kai666666.top/2020/01/30/Three.js教程（5）：光源/1.png">
+<meta property="og:image" content="https://www.kai666666.top/2020/01/30/Three.js教程（5）：光源/2.png">
+<meta property="og:image" content="https://www.kai666666.top/2020/01/30/Three.js教程（5）：光源/3.png">
+<meta property="og:image" content="https://www.kai666666.top/2020/01/30/Three.js教程（5）：光源/4.png">
+<meta property="og:image" content="https://www.kai666666.top/2020/01/30/Three.js教程（5）：光源/5.png">
+<meta property="og:image" content="https://www.kai666666.top/2020/01/30/Three.js教程（5）：光源/6.png">
+<meta property="og:image" content="https://www.kai666666.top/2020/01/30/Three.js教程（5）：光源/7.png">
+<meta property="og:updated_time" content="2020-01-31T11:51:48.129Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Three.js教程（5）：光源">
+<meta name="twitter:description" content="Three.js的作用就是做3D效果，一说到3D就绕不过一个话题，那就是阴影。而要出现阴影的效果，那么就要涉及光源。本章介绍Three.js中光源相关的知识。  光源简介光源是THREE.Light类的子类。所有光源都有2个属性，一个是color，是一个THREE.Color类型的值，表示光源的颜色；另一个是intensity，一个浮点型的值，表示光照强度。本章所有的光源都有这2个值，你可以在本章">
+<meta name="twitter:image" content="https://www.kai666666.top/2020/01/30/Three.js教程（5）：光源/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"sidebar":"fadeIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://www.kai666666.top/2020/01/30/Three.js教程（5）：光源/">
+
+
+
+
+
+  <title>Three.js教程（5）：光源 | 橙光笔记</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?6594cdc4e60fe2cda8b79d9537e2968c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/KaiOrange" id="github-corner" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">橙光笔记</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-top">
+          <a href="/top/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-signal"></i> <br>
+            
+            热度
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-we-favorites">
+          <a href="/we-favorites/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
+            
+            特效收藏馆
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-link"></i> <br>
+            
+            友链
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.kai666666.top/2020/01/30/Three.js教程（5）：光源/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Orange">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="橙光笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Three.js教程（5）：光源</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-30T13:09:37+08:00">
+                2020-01-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Three-js/" itemprop="url" rel="index">
+                    <span itemprop="name">Three.js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/01/30/Three.js教程（5）：光源/" class="leancloud_visitors" data-flag-title="Three.js教程（5）：光源">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><code>Three.js</code>的作用就是做3D效果，一说到3D就绕不过一个话题，那就是阴影。而要出现阴影的效果，那么就要涉及光源。本章介绍<code>Three.js</code>中光源相关的知识。</p>
+<hr>
+<h2 id="光源简介"><a href="#光源简介" class="headerlink" title="光源简介"></a>光源简介</h2><p>光源是<a href="https://threejs.org/docs/index.html#api/en/lights/Light" target="_blank" rel="noopener">THREE.Light</a>类的子类。所有光源都有2个属性，一个是<code>color</code>，是一个<code>THREE.Color</code>类型的值，表示光源的颜色；另一个是<code>intensity</code>，一个浮点型的值，表示光照强度。本章所有的光源都有这2个值，你可以在本章配套代码中随意修改这2个值。<br>这章我们围绕一个例子来展开，基本的代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 添加正方体</span></span><br><span class="line"><span class="keyword">var</span> cubeGeometry = <span class="keyword">new</span> THREE.BoxGeometry(<span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>);</span><br><span class="line"><span class="keyword">var</span> cubeMaterial = <span class="keyword">new</span> THREE.MeshNormalMaterial();</span><br><span class="line"><span class="keyword">var</span> cube = <span class="keyword">new</span> THREE.Mesh(cubeGeometry, cubeMaterial);</span><br><span class="line"><span class="comment">// 正方体位置</span></span><br><span class="line">cube.position.x = <span class="number">-6</span>;</span><br><span class="line">cube.position.y = <span class="number">-6</span>;</span><br><span class="line">cube.position.z = <span class="number">0</span>;</span><br><span class="line"><span class="comment">// 把正方体添加到场景中</span></span><br><span class="line">scene.add(cube);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 添加小球</span></span><br><span class="line"><span class="keyword">var</span> sphereGeometry = <span class="keyword">new</span> THREE.SphereGeometry(<span class="number">2</span>, <span class="number">20</span>, <span class="number">20</span>);</span><br><span class="line"><span class="keyword">var</span> sphereMaterial = <span class="keyword">new</span> THREE.MeshNormalMaterial();</span><br><span class="line"><span class="keyword">var</span> sphere = <span class="keyword">new</span> THREE.Mesh(sphereGeometry, sphereMaterial);</span><br><span class="line"><span class="comment">// 小球位置</span></span><br><span class="line">sphere.position.x = <span class="number">6</span>;</span><br><span class="line">sphere.position.y = <span class="number">-6</span>;</span><br><span class="line">sphere.position.z = <span class="number">0</span>;</span><br><span class="line"><span class="comment">// 把小球添加到场景中</span></span><br><span class="line">scene.add(sphere);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加一片平地</span></span><br><span class="line"><span class="keyword">var</span> planeGeometry = <span class="keyword">new</span> THREE.PlaneGeometry(<span class="number">30</span>, <span class="number">30</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line"><span class="keyword">var</span> planeMaterial = <span class="keyword">new</span> THREE.MeshNormalMaterial();</span><br><span class="line"><span class="comment">// var planeMaterial = new THREE.MeshLambertMaterial(&#123;color: 0xff0000&#125;);</span></span><br><span class="line"><span class="keyword">var</span> plane = <span class="keyword">new</span> THREE.Mesh(planeGeometry, planeMaterial);</span><br><span class="line"><span class="comment">// 由于平地添加后默认是在正前方 所以需要旋转一下</span></span><br><span class="line">plane.rotation.x = <span class="number">-0.5</span> * <span class="built_in">Math</span>.PI;</span><br><span class="line">plane.position.y = <span class="number">-10</span>;</span><br><span class="line">scene.add(plane);</span><br></pre></td></tr></table></figure>
+<p>上面添加了一个正方形（BoxGeometry），一个球形（SphereGeometry），一个平地（PlaneGeometry）。这三个<code>Geometry</code>你可能不熟悉，我们会在下个章节来专门讲，现在不熟悉无所谓，此时的效果如下：</p>
+<p><img src="/2020/01/30/Three.js教程（5）：光源/1.png" alt="基本场景"></p>
+<h2 id="SpotLight"><a href="#SpotLight" class="headerlink" title="SpotLight"></a>SpotLight</h2><p><a href="https://threejs.org/docs/#api/en/lights/SpotLight" target="_blank" rel="noopener">SpotLight</a>是一种圆锥形的光源（聚光灯光源），类似于手电筒或者路灯这样的光源，<strong>SpotLight具有方向，并且可以产生阴影</strong>。现在我们给上面的场景中添加阴影。要想让场景中有一下4个步骤：</p>
+<p>1.添加光源并设置可以传播阴影：</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 添加光源</span></span><br><span class="line"><span class="keyword">var</span> spotLight = <span class="keyword">new</span> THREE.SpotLight(<span class="number">0xffffff</span>);</span><br><span class="line">spotLight.position.set(<span class="number">0</span>, <span class="number">10</span>, <span class="number">0</span>);</span><br><span class="line">spotLight.castShadow = <span class="literal">true</span>;</span><br><span class="line">scene.add(spotLight);</span><br></pre></td></tr></table></figure>
+<p>  <code>Three.js</code>出于性能考虑，默认<code>castShadow</code>是<code>false</code>，也就是默认不会产生阴影的。</p>
+<p>2.使用可以感光的材质。<br>  我们上述使用的材质<code>MeshNormalMaterial</code>是不会对光源有反应的材质，我们需要一种对光源产出反应的材质，常用的感光材质有：<a href="https://threejs.org/docs/index.html#api/en/materials/MeshLambertMaterial" target="_blank" rel="noopener">MeshLambertMaterial</a>和<a href="https://threejs.org/docs/index.html#api/en/materials/MeshPhongMaterial" target="_blank" rel="noopener">MeshPhongMaterial</a>。我们这里就使用<code>MeshLambertMaterial</code>材质来替换上面的<code>MeshNormalMaterial</code>吧，材质相关的知识将会在下下章节中讲。</p>
+  <figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// ... 其他代码</span><br><span class="line"><span class="deletion">- var cubeMaterial = new THREE.MeshNormalMaterial();</span></span><br><span class="line"><span class="addition">+ var cubeMaterial = new THREE.MeshLambertMaterial(&#123;color: 0xff0000&#125;);</span></span><br><span class="line">// ... 其他代码</span><br><span class="line"><span class="deletion">- var sphereMaterial = new THREE.MeshNormalMaterial();</span></span><br><span class="line"><span class="addition">+ var sphereMaterial = new THREE.MeshLambertMaterial(&#123;color: 0x00ff00&#125;);</span></span><br><span class="line">// ... 其他代码</span><br><span class="line"><span class="deletion">- var planeMaterial = new THREE.MeshNormalMaterial();</span></span><br><span class="line"><span class="addition">+ var planeMaterial = new THREE.MeshLambertMaterial(&#123;color: 0xdddddd&#125;);</span></span><br><span class="line">// ... 其他代码</span><br></pre></td></tr></table></figure>
+<p>  这里需要注意的是，如果把材质换成感光材质而没有引入光源，是看不到物体的，跟我们在黑暗中看东西是一样的。</p>
+<p>3.设置物体传播（产生）阴影或接收阴影：</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cube.castShadow = <span class="literal">true</span>;</span><br><span class="line"><span class="comment">// ... 其他代码</span></span><br><span class="line">sphere.castShadow = <span class="literal">true</span>;</span><br><span class="line"><span class="comment">// ... 其他代码</span></span><br><span class="line">plane.receiveShadow = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
+<p>4.渲染器开启阴影映射：</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">renderer.shadowMapEnabled = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
+<p>此时的效果如下：</p>
+<p><img src="/2020/01/30/Three.js教程（5）：光源/2.png" alt="SpotLight"></p>
+<h2 id="PointLight"><a href="#PointLight" class="headerlink" title="PointLight"></a>PointLight</h2><p><a href="https://threejs.org/docs/index.html#api/en/lights/PointLight" target="_blank" rel="noopener">PointLight</a>是点光源，听名字就知道了，它是一个点向四面八方发射光线的光源，<strong>点光源不能产生阴影</strong>。</p>
+<p>我们在上一个例子中的添加一个点光源：</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> pointLight = <span class="keyword">new</span> THREE.PointLight(<span class="string">"#ffd200"</span>);</span><br><span class="line">scene.add(pointLight);</span><br></pre></td></tr></table></figure>
+<p>修改聚光灯光源的角度，运行后大概如下：</p>
+<p><img src="/2020/01/30/Three.js教程（5）：光源/3.png" alt="PointLight"></p>
+<p>这里的阴影是上一个聚光灯光源产生的效果，可以使用下面代码把聚光灯光源去掉，那么就只有点光源的效果了。</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spotLight.visible = <span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
+<p>此时的效果大概如下：</p>
+<p><img src="/2020/01/30/Three.js教程（5）：光源/4.png" alt="只有PointLight"></p>
+<p>这一块建议运行一下代码，代码中可以更好的测试各个参数。</p>
+<h2 id="DirectionalLight"><a href="#DirectionalLight" class="headerlink" title="DirectionalLight"></a>DirectionalLight</h2><p><a href="https://threejs.org/docs/index.html#api/en/lights/DirectionalLight" target="_blank" rel="noopener">DirectionalLight</a>顾名思义是一种平行的直线光源（平行光光源）。<strong>平行光光源的光线是平行的，可以产生阴影，所有光的强度都一样。</strong>它有一个<code>target</code>属性表示照射到哪个位置上，另外可以使用<code>directionalLight.shadow.camera.left</code>或者<code>directionalLight.shadowCameraLeft</code>来设置阴影的左边距，同样的也可以设置右边、上边、下边等边距，这样就可以确定一个阴影的范围（阴影越大性能会越差，所以平行光需要设置阴影范围）。</p>
+<p>我们把第一个例子中的聚光灯光源换成平行光光源，如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 添加光源</span></span><br><span class="line"><span class="keyword">var</span> directionalLight = <span class="keyword">new</span> THREE.DirectionalLight(<span class="string">'#ffffff'</span>);</span><br><span class="line">directionalLight.position.set(<span class="number">0</span>, obj.y, <span class="number">0</span>);</span><br><span class="line">directionalLight.castShadow = <span class="literal">true</span>;</span><br><span class="line">directionalLight.shadow.mapSize.width = <span class="number">512</span>;  <span class="comment">// default</span></span><br><span class="line">directionalLight.shadow.mapSize.height = <span class="number">512</span>; <span class="comment">// default</span></span><br><span class="line">directionalLight.shadow.camera.near = <span class="number">0.5</span>;</span><br><span class="line">directionalLight.shadow.camera.far = <span class="number">1000</span>;</span><br><span class="line">directionalLight.shadow.camera.left = <span class="number">-15</span>;</span><br><span class="line">directionalLight.shadow.camera.right = <span class="number">15</span>;</span><br><span class="line">directionalLight.shadow.camera.top = <span class="number">15</span>;</span><br><span class="line">directionalLight.shadow.camera.bottom = <span class="number">-15</span>;</span><br><span class="line">scene.add(directionalLight);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 光照指向平地</span></span><br><span class="line">directionalLight.target = plane;</span><br></pre></td></tr></table></figure>
+<p>此时的效果大概如下：</p>
+<p><img src="/2020/01/30/Three.js教程（5）：光源/5.png" alt="DirectionalLight"></p>
+<h2 id="AmbientLight"><a href="#AmbientLight" class="headerlink" title="AmbientLight"></a>AmbientLight</h2><p><a href="https://threejs.org/docs/index.html#api/en/lights/AmbientLight" target="_blank" rel="noopener">AmbientLight</a>的<strong>作用是给场景添加一种全局的颜色</strong>。该光源<strong>没有方向，也不产生阴影</strong>。如果你需要给场景中添加一种额外的统一的颜色，那么可以考虑使用<code>AmbientLight</code>，比如在上一个例子中添加一种紫色来烘托氛围，那么就可以使用该光源。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ambientLight = <span class="keyword">new</span> THREE.AmbientLight(<span class="string">'#9370DB'</span>);</span><br><span class="line">scene.add(ambientLight);</span><br></pre></td></tr></table></figure>
+<p>上述效果如下：</p>
+<p><img src="/2020/01/30/Three.js教程（5）：光源/6.png" alt="AmbientLight"></p>
+<h2 id="HemisphereLight"><a href="#HemisphereLight" class="headerlink" title="HemisphereLight"></a>HemisphereLight</h2><p>上述<code>AmbientLight</code>主要的作用就是给环境中添加一种颜色，还有一种给环境中添加颜色的光源，就是<a href="https://threejs.org/docs/index.html#api/en/lights/HemisphereLight" target="_blank" rel="noopener">HemisphereLight</a>。<code>HemisphereLight</code>是一种更加贴近自然的光源，它的第一个参数表示天空的颜色，第二个参数表示地面（或者环境）的颜色，第三个参数是<code>intensity</code>表示强度。我们把上个例子中的<code>AmbientLight</code>替换为<code>HemisphereLight</code>，如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> hemisphereLight = <span class="keyword">new</span> THREE.HemisphereLight(<span class="string">'#87ceeb'</span>, <span class="string">'#f5deb3'</span>, <span class="number">0.4</span>);</span><br><span class="line">scene.add(hemisphereLight);</span><br></pre></td></tr></table></figure>
+<p>上述效果如下：</p>
+<p><img src="/2020/01/30/Three.js教程（5）：光源/7.png" alt="HemisphereLight"></p>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+        
+        <div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-paw"></i> 感谢您的阅读-------------</div>
+
+</div>
+        
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Three-js/" rel="tag"># Three.js</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/01/07/Chrome的小恐龙游戏自动躲避障碍物/" rel="next" title="Chrome的小恐龙游戏自动躲避障碍物">
+                <i class="fa fa-chevron-left"></i> Chrome的小恐龙游戏自动躲避障碍物
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/02/01/Three.js教程（6）：几何体/" rel="prev" title="Three.js教程（6）：几何体">
+                Three.js教程（6）：几何体 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80Mjk3Mi8xOTUxOA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Orange">
+            
+              <p class="site-author-name" itemprop="name">Orange</p>
+              <p class="site-description motion-element" itemprop="description">励志改变人生，编程改变命运</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">72</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/KaiOrange" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://juejin.im/user/58e7b2f1da2f60005ff74b41" target="_blank" title="掘金">
+                      
+                        <i class="fa fa-fw fa-html5"></i>掘金</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#光源简介"><span class="nav-number">1.</span> <span class="nav-text">光源简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpotLight"><span class="nav-number">2.</span> <span class="nav-text">SpotLight</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PointLight"><span class="nav-number">3.</span> <span class="nav-text">PointLight</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DirectionalLight"><span class="nav-number">4.</span> <span class="nav-text">DirectionalLight</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AmbientLight"><span class="nav-number">5.</span> <span class="nav-text">AmbientLight</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HemisphereLight"><span class="nav-number">6.</span> <span class="nav-text">HemisphereLight</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Orange</span>
+
+  <span class="with-love">
+    <span><i class="fa fa-line-chart"></i></span>博客全站共111.1k字
+  </span>
+
+  <span class="with-love">
+    <span><i class="fa fa-shield"></i></span><a href="http://www.beian.miit.gov.cn/" target="_blank"> 浙ICP备19052357号</a>
+  </span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">由于作者技术水平有限，如有不正确的地方请及时<a href="https://github.com/KaiOrange/blog/issues/new">与我联系</a></div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/fastclick/1.0.6/fastclick.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/velocity/1.2.1/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/velocity/1.2.1/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var url = location.pathname.replace(/index\.html$/g,'')
+        if(url && url[url.length - 1] !== '/'){
+          url += '/'
+        }
+        
+          window.livereOptions = {
+            refer: 'https://www.kai666666.top' + url
+          }
+        
+
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("5hMjWYdBcTn2DNzg8Np0EiDt-gzGzoHsz", "tmetR6q0QiHA7NnHo19uXnAX");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <style>
+      mjx-mspace {
+        display: block;
+        margin-top: 10px;
+      }
+      mjx-math {
+        text-align: center;
+      }
+    </style>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+
+
+  
+
+  
+
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/clicklove.js"></script>
+  <!-- 注入环境变量 -->
+  <script type="text/javascript" src="/js/src/env.js"></script>
+  <!-- 页面定制化 -->
+  <script type="text/javascript" src="/js/src/customization.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/nito.model.json"},"display":{"position":"right","hOffset":65,"vOffset":0,"width":230,"height":300},"mobile":{"show":false},"dialog":{"enable":true,"hitokoto":true},"log":false});</script></body>
+</html>

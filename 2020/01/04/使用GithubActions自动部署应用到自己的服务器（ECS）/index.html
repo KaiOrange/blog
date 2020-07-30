@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="google-site-verification" content="Vi2JgRixg6-a8V4yXGbbyQ1auGfqAdAovzvni2zp_QI">
+
+
+
+  <meta name="msvalidate.01" content="FB13B92CC5325ADB079D001997D2D2E7">
+
+
+
+
+
+
+  <meta name="360-site-verification" content="d05ee7b907219e8315616ec0d33e6173">
+
+
+
+  <meta name="baidu-site-verification" content="Bnpl6Gxg95">
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Github Actiona,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="橙光笔记" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="最近折腾了一段时间的Github Actions，踩了不少坑，最后成功实现了自动部署到自己的服务器上。Github Actions是Github上一个类似于持续集成的功能，它允许你在一些节点上（如提交代码，特定时间等）触发一些操作。我们这里就利用它来实现自动部署应用到自己的服务器。  自动部署个人博客到服务器我的个人博客是使用Hexo构建的，所以这里就以Hexo为例。 如果没有Github Act">
+<meta name="keywords" content="Github Actiona">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用GithubActions自动部署应用到自己的服务器（ECS）">
+<meta property="og:url" content="https://www.kai666666.top/2020/01/04/使用GithubActions自动部署应用到自己的服务器（ECS）/index.html">
+<meta property="og:site_name" content="橙光笔记">
+<meta property="og:description" content="最近折腾了一段时间的Github Actions，踩了不少坑，最后成功实现了自动部署到自己的服务器上。Github Actions是Github上一个类似于持续集成的功能，它允许你在一些节点上（如提交代码，特定时间等）触发一些操作。我们这里就利用它来实现自动部署应用到自己的服务器。  自动部署个人博客到服务器我的个人博客是使用Hexo构建的，所以这里就以Hexo为例。 如果没有Github Act">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://www.kai666666.top/2020/01/04/使用GithubActions自动部署应用到自己的服务器（ECS）/1.png">
+<meta property="og:image" content="https://www.kai666666.top/2020/01/04/使用GithubActions自动部署应用到自己的服务器（ECS）/2.png">
+<meta property="og:image" content="https://www.kai666666.top/2020/01/04/使用GithubActions自动部署应用到自己的服务器（ECS）/3.png">
+<meta property="og:image" content="https://www.kai666666.top/2020/01/04/使用GithubActions自动部署应用到自己的服务器（ECS）/4.png">
+<meta property="og:image" content="https://www.kai666666.top/2020/01/04/使用GithubActions自动部署应用到自己的服务器（ECS）/5.png">
+<meta property="og:image" content="https://www.kai666666.top/2020/01/04/使用GithubActions自动部署应用到自己的服务器（ECS）/6.png">
+<meta property="og:updated_time" content="2020-01-04T11:31:08.716Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用GithubActions自动部署应用到自己的服务器（ECS）">
+<meta name="twitter:description" content="最近折腾了一段时间的Github Actions，踩了不少坑，最后成功实现了自动部署到自己的服务器上。Github Actions是Github上一个类似于持续集成的功能，它允许你在一些节点上（如提交代码，特定时间等）触发一些操作。我们这里就利用它来实现自动部署应用到自己的服务器。  自动部署个人博客到服务器我的个人博客是使用Hexo构建的，所以这里就以Hexo为例。 如果没有Github Act">
+<meta name="twitter:image" content="https://www.kai666666.top/2020/01/04/使用GithubActions自动部署应用到自己的服务器（ECS）/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"sidebar":"fadeIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://www.kai666666.top/2020/01/04/使用GithubActions自动部署应用到自己的服务器（ECS）/">
+
+
+
+
+
+  <title>使用GithubActions自动部署应用到自己的服务器（ECS） | 橙光笔记</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?6594cdc4e60fe2cda8b79d9537e2968c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/KaiOrange" id="github-corner" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">橙光笔记</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-top">
+          <a href="/top/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-signal"></i> <br>
+            
+            热度
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-we-favorites">
+          <a href="/we-favorites/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
+            
+            特效收藏馆
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-link"></i> <br>
+            
+            友链
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.kai666666.top/2020/01/04/使用GithubActions自动部署应用到自己的服务器（ECS）/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Orange">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="橙光笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">使用GithubActions自动部署应用到自己的服务器（ECS）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-04T16:08:40+08:00">
+                2020-01-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Node/" itemprop="url" rel="index">
+                    <span itemprop="name">Node</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/01/04/使用GithubActions自动部署应用到自己的服务器（ECS）/" class="leancloud_visitors" data-flag-title="使用GithubActions自动部署应用到自己的服务器（ECS）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近折腾了一段时间的<a href="https://github.com/marketplace?type=actions" target="_blank" rel="noopener">Github Actions</a>，踩了不少坑，最后成功实现了自动部署到自己的服务器上。<strong>Github Actions</strong>是Github上一个类似于持续集成的功能，它允许你在一些节点上（如提交代码，特定时间等）触发一些操作。我们这里就利用它来实现自动部署应用到自己的服务器。</p>
+<hr>
+<h2 id="自动部署个人博客到服务器"><a href="#自动部署个人博客到服务器" class="headerlink" title="自动部署个人博客到服务器"></a>自动部署个人博客到服务器</h2><p>我的个人博客是使用<a href="https://github.com/hexojs/hexo" target="_blank" rel="noopener">Hexo</a>构建的，所以这里就以Hexo为例。</p>
+<p>如果没有<strong>Github Actions</strong>我们部署自己的博客需要下面这么几步：</p>
+<ol>
+<li>运行<code>hexo clean</code>（或者<code>hexo c</code>）命令，清空缓存；</li>
+<li>运行<code>hexo generate</code>（或者<code>hexo g</code>）命令，生成编译后的html文件；</li>
+<li>运行<code>hexo deploy</code>（或者<code>hexo d</code>）命令，部署到github的某个分支上；</li>
+<li>如果使用自己的服务器，那么还需要在自己服务器把代码拉下来。</li>
+</ol>
+<p>现在使用<strong>Github Actions</strong>的话只需要把master分支上的代码提交了，就可以了。具体做法如下：</p>
+<ol>
+<li><p>去Github点击Actions，然后在下面随便选择一个，就比如第一个<code>Set up this workflow</code>；</p>
+<p><img src="/2020/01/04/使用GithubActions自动部署应用到自己的服务器（ECS）/1.png" alt="新建Github Actions"></p>
+</li>
+<li><p>把下面的<code>workflow</code>粘贴到编辑区；</p>
+<p><img src="/2020/01/04/使用GithubActions自动部署应用到自己的服务器（ECS）/2.png" alt="修改workflow内容"></p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># deploy.yml</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">deploy</span> <span class="string">blog</span> <span class="string">to</span> <span class="string">aliyun</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line"><span class="attr">  push:</span></span><br><span class="line"><span class="attr">    branches:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">master</span></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line"><span class="attr">  build:</span></span><br><span class="line"><span class="attr">    runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line"><span class="attr">    steps:</span></span><br><span class="line">      <span class="comment"># 切换分支</span></span><br><span class="line"><span class="attr">      - name:</span> <span class="string">Checkout</span></span><br><span class="line"><span class="attr">        uses:</span> <span class="string">actions/checkout@master</span></span><br><span class="line">      <span class="comment"># 下载 git submodule</span></span><br><span class="line"><span class="attr">      - uses:</span> <span class="string">srt32/git-actions@v0.0.3</span></span><br><span class="line"><span class="attr">        with:</span></span><br><span class="line"><span class="attr">          args:</span> <span class="string">git</span> <span class="string">submodule</span> <span class="string">update</span> <span class="bullet">--init</span> <span class="bullet">--recursive</span></span><br><span class="line">      <span class="comment"># 使用 node:10</span></span><br><span class="line"><span class="attr">      - name:</span> <span class="string">use</span> <span class="string">Node.js</span> <span class="number">10</span></span><br><span class="line"><span class="attr">        uses:</span> <span class="string">actions/setup-node@v1</span></span><br><span class="line"><span class="attr">        with:</span></span><br><span class="line"><span class="attr">          node-version:</span> <span class="number">10</span></span><br><span class="line">      <span class="comment"># npm install</span></span><br><span class="line"><span class="attr">      - name:</span> <span class="string">npm</span> <span class="string">install</span></span><br><span class="line"><span class="attr">        run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          npm install -g hexo-cli</span></span><br><span class="line"><span class="string">          npm install</span></span><br><span class="line"><span class="string"></span><span class="attr">        env:</span></span><br><span class="line"><span class="attr">          CI:</span> <span class="literal">true</span></span><br><span class="line">      <span class="comment"># build</span></span><br><span class="line"><span class="attr">      - name:</span> <span class="string">hexo</span> <span class="string">build</span></span><br><span class="line"><span class="attr">        run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          hexo clean</span></span><br><span class="line"><span class="string">          hexo generate</span></span><br><span class="line"><span class="string"></span><span class="attr">        env:</span></span><br><span class="line"><span class="attr">          CI:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">      <span class="comment"># Deploy</span></span><br><span class="line"><span class="attr">      - name:</span> <span class="string">Deploy</span></span><br><span class="line"><span class="attr">        uses:</span> <span class="string">easingthemes/ssh-deploy@v2.0.7</span></span><br><span class="line"><span class="attr">        env:</span></span><br><span class="line"><span class="attr">          SSH_PRIVATE_KEY:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.ACCESS_TOKEN</span> <span class="string">&#125;&#125;</span></span><br><span class="line"><span class="attr">          ARGS:</span> <span class="string">"-avz --delete"</span></span><br><span class="line"><span class="attr">          SOURCE:</span> <span class="string">"public/"</span></span><br><span class="line"><span class="attr">          REMOTE_HOST:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.REMOTE_HOST</span> <span class="string">&#125;&#125;</span></span><br><span class="line"><span class="attr">          REMOTE_USER:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.REMOTE_USER</span> <span class="string">&#125;&#125;</span></span><br><span class="line"><span class="attr">          TARGET:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.TARGET</span> <span class="string">&#125;&#125;</span></span><br></pre></td></tr></table></figure>
+<p>此时<strong>先别急着点提交</strong>，我们先看看我们的内容。文件中<code>#</code>后面的表示是注释，我们不用管。<code>name</code>相当于起了一个名字，这个名字可以在部署的时候看的到；只要能看出部署到了哪一步就可以。<code>on</code>表示触发条件，这里是<code>master</code>分支，<code>push</code>的时候会触发，也就是我们推送代码的时候触发这个<code>workflow</code>。我们再往下看，<code>jobs</code>表示执行的任务，一个<code>workflow</code>可以有多个任务。再下面<code>runs-on</code>表示运行环境，这里用的是最新的<code>ubuntu</code>系统（Linux系统的一种发行版）。<code>steps</code>是任务中具体的步骤，里面的每一个<code>-</code>代表了一个<code>action</code>，其中<code>action</code>也可以有自己的<code>name</code>，也可以使用<code>uses</code>使用别人写好的<code>action</code>。那怎么看有哪些<code>actions</code>呢？可以看<a href="https://github.com/marketplace?type=actions" target="_blank" rel="noopener">这里</a>，使用别人的<code>action</code>的格式是<code>uses: 用户名/action名称@版本号</code>。<br>此时我们可以看到我们的actions中有一些<code>切换分支</code>、<code>下载 git submodule</code>、<code>使用 node:10</code>、<code>npm install</code>等，相信你基本上都可以看得懂，最重要的就是最后一个<code>action</code>，他的目的就是把构建好的代码拷贝到自己的服务器的某个目录下。这里的值有些是字符串，有些值是<code>${ { secrets.XXX } }</code>这种格式，表示使用变量，使用的目的当然是为了安全，比如我们这里的<code>secrets.ACCESS_TOKEN</code>就是一个服务器的私钥，这种东西当然不能公开。现在我们现在设置这些值，所以开头的时候说<strong>先别急着点提交</strong>，因为此时提交了也会报错，下一步就先设置这些值。</p>
+</li>
+<li><p>在<code>secrets</code>下设置需要保密的值。</p>
+<p>浏览器新增一个窗口，打开现在的这个项目的网页，然后点项目后面的<code>Settings</code>，然后点击<code>Secrets</code>中的<code>Add a new secret</code>按钮。</p>
+<p><img src="/2020/01/04/使用GithubActions自动部署应用到自己的服务器（ECS）/3.png" alt="修改workflow内容"></p>
+<p>首先添加的是<code>ACCESS_TOKEN</code>（名字与第二步的<code>workflow</code>中名字相同就可以了），这个值<strong>并不是你服务器的密码</strong>。那么这个值是什么呢？首先去你服务器的<code>~/.ssh</code>目录，此时目录下应该有4个文件，分别是<code>authorized_keys</code>、<code>id_rsa</code>、<code>id_rsa.pub</code>、<code>known_hosts</code>。如果没有<code>id_rsa</code>和<code>id_rsa.pub</code>的，可以使用<code>ssh-keygen</code>来生成，这两个文件就是安装Git时需要生成的私钥和公钥。这个时候你看看<code>authorized_keys</code>里面有没有内容，如果有内容说明你之前设置过，<code>ACCESS_TOKEN</code>的值就是<code>authorized_keys</code>所对应的私钥。如果没有内容的话，你可以直接设置为公钥<code>id_rsa.pub</code>的内容，如执行命令<code>cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</code>，此时就会把<code>id_rsa.pub</code>的内容写入<code>authorized_keys</code>中，然后把<code>ACCESS_TOKEN</code>的值设置为私钥<code>id_rsa</code>中的内容，你可以运行命令<code>cat ~/.ssh/id_rsa</code> 然后把内容复制一份到<code>ACCESS_TOKEN</code>中，如下：</p>
+<p><img src="/2020/01/04/使用GithubActions自动部署应用到自己的服务器（ECS）/4.png" alt="设置ACCESS_TOKEN的值"></p>
+<p>设置<code>ACCESS_TOKEN</code>值的<strong>目的是为了远程不使用密码来连接服务器</strong>，当<code>ACCESS_TOKEN</code>的值设置好了，接下来就容易了。依次设置<code>REMOTE_HOST</code>、<code>REMOTE_USER</code>、<code>TARGET</code>的值，比如<code>47.111.177.111</code>、<code>root</code>、<code>/home/blog</code>等，具体的根据自己的ECS来设置。</p>
+</li>
+<li><p>提交<code>workflow</code>文件。</p>
+<p>浏览器的标签切换到刚才的那个页面，然后提交<code>workflow</code>。当提交后可以看到代码的根目录下多了一个<code>.github/workflows/deploy.yml</code>文件（文件名叫什么无所谓），然后点击Actions标签看有一个<code>workflow</code>在运行，等待一会，如果显示如下，说明就好了：</p>
+<p><img src="/2020/01/04/使用GithubActions自动部署应用到自己的服务器（ECS）/5.png" alt="设置成功"></p>
+<p>如果你老老实实按照上面的步骤来做的话，基本上不会有什么问题，如果你执行后报错如下，说明失败了：</p>
+<p><img src="/2020/01/04/使用GithubActions自动部署应用到自己的服务器（ECS）/6.png" alt="设置失败"></p>
+<p>上面这个错非常典型，主要原因有两种一个就是没有连上你的主机，你可以检查一下你的私钥什么的看有没有配置错误。另外有可能你是的目录配置的有问题。通常首次在云服务上部署的时候，云服务器运营商会发短信或者邮件告诉你登录异常，如果出现这个的时候说明已经登录上去了，那就很可能是目录等配置的有问题。</p>
+</li>
+</ol>
+<p>通过上述设置后只要往master推送，就可以自动构建了，非常方便。</p>
+<h2 id="自动部署前端应用到服务器"><a href="#自动部署前端应用到服务器" class="headerlink" title="自动部署前端应用到服务器"></a>自动部署前端应用到服务器</h2><p>前端应用往往都是静态的页面，大多数都会基于<code>vue-cli</code>或者<code>create-react-app</code>等脚手架来开发的。这些脚手架构造的应用往往运行<code>npm run build</code>命令，然后生成<code>dist</code>目录，再通过<code>nginx</code>等服务器来启动。我们这里也使用这样的场景。</p>
+<p>上面我们使用的是Github自带的创建方式，现在我们直接在代码的根目录创建<code>.github/workflows/deploy.yml</code>文件。然后在项目的<code>Settings</code>下的<code>Secrets</code>里面添加上面的内容，最后复制如下代码到<code>.github/workflows/deploy.yml</code>文件中：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># deploy.yml</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">deploy</span> <span class="string">to</span> <span class="string">aliyun</span></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line"><span class="attr">  push:</span></span><br><span class="line"><span class="attr">    branches:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">master</span></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line"><span class="attr">  build:</span></span><br><span class="line"><span class="attr">    runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line"><span class="attr">    steps:</span></span><br><span class="line">      <span class="comment"># 切换分支</span></span><br><span class="line"><span class="attr">      - name:</span> <span class="string">Checkout</span></span><br><span class="line"><span class="attr">        uses:</span> <span class="string">actions/checkout@master</span></span><br><span class="line">      <span class="comment"># 下载 git submodule</span></span><br><span class="line"><span class="attr">      - uses:</span> <span class="string">srt32/git-actions@v0.0.3</span></span><br><span class="line"><span class="attr">        with:</span></span><br><span class="line"><span class="attr">          args:</span> <span class="string">git</span> <span class="string">submodule</span> <span class="string">update</span> <span class="bullet">--init</span> <span class="bullet">--recursive</span></span><br><span class="line">      <span class="comment"># 使用 node:10</span></span><br><span class="line"><span class="attr">      - name:</span> <span class="string">use</span> <span class="string">Node.js</span> <span class="number">10</span></span><br><span class="line"><span class="attr">        uses:</span> <span class="string">actions/setup-node@v1</span></span><br><span class="line"><span class="attr">        with:</span></span><br><span class="line"><span class="attr">          node-version:</span> <span class="number">10</span></span><br><span class="line">      <span class="comment"># npm install</span></span><br><span class="line"><span class="attr">      - name:</span> <span class="string">npm</span> <span class="string">install</span> <span class="string">and</span> <span class="string">build</span></span><br><span class="line"><span class="attr">        run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          npm install</span></span><br><span class="line"><span class="string">          npm run build</span></span><br><span class="line"><span class="string"></span><span class="attr">        env:</span></span><br><span class="line"><span class="attr">          CI:</span> <span class="literal">true</span></span><br><span class="line">      <span class="comment"># Deploy</span></span><br><span class="line"><span class="attr">      - name:</span> <span class="string">Deploy</span></span><br><span class="line"><span class="attr">        uses:</span> <span class="string">easingthemes/ssh-deploy@v2.0.7</span></span><br><span class="line"><span class="attr">        env:</span></span><br><span class="line"><span class="attr">          SSH_PRIVATE_KEY:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.ACCESS_TOKEN</span> <span class="string">&#125;&#125;</span></span><br><span class="line"><span class="attr">          ARGS:</span> <span class="string">"-avz --delete"</span></span><br><span class="line"><span class="attr">          SOURCE:</span> <span class="string">"dist/"</span></span><br><span class="line"><span class="attr">          REMOTE_HOST:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.REMOTE_HOST</span> <span class="string">&#125;&#125;</span></span><br><span class="line"><span class="attr">          REMOTE_USER:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.REMOTE_USER</span> <span class="string">&#125;&#125;</span></span><br><span class="line"><span class="attr">          TARGET:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.TARGET</span> <span class="string">&#125;&#125;</span></span><br></pre></td></tr></table></figure>
+<p>可以看到步骤和之前的基本上如出一辙。</p>
+<h2 id="题外话：使用ACCESS-TOKEN是否安全"><a href="#题外话：使用ACCESS-TOKEN是否安全" class="headerlink" title="题外话：使用ACCESS_TOKEN是否安全"></a>题外话：使用ACCESS_TOKEN是否安全</h2><p>是否安全呢？首先需要告诉你的是，如果有人知道<code>ACCESS_TOKEN</code>与你的服务器的地址那么就可以不用密码登录到你的服务器。但是Github作为一个有责任的、受社会监督的公司，是绝对不会泄露和使用你的这些数据的。但是你需要确保你添加<code>Secrets</code>时的网络环境是否安全。总的来说，<strong>安全是相对的</strong>，使用Github Actions提交的安全隐患是有的，不过大多数情况下还是认为可以信赖的。</p>
+<p>参考文档：</p>
+<blockquote>
+<p><a href="http://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html" target="_blank" rel="noopener">GitHub Actions 入门教程 - 阮一峰</a><br><a href="http://www.ruanyifeng.com/blog/2019/12/github_actions.html" target="_blank" rel="noopener">GitHub Actions 教程：定时发送天气邮件 - 阮一峰</a><br><a href="https://didiheng.com/front/2019-12-11.html" target="_blank" rel="noopener">真香！GitHub Action一键部署 - Yopai</a></p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+        
+        <div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-paw"></i> 感谢您的阅读-------------</div>
+
+</div>
+        
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Github-Actiona/" rel="tag"># Github Actiona</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/23/Three.js教程（4）：相机/" rel="next" title="Three.js教程（4）：相机">
+                <i class="fa fa-chevron-left"></i> Three.js教程（4）：相机
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/01/06/Nuxt项目给script标签添加crossorigin属性/" rel="prev" title="Nuxt项目给script标签添加crossorigin属性">
+                Nuxt项目给script标签添加crossorigin属性 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80Mjk3Mi8xOTUxOA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Orange">
+            
+              <p class="site-author-name" itemprop="name">Orange</p>
+              <p class="site-description motion-element" itemprop="description">励志改变人生，编程改变命运</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">72</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/KaiOrange" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://juejin.im/user/58e7b2f1da2f60005ff74b41" target="_blank" title="掘金">
+                      
+                        <i class="fa fa-fw fa-html5"></i>掘金</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#自动部署个人博客到服务器"><span class="nav-number">1.</span> <span class="nav-text">自动部署个人博客到服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动部署前端应用到服务器"><span class="nav-number">2.</span> <span class="nav-text">自动部署前端应用到服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题外话：使用ACCESS-TOKEN是否安全"><span class="nav-number">3.</span> <span class="nav-text">题外话：使用ACCESS_TOKEN是否安全</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Orange</span>
+
+  <span class="with-love">
+    <span><i class="fa fa-line-chart"></i></span>博客全站共111.1k字
+  </span>
+
+  <span class="with-love">
+    <span><i class="fa fa-shield"></i></span><a href="http://www.beian.miit.gov.cn/" target="_blank"> 浙ICP备19052357号</a>
+  </span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">由于作者技术水平有限，如有不正确的地方请及时<a href="https://github.com/KaiOrange/blog/issues/new">与我联系</a></div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/fastclick/1.0.6/fastclick.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/velocity/1.2.1/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/velocity/1.2.1/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var url = location.pathname.replace(/index\.html$/g,'')
+        if(url && url[url.length - 1] !== '/'){
+          url += '/'
+        }
+        
+          window.livereOptions = {
+            refer: 'https://www.kai666666.top' + url
+          }
+        
+
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("5hMjWYdBcTn2DNzg8Np0EiDt-gzGzoHsz", "tmetR6q0QiHA7NnHo19uXnAX");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <style>
+      mjx-mspace {
+        display: block;
+        margin-top: 10px;
+      }
+      mjx-math {
+        text-align: center;
+      }
+    </style>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+
+
+  
+
+  
+
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/clicklove.js"></script>
+  <!-- 注入环境变量 -->
+  <script type="text/javascript" src="/js/src/env.js"></script>
+  <!-- 页面定制化 -->
+  <script type="text/javascript" src="/js/src/customization.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/nito.model.json"},"display":{"position":"right","hOffset":65,"vOffset":0,"width":230,"height":300},"mobile":{"show":false},"dialog":{"enable":true,"hitokoto":true},"log":false});</script></body>
+</html>

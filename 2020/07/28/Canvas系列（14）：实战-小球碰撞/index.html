@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="google-site-verification" content="Vi2JgRixg6-a8V4yXGbbyQ1auGfqAdAovzvni2zp_QI">
+
+
+
+  <meta name="msvalidate.01" content="FB13B92CC5325ADB079D001997D2D2E7">
+
+
+
+
+
+
+  <meta name="360-site-verification" content="d05ee7b907219e8315616ec0d33e6173">
+
+
+
+  <meta name="baidu-site-verification" content="Bnpl6Gxg95">
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Canvas,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="橙光笔记" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="两小球碰撞是Canvas非常经典的案例，他是一个很简单的需求，但做起来却非常复杂。  小球移动操作根据前面的学习，我们对小球的基本运动了如指掌，直接来一个小球的移动操作，代码如下： 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859">
+<meta name="keywords" content="Canvas">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Canvas系列（14）：实战-小球碰撞">
+<meta property="og:url" content="https://www.kai666666.top/2020/07/28/Canvas系列（14）：实战-小球碰撞/index.html">
+<meta property="og:site_name" content="橙光笔记">
+<meta property="og:description" content="两小球碰撞是Canvas非常经典的案例，他是一个很简单的需求，但做起来却非常复杂。  小球移动操作根据前面的学习，我们对小球的基本运动了如指掌，直接来一个小球的移动操作，代码如下： 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://www.kai666666.top/2020/07/28/Canvas系列（14）：实战-小球碰撞/1.gif">
+<meta property="og:image" content="https://www.kai666666.top/2020/07/28/Canvas系列（14）：实战-小球碰撞/2.png">
+<meta property="og:image" content="https://www.kai666666.top/2020/07/28/Canvas系列（14）：实战-小球碰撞/3.gif">
+<meta property="og:image" content="https://www.kai666666.top/2020/07/28/Canvas系列（14）：实战-小球碰撞/4.png">
+<meta property="og:image" content="https://www.kai666666.top/2020/07/28/Canvas系列（14）：实战-小球碰撞/5.png">
+<meta property="og:image" content="https://www.kai666666.top/2020/07/28/Canvas系列（14）：实战-小球碰撞/6.png">
+<meta property="og:image" content="https://www.kai666666.top/2020/07/28/Canvas系列（14）：实战-小球碰撞/7.png">
+<meta property="og:image" content="https://www.kai666666.top/2020/07/28/Canvas系列（14）：实战-小球碰撞/8.png">
+<meta property="og:image" content="https://www.kai666666.top/2020/07/28/Canvas系列（14）：实战-小球碰撞/9.png">
+<meta property="og:image" content="https://www.kai666666.top/2020/07/28/Canvas系列（14）：实战-小球碰撞/10.png">
+<meta property="og:image" content="https://www.kai666666.top/2020/07/28/Canvas系列（14）：实战-小球碰撞/11.png">
+<meta property="og:image" content="https://www.kai666666.top/2020/07/28/Canvas系列（14）：实战-小球碰撞/12.png">
+<meta property="og:image" content="https://www.kai666666.top/2020/07/28/Canvas系列（14）：实战-小球碰撞/13.png">
+<meta property="og:image" content="https://www.kai666666.top/2020/07/28/Canvas系列（14）：实战-小球碰撞/14.png">
+<meta property="og:image" content="https://www.kai666666.top/2020/07/28/Canvas系列（14）：实战-小球碰撞/15.png">
+<meta property="og:image" content="https://www.kai666666.top/2020/07/28/Canvas系列（14）：实战-小球碰撞/16.gif">
+<meta property="og:image" content="https://www.kai666666.top/2020/07/28/Canvas系列（14）：实战-小球碰撞/17.gif">
+<meta property="og:updated_time" content="2020-07-30T06:29:51.019Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Canvas系列（14）：实战-小球碰撞">
+<meta name="twitter:description" content="两小球碰撞是Canvas非常经典的案例，他是一个很简单的需求，但做起来却非常复杂。  小球移动操作根据前面的学习，我们对小球的基本运动了如指掌，直接来一个小球的移动操作，代码如下： 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859">
+<meta name="twitter:image" content="https://www.kai666666.top/2020/07/28/Canvas系列（14）：实战-小球碰撞/1.gif">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"sidebar":"fadeIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://www.kai666666.top/2020/07/28/Canvas系列（14）：实战-小球碰撞/">
+
+
+
+
+
+  <title>Canvas系列（14）：实战-小球碰撞 | 橙光笔记</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?6594cdc4e60fe2cda8b79d9537e2968c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/KaiOrange" id="github-corner" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">橙光笔记</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-top">
+          <a href="/top/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-signal"></i> <br>
+            
+            热度
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-we-favorites">
+          <a href="/we-favorites/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
+            
+            特效收藏馆
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-link"></i> <br>
+            
+            友链
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.kai666666.top/2020/07/28/Canvas系列（14）：实战-小球碰撞/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Orange">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="橙光笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Canvas系列（14）：实战-小球碰撞</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-28T14:00:50+08:00">
+                2020-07-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Canvas/" itemprop="url" rel="index">
+                    <span itemprop="name">Canvas</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/07/28/Canvas系列（14）：实战-小球碰撞/" class="leancloud_visitors" data-flag-title="Canvas系列（14）：实战-小球碰撞">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>两小球碰撞是Canvas非常经典的案例，他是一个很简单的需求，但做起来却非常复杂。</p>
+<hr>
+<h2 id="小球移动操作"><a href="#小球移动操作" class="headerlink" title="小球移动操作"></a>小球移动操作</h2><p>根据前面的学习，我们对小球的基本运动了如指掌，直接来一个小球的移动操作，代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Canvas系列<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span> &gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">    <span class="selector-id">#canvas</span>&#123;</span></span><br><span class="line"><span class="css">      <span class="selector-tag">background</span>: <span class="selector-id">#eeeeee</span>;</span></span><br><span class="line"><span class="css">      <span class="selector-tag">border</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#000000</span>;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">canvas</span>  <span class="attr">id</span>=<span class="string">"canvas"</span> <span class="attr">width</span>=<span class="string">"600"</span> <span class="attr">height</span>=<span class="string">"400"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 获取元素</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">'canvas'</span>);</span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 获取上下文</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> context = canvas.getContext(<span class="string">'2d'</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="actionscript">    <span class="class"><span class="keyword">class</span> <span class="title">Ball</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">constructor</span>(context, options = &#123;&#125;)&#123;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.context = context;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.x = options.x || <span class="number">0</span>;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.y = options.y || <span class="number">0</span>;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.radius = options.radius || <span class="number">20</span>;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.color = options.color || <span class="string">'#000'</span>;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.vx = options.vx || <span class="number">0</span>;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.vy = options.vy || <span class="number">0</span>;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.ax = options.ax || <span class="number">0</span>;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.ay = options.ay || <span class="number">0</span>;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">      update() &#123;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.vx += <span class="keyword">this</span>.ax;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.vy += <span class="keyword">this</span>.ay;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.x += <span class="keyword">this</span>.vx;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.y += <span class="keyword">this</span>.vy;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">      draw() &#123;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.context.beginPath();</span></span><br><span class="line"><span class="javascript">        <span class="keyword">this</span>.context.arc(<span class="keyword">this</span>.x, <span class="keyword">this</span>.y, <span class="keyword">this</span>.radius, <span class="built_in">Math</span>.PI / <span class="number">180</span> * <span class="number">0</span>, <span class="built_in">Math</span>.PI / <span class="number">180</span> * <span class="number">360</span>);</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.context.fillStyle = <span class="keyword">this</span>.color;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.context.closePath();</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.context.fill();</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> balls = []</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="actionscript">    balls.push(<span class="keyword">new</span> Ball(context,&#123;</span></span><br><span class="line"><span class="undefined">      x:20,</span></span><br><span class="line"><span class="undefined">      y:20,</span></span><br><span class="line"><span class="undefined">      vx:3,</span></span><br><span class="line"><span class="undefined">      vy:2,</span></span><br><span class="line"><span class="undefined">      ay:0.5,</span></span><br><span class="line"><span class="actionscript">      color:<span class="string">'red'</span>,</span></span><br><span class="line"><span class="undefined">    &#125;));</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="actionscript">    balls.push(<span class="keyword">new</span> Ball(context,&#123;</span></span><br><span class="line"><span class="undefined">      x:canvas.width - 20,</span></span><br><span class="line"><span class="undefined">      y:20,</span></span><br><span class="line"><span class="undefined">      vx:-3,</span></span><br><span class="line"><span class="undefined">      vy:2,</span></span><br><span class="line"><span class="undefined">      ay:0.5,</span></span><br><span class="line"><span class="actionscript">      color:<span class="string">'blue'</span>,</span></span><br><span class="line"><span class="undefined">    &#125;));</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="actionscript">    <span class="function"><span class="keyword">function</span> <span class="title">checkWalls</span><span class="params">(ball)</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">      <span class="comment">// 边界反弹</span></span></span><br><span class="line"><span class="actionscript">      <span class="keyword">if</span> (ball.x &lt; ball.radius) &#123;</span></span><br><span class="line"><span class="undefined">        ball.x = ball.radius;</span></span><br><span class="line"><span class="undefined">        ball.vx *= -1;</span></span><br><span class="line"><span class="actionscript">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (ball.x &gt; canvas.width - ball.radius) &#123;</span></span><br><span class="line"><span class="undefined">        ball.x = canvas.width - ball.radius;</span></span><br><span class="line"><span class="undefined">        ball.vx *= -1;</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="actionscript">      <span class="keyword">if</span> (ball.y &lt; ball.radius) &#123;</span></span><br><span class="line"><span class="undefined">        ball.y = ball.radius;</span></span><br><span class="line"><span class="undefined">        ball.vy *= -1;</span></span><br><span class="line"><span class="actionscript">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (ball.y &gt; canvas.height - ball.radius) &#123;</span></span><br><span class="line"><span class="undefined">        ball.y = canvas.height - ball.radius;</span></span><br><span class="line"><span class="actionscript">        ball.vy *= <span class="number">-0.95</span>; <span class="comment">// 假设能量损耗是0.05</span></span></span><br><span class="line"><span class="actionscript">        ball.vx *= <span class="number">0.99</span>; <span class="comment">// 摩擦力</span></span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="actionscript">    <span class="function"><span class="keyword">function</span> <span class="title">draw</span><span class="params">(ball)</span></span>&#123;</span></span><br><span class="line"><span class="undefined">      ball.draw();</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="actionscript">    <span class="function"><span class="keyword">function</span> <span class="title">animate</span> <span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="undefined">      requestAnimationFrame(animate);</span></span><br><span class="line"><span class="undefined">      context.clearRect(0, 0, canvas.width, canvas.height);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">      balls.forEach(<span class="function"><span class="params">ball</span>=&gt;</span>&#123;</span></span><br><span class="line"><span class="actionscript">        <span class="comment">// 更新小球的速度</span></span></span><br><span class="line"><span class="undefined">        ball.update();</span></span><br><span class="line"><span class="actionscript">        <span class="comment">// 检测是否碰撞到边界</span></span></span><br><span class="line"><span class="undefined">        checkWalls(ball);</span></span><br><span class="line"><span class="undefined">      &#125;);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="actionscript">      <span class="comment">// 绘制</span></span></span><br><span class="line"><span class="undefined">      balls.forEach(draw);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">    animate();</span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<p><img src="/2020/07/28/Canvas系列（14）：实战-小球碰撞/1.gif" alt="初始效果"></p>
+<h2 id="单轴碰撞"><a href="#单轴碰撞" class="headerlink" title="单轴碰撞"></a>单轴碰撞</h2><p>上面我们可以看到，小球并没有发生碰撞，今天我们研究的课题就是小球碰撞以后是怎么运动的。为了研究方便，本章节并考虑重力的情况。我们先研究一下只有x轴碰撞的情况，如图：</p>
+<p><img src="/2020/07/28/Canvas系列（14）：实战-小球碰撞/2.png" alt="单轴碰撞"></p>
+<p>物理理论：</p>
+<blockquote>
+<p>1.小球在碰撞前后，系统总动量是相同的；<br>2.小球在碰撞前后，系统总动能是相同的。</p>
+</blockquote>
+<p>上面提到了动量和动能，动量等于质量乘以速度，动能等于1/2乘以质量乘以速度的平方。假设第一个小球质量是\(m_0\) ，碰撞前一刹那的瞬时速度是\(v_0\)，碰撞后一刹那的瞬时速度是\(v_{f0}\)；第二个小球质量是\(m_1\)，碰撞前一刹那的瞬时速度是\(v_1\)；碰撞后一刹那的瞬时速度是\(v_{f1}\)，则有公式：</p>
+<p>$$<br>  m_0 v_0 + m_1 v_1 = m_0 v_{f0} + m_1 v_{f1} ① \\<br>  \frac{1}{2} m_0 v_0 ^ 2 + \frac{1}{2} m_1 v_1 ^ 2 = \frac{1}{2} m_0 v_{f0} ^ 2 + \frac{1}{2} m_1 v_{f1} ^ 2  ②<br>$$</p>
+<p>上面第一个公式是<code>动量守恒定律</code>，第二个公式是<code>动能守恒定律</code>。求解\(v_{f0}\)和\(v_{f1}\)过程如下：</p>
+<p>$$<br>由 ① 可得：m_0 ( v_0 - v_{f0} ) =  m_1 ( v_{f1} - v_1 ) ③ \\<br>由 ② 可得：m_0 ( v_0 ^ 2 - v_{f0} ^ 2 ) =  m_1 ( v_{f1} ^ 2 - v_1 ^ 2 ) ④ \\<br>④也就是：m_0 ( v_0 - v_{f0} )( v_0 + v_{f0} ) =  m_1 ( v_{f1} - v_1 )( v_{f1} + v_1 ) ⑤ \\<br>由 ③ 和 ⑤ 可得： v_0 + v_{f0} =  v_1 + v_{f1} ⑥ \\<br>⑥也就是：v_{f1} =  v_0 + v_{f0} - v_1 ⑦ \\<br>将 ⑦ 带入 ① 可得：v_{f0} = \frac{ (m_0 - m_1)v_0 + 2 m_1 v_1  }{ m_0 + m_1} \\<br>同理可得：v_{f1} = \frac{ (m_1 - m_0)v_1 + 2 m_0 v_0  }{ m_0 + m_1} \\<br>$$</p>
+<p>上述解方程过程可以不看，但一定要看最后2行的结论。如果记不住结论也没关系，忘了的时候来这个博客再看看就是了。</p>
+<p>这里有一点需要注意一下，上述十字可以看到当两相求的质量相同的时候，碰撞后的速度是碰撞前两速度的交换。</p>
+<p>由于本章不考虑重力的情况，现在我们把上个例子中关于重力的部分去掉，然后把小球移动到y轴的中间位置，当两小球碰撞的时，使用上述公式计算新的速度，具体代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取元素</span></span><br><span class="line"><span class="keyword">let</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">'canvas'</span>);</span><br><span class="line"><span class="comment">// 获取上下文</span></span><br><span class="line"><span class="keyword">let</span> context = canvas.getContext(<span class="string">'2d'</span>);</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Ball</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(context, options = &#123;&#125;)&#123;</span><br><span class="line">    <span class="keyword">this</span>.context = context;</span><br><span class="line">    <span class="keyword">this</span>.x = options.x || <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">this</span>.y = options.y || <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">this</span>.radius = options.radius || <span class="number">20</span>;</span><br><span class="line">    <span class="keyword">this</span>.color = options.color || <span class="string">'#000'</span>;</span><br><span class="line">    <span class="keyword">this</span>.vx = options.vx || <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">this</span>.vy = options.vy || <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">this</span>.ax = options.ax || <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">this</span>.ay = options.ay || <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">this</span>.mass = options.mass || <span class="number">0</span>; <span class="comment">// 质量</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.mass &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">this</span>.mass = <span class="built_in">Math</span>.pow(<span class="keyword">this</span>.radius, <span class="number">3</span>) / <span class="built_in">Math</span>.pow(<span class="number">20</span>, <span class="number">3</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  update() &#123;</span><br><span class="line">    <span class="keyword">this</span>.vx += <span class="keyword">this</span>.ax;</span><br><span class="line">    <span class="keyword">this</span>.vy += <span class="keyword">this</span>.ay;</span><br><span class="line">    <span class="keyword">this</span>.x += <span class="keyword">this</span>.vx;</span><br><span class="line">    <span class="keyword">this</span>.y += <span class="keyword">this</span>.vy;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  draw() &#123;</span><br><span class="line">    <span class="keyword">this</span>.context.beginPath();</span><br><span class="line">    <span class="keyword">this</span>.context.arc(<span class="keyword">this</span>.x, <span class="keyword">this</span>.y, <span class="keyword">this</span>.radius, <span class="built_in">Math</span>.PI / <span class="number">180</span> * <span class="number">0</span>, <span class="built_in">Math</span>.PI / <span class="number">180</span> * <span class="number">360</span>);</span><br><span class="line">    <span class="keyword">this</span>.context.fillStyle = <span class="keyword">this</span>.color;</span><br><span class="line">    <span class="keyword">this</span>.context.closePath();</span><br><span class="line">    <span class="keyword">this</span>.context.fill();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> balls = []</span><br><span class="line"></span><br><span class="line">balls.push(<span class="keyword">new</span> Ball(context,&#123;</span><br><span class="line">  x:<span class="number">100</span>,</span><br><span class="line">  y:<span class="number">190</span>,</span><br><span class="line">  vx:<span class="number">4</span>,</span><br><span class="line">  <span class="comment">// vy:2,</span></span><br><span class="line">  <span class="comment">// ay:0.5,</span></span><br><span class="line">  color:<span class="string">'red'</span>,</span><br><span class="line">&#125;));</span><br><span class="line"></span><br><span class="line">balls.push(<span class="keyword">new</span> Ball(context,&#123;</span><br><span class="line">  x:canvas.width - <span class="number">100</span>,</span><br><span class="line">  y:<span class="number">190</span>,</span><br><span class="line">  vx:<span class="number">-3</span>,</span><br><span class="line">  <span class="comment">// vy:2,</span></span><br><span class="line">  <span class="comment">// ay:0.5,</span></span><br><span class="line">  color:<span class="string">'blue'</span>,</span><br><span class="line">&#125;));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkWalls</span>(<span class="params">ball</span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 边界反弹</span></span><br><span class="line">  <span class="keyword">if</span> (ball.x &lt; ball.radius) &#123;</span><br><span class="line">    ball.x = ball.radius;</span><br><span class="line">    ball.vx *= <span class="number">-1</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (ball.x &gt; canvas.width - ball.radius) &#123;</span><br><span class="line">    ball.x = canvas.width - ball.radius;</span><br><span class="line">    ball.vx *= <span class="number">-1</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (ball.y &lt; ball.radius) &#123;</span><br><span class="line">    ball.y = ball.radius;</span><br><span class="line">    ball.vy *= <span class="number">-1</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (ball.y &gt; canvas.height - ball.radius) &#123;</span><br><span class="line">    ball.y = canvas.height - ball.radius;</span><br><span class="line">    <span class="comment">// ball.vy *= -0.95; // 假设能量损耗是0.05</span></span><br><span class="line">    <span class="comment">// ball.vx *= 0.99; // 摩擦力</span></span><br><span class="line">    ball.vy *= <span class="number">-1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params">ball</span>)</span>&#123;</span><br><span class="line">  ball.draw();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkCollision</span>(<span class="params">ball0,ball1</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> dist = ball1.x - ball0.x;</span><br><span class="line">  <span class="comment">// 检测冲突</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">Math</span>.abs(dist) &lt; ball0.radius + ball1.radius) &#123;</span><br><span class="line">    <span class="comment">// 这里为了保证计算vf1的时候 ball0的vx还是原来的 所以就用变量来定义了 而不是ball0.vx = xxx</span></span><br><span class="line">    <span class="keyword">let</span> vf0 = ((ball0.mass - ball1.mass) * ball0.vx + <span class="number">2</span> * ball1.mass * ball1.vx) /</span><br><span class="line">      (ball0.mass + ball1.mass);</span><br><span class="line">    <span class="keyword">let</span> vf1 = ((ball1.mass - ball0.mass) * ball1.vx + <span class="number">2</span> * ball0.mass * ball0.vx) /</span><br><span class="line">      (ball0.mass + ball1.mass);</span><br><span class="line"></span><br><span class="line">    ball0.vx = vf0;</span><br><span class="line">    ball1.vx = vf1;</span><br><span class="line"></span><br><span class="line">    ball0.x += ball0.vx;</span><br><span class="line">    ball1.x += ball1.vx;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">animate</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">  requestAnimationFrame(animate);</span><br><span class="line">  context.clearRect(<span class="number">0</span>, <span class="number">0</span>, canvas.width, canvas.height);</span><br><span class="line"></span><br><span class="line">  balls.forEach(<span class="function"><span class="params">ball</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="comment">// 更新小球的速度</span></span><br><span class="line">    ball.update();</span><br><span class="line">    <span class="comment">// 检测是否碰撞到边界</span></span><br><span class="line">    checkWalls(ball);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; balls.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = i + <span class="number">1</span>; j &lt; balls.length; j++) &#123;</span><br><span class="line">      checkCollision(balls[i], balls[j]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 绘制</span></span><br><span class="line">  balls.forEach(draw);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">animate();</span><br></pre></td></tr></table></figure>
+<p>上述代码19行，如果没有传进来质量的话就默认是<code>this.mass = Math.pow(this.radius, 3) / Math.pow(20, 3);</code>，因为球体的体积公式和质量公式如下：</p>
+<p>$$<br>  V = \frac{4}{3} π R ^ 3  \\<br>  m = ρ V<br>$$</p>
+<p>这里我们令系统的密度\(ρ = \frac{3}{4π * 20 ^ 3}\)，这样就可以保证半径为20像素的小球，其质量是1。</p>
+<p>上述方法<code>checkCollision</code>中代码<code>Math.abs(dist) &lt; ball0.radius + ball1.radius</code>用来检测小球是否发生碰撞，如果小球圆心之间的距离小于两个小球的半径之和那么两小球碰撞了，目前因为是单轴的所以就简单的使用距离来判断，后面双轴的时候我们必须使用<code>勾股定理</code>来计算，后面就不再重复了。总的来说上述代码并不难，这里还有一个小技巧，<code>vf1</code>计算的时候我们使用上面的计算速度的公式⑥可以极大的减少运算。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkCollision</span>(<span class="params">ball0,ball1</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> dist = ball1.x - ball0.x;</span><br><span class="line">  <span class="comment">// 检测冲突</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">Math</span>.abs(dist) &lt; ball0.radius + ball1.radius) &#123;</span><br><span class="line">    <span class="comment">// 这里为了保证计算vf1的时候 ball0的vx还是原来的 所以就用变量来定义了 而不是ball0.vx = xxx</span></span><br><span class="line">    <span class="keyword">let</span> vf0 = ((ball0.mass - ball1.mass) * ball0.vx + <span class="number">2</span> * ball1.mass * ball1.vx) /</span><br><span class="line">      (ball0.mass + ball1.mass);</span><br><span class="line">    <span class="keyword">let</span> vf1 = ((ball1.mass - ball0.mass) * ball1.vx + <span class="number">2</span> * ball0.mass * ball0.vx) /</span><br><span class="line">      (ball0.mass + ball1.mass);</span><br><span class="line"></span><br><span class="line">    ball0.vx = vf0;</span><br><span class="line">    ball1.vx = vf1;</span><br><span class="line"></span><br><span class="line">    ball0.x += ball0.vx;</span><br><span class="line">    ball1.x += ball1.vx;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改为：</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkCollision</span>(<span class="params">ball0,ball1</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> dist = ball1.x - ball0.x;</span><br><span class="line">  <span class="comment">// 检测冲突</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">Math</span>.abs(dist) &lt; ball0.radius + ball1.radius) &#123;</span><br><span class="line">    <span class="keyword">let</span> vxTotal = ball0.vx - ball1.vx;</span><br><span class="line">    ball0.vx = ((ball0.mass - ball1.mass) * ball0.vx + <span class="number">2</span> * ball1.mass * ball1.vx) /</span><br><span class="line">      (ball0.mass + ball1.mass);</span><br><span class="line">    ball1.vx = vxTotal + ball0.vx;</span><br><span class="line"></span><br><span class="line">    ball0.x += ball0.vx;</span><br><span class="line">    ball1.x += ball1.vx;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>你会发现效果是一样的，但我们的计算量减小了好多：</p>
+<p><img src="/2020/07/28/Canvas系列（14）：实战-小球碰撞/3.gif" alt="单轴碰撞"></p>
+<h2 id="双轴碰撞理论基础"><a href="#双轴碰撞理论基础" class="headerlink" title="双轴碰撞理论基础"></a>双轴碰撞理论基础</h2><p>上面单轴碰撞是否已经完全掌握了？一定要多看几遍上面的代码，双轴碰撞比单轴碰撞难多了。大多数情况下，小球的碰撞是没有固定方向的，如图：</p>
+<p><img src="/2020/07/28/Canvas系列（14）：实战-小球碰撞/4.png" alt="没有固定方向的运动"></p>
+<p>对于这种情况我们可以把双轴碰撞转换为单轴碰撞。首先旋转坐标系，这里为了方便查看我把圆心之间画了一条红色的线。</p>
+<p><img src="/2020/07/28/Canvas系列（14）：实战-小球碰撞/5.png" alt="旋转坐标系"></p>
+<p>这种情况下，就可以把速度分解在旋转后的坐标系上，绿色部分，如图：</p>
+<p><img src="/2020/07/28/Canvas系列（14）：实战-小球碰撞/6.png" alt="速度的分解"></p>
+<p>由上，我们在新的坐标系中，水平x轴上相当于是单轴碰撞，而y轴上的速度是垂直于x轴的，对x轴上的速度并不影响。当我们计算出x轴上碰撞后速度后，再跟y轴就可以算出新的合速度，如图所示，其中粉色的是单轴碰撞后计算的速度。</p>
+<p><img src="/2020/07/28/Canvas系列（14）：实战-小球碰撞/7.png" alt="单轴碰撞后的速度"></p>
+<p>计算合速度（紫色箭头），如下：</p>
+<p><img src="/2020/07/28/Canvas系列（14）：实战-小球碰撞/8.png" alt="碰撞后的合速度"></p>
+<p>当然我们上面的坐标系都是旋转后的，现在我们再把坐标系旋转回去，新的紫色箭头就是最终的原始坐标系碰撞后的合速度。</p>
+<p><img src="/2020/07/28/Canvas系列（14）：实战-小球碰撞/9.png" alt="碰撞后的合速度"></p>
+<p>计算双轴碰撞的整体步骤就是上面这几步，是不是还挺复杂的？<strong>主要思路就是把双轴碰撞通过旋跟速度的分解转化为单轴碰撞，然后计算出单轴运动后的速度，再进行运动的合成，算出合速度后再把坐标系旋转回去。</strong></p>
+<h2 id="双轴碰撞的代码实现"><a href="#双轴碰撞的代码实现" class="headerlink" title="双轴碰撞的代码实现"></a>双轴碰撞的代码实现</h2><p>首先需要计算旋转的角度，只要三行代码，如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> dx = ball1.x - ball0.x;</span><br><span class="line"><span class="keyword">let</span> dy = ball1.y - ball0.y;</span><br><span class="line"><span class="keyword">let</span> angle = <span class="built_in">Math</span>.atan2(dy, dx);</span><br></pre></td></tr></table></figure>
+<p>这里用到了一个<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math/atan2" target="_blank" rel="noopener">Math.atan2</a>的函数，这个是Canvas中常用的一种计算角度的方法，如图dy与dx使用<code>Math.atan2</code>后的结果就是红色线与x轴的夹角。</p>
+<p><img src="/2020/07/28/Canvas系列（14）：实战-小球碰撞/10.png" alt="旋转夹角计算"></p>
+<p>接下来就是计算旋转了，为了方便计算，我们假设左边小球（这里假设左边小球是ball0，右边的是ball1）的圆心坐标是(0,0)，等我们把一切都计算完后，在把各个位置的坐标加上原来小球的圆心位置坐标就可以了。我们先计算以左侧圆心为(0，0)时，旋转后的圆心坐标，如图：</p>
+<p><img src="/2020/07/28/Canvas系列（14）：实战-小球碰撞/11.png" alt="旋转后"></p>
+<p>左侧圆就是(0,0)，右侧圆可以根据三角函数来计算：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> sin = <span class="built_in">Math</span>.sin(angle);</span><br><span class="line"><span class="keyword">let</span> cos = <span class="built_in">Math</span>.cos(angle);</span><br><span class="line"><span class="comment">// 左侧小球旋转后小球的位置</span></span><br><span class="line"><span class="keyword">let</span> x0 = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">let</span> y0 = <span class="number">0</span>;</span><br><span class="line"><span class="comment">// 右侧小球旋转后小球的位置</span></span><br><span class="line"><span class="keyword">let</span> x1 = dx * cos + dy * sin;</span><br><span class="line"><span class="keyword">let</span> y1 = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<p>未旋转前，各小球的速度vx和vy如下图蓝色部分：</p>
+<p><img src="/2020/07/28/Canvas系列（14）：实战-小球碰撞/12.png" alt="未旋转前的速度分量"></p>
+<p>旋转以后，为了方便查看我添加了两条垂直于x轴的红线，如图，现在需要通过角度和原来的vx月vy，计算出旋转后的速度分量。</p>
+<p><img src="/2020/07/28/Canvas系列（14）：实战-小球碰撞/13.png" alt="旋转后的速度分量"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 旋转后小球0的速度分量</span></span><br><span class="line"><span class="keyword">let</span> vx0 = ball0.vx * cos + ball0.vy * sin;</span><br><span class="line"><span class="keyword">let</span> vy0 = ball0.vy * cos - ball0.vx * sin;</span><br><span class="line"><span class="comment">// 旋转后小球1的速度分量</span></span><br><span class="line"><span class="keyword">let</span> vx1 = ball1.vx * cos + ball1.vy * sin;</span><br><span class="line"><span class="keyword">let</span> vy1 = ball1.vy * cos - ball1.vx * sin;</span><br></pre></td></tr></table></figure>
+<p>一定要注意上述代码中符号的问题，我们拿左边的小球（ball0）速度来说，蓝色的两个速度可以分解到新的坐标系中，如下图，紫色的箭头表示分解后的速度，理论上<code>ball0.vx * cos</code>为图中v1的速度，<code>ball0.vy * sin</code>为图中v2的速度，两个速度的合速度的大小是左边速度（v1）的大小减去右边速度（v2）的大小，但是由于Canvas中y轴是向下的，所以图中的情况<code>ball0.vy</code>是朝上的，也就是<code>ball0.vy</code>是一个负数，所以他算出来的右边的速度（v2）也是一个负数，所以两个直接相加就是最终的合速度了。同样的vy的合速度也是一样的。</p>
+<p><img src="/2020/07/28/Canvas系列（14）：实战-小球碰撞/14.png" alt="计算公式加减号问题"></p>
+<p>从上面代码中，我们可以看到计算x轴的分量和y轴的分量其实都是一个模式，这个后面我们可以抽取一个方法。同样的你会发现上面的x1也是遵循这样的公式，y1我们没有计算直接写的0，其实y1也是符合<code>y1 = dy * cos - dx * sin;</code>的，由图我们可以很直观的看到<code>dy * cos</code>和<code>dx * sin</code>是相同的。其实对于Canvas来说，几乎所有的坐标旋转都是这个套路，一定要牢记。</p>
+<p>接下来就是激动人心的时刻了，我们需要对旋转后x轴进行单轴碰撞了，代码和上面的单轴碰撞的公式几乎是一致的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> vxTotal = vx0 - vx1;</span><br><span class="line">vx0 = ((ball0.mass - ball1.mass) * vx0 + <span class="number">2</span> * ball1.mass * vx1) /</span><br><span class="line">      (ball0.mass + ball1.mass);</span><br><span class="line">vx1 = vxTotal + vx0;</span><br><span class="line"><span class="comment">// 两小球的x坐标加上速度 计算出新的x坐标</span></span><br><span class="line">x0 += vx0;</span><br><span class="line">x1 += vx1;</span><br></pre></td></tr></table></figure>
+<p>现在我们碰撞完了，需要对坐标系进行旋转回去，上面旋转了<code>angle</code>角度，旋转回去相当于旋转了<code>-angle</code>，现在是时候展示三角函数的两个等式了：</p>
+<p>$$<br>  sin{-\theta} = -sin \theta \\<br>  cos{-\theta} = cos \theta<br>$$</p>
+<p>如果公式忘了，下面这个图会更直观：</p>
+<p><img src="/2020/07/28/Canvas系列（14）：实战-小球碰撞/15.png" alt="三角函数图像"></p>
+<p>现在我们只要把负的角度代入上面的函数就好了，所以有如下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 相对于ball0原点为圆心时 旋转回去的坐标</span></span><br><span class="line"><span class="keyword">let</span> x0Final = x0 * cos - y0 * sin;</span><br><span class="line"><span class="keyword">let</span> y0Final = y0 * cos + x0 * sin;</span><br><span class="line"><span class="keyword">let</span> x1Final = x1 * cos - y1 * sin;</span><br><span class="line"><span class="keyword">let</span> y1Final = y1 * cos + x1 * sin;</span><br><span class="line"><span class="comment">// 相对于 原来的坐标</span></span><br><span class="line">ball1.x = ball0.x + x1Final;</span><br><span class="line">ball1.y = ball0.y + y1Final;</span><br><span class="line">ball0.x = ball0.x + x0Final;</span><br><span class="line">ball0.y = ball0.y + y0Final;</span><br></pre></td></tr></table></figure>
+<p>同样的，我们也需要对速度进行旋转：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 速度旋转回去</span></span><br><span class="line">ball0.vx = vx0 * cos - vy0 * sin;</span><br><span class="line">ball0.vy = vy0 * cos + vx0 * sin;</span><br><span class="line">ball1.vx = vx1 * cos - vy1 * sin;</span><br><span class="line">ball1.vy = vy1 * cos + vx1 * sin;</span><br></pre></td></tr></table></figure>
+<p>完整代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkCollision</span>(<span class="params">ball0,ball1</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> dx = ball1.x - ball0.x;</span><br><span class="line">  <span class="keyword">let</span> dy = ball1.y - ball0.y;</span><br><span class="line">  <span class="keyword">let</span> dist = <span class="built_in">Math</span>.sqrt(dx * dx + dy * dy);</span><br><span class="line">  <span class="comment">// 检测冲突</span></span><br><span class="line">  <span class="keyword">if</span> (dist &lt; ball0.radius + ball1.radius) &#123;</span><br><span class="line">    <span class="keyword">let</span> angle = <span class="built_in">Math</span>.atan2(dy, dx);</span><br><span class="line">    <span class="keyword">let</span> sin = <span class="built_in">Math</span>.sin(angle);</span><br><span class="line">    <span class="keyword">let</span> cos = <span class="built_in">Math</span>.cos(angle);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 左侧小球旋转后小球的位置</span></span><br><span class="line">    <span class="keyword">let</span> x0 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> y0 = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 右侧小球旋转后小球的位置</span></span><br><span class="line">    <span class="keyword">let</span> x1 = dx * cos + dy * sin;</span><br><span class="line">    <span class="keyword">let</span> y1 = <span class="number">0</span>; <span class="comment">// 或者 y1 = dy * cos - dx * sin;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 旋转后小球0的速度分量</span></span><br><span class="line">    <span class="keyword">let</span> vx0 = ball0.vx * cos + ball0.vy * sin;</span><br><span class="line">    <span class="keyword">let</span> vy0 = ball0.vy * cos - ball0.vx * sin;</span><br><span class="line">    <span class="comment">// 旋转后小球1的速度分量</span></span><br><span class="line">    <span class="keyword">let</span> vx1 = ball1.vx * cos + ball1.vy * sin;</span><br><span class="line">    <span class="keyword">let</span> vy1 = ball1.vy * cos - ball1.vx * sin;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> vxTotal = vx0 - vx1;</span><br><span class="line">    vx0 = ((ball0.mass - ball1.mass) * vx0 + <span class="number">2</span> * ball1.mass * vx1) /</span><br><span class="line">          (ball0.mass + ball1.mass);</span><br><span class="line">    vx1 = vxTotal + vx0;</span><br><span class="line">    <span class="comment">// 两小球的x坐标加上速度 计算出新的x坐标</span></span><br><span class="line">    x0 += vx0;</span><br><span class="line">    x1 += vx1;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 相对于ball0原点为圆心时 旋转回去的坐标</span></span><br><span class="line">    <span class="keyword">let</span> x0Final = x0 * cos - y0 * sin;</span><br><span class="line">    <span class="keyword">let</span> y0Final = y0 * cos + x0 * sin;</span><br><span class="line">    <span class="keyword">let</span> x1Final = x1 * cos - y1 * sin;</span><br><span class="line">    <span class="keyword">let</span> y1Final = y1 * cos + x1 * sin;</span><br><span class="line">    <span class="comment">// 相对于 原来的坐标</span></span><br><span class="line">    ball1.x = ball0.x + x1Final;</span><br><span class="line">    ball1.y = ball0.y + y1Final;</span><br><span class="line">    ball0.x = ball0.x + x0Final;</span><br><span class="line">    ball0.y = ball0.y + y0Final;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 速度旋转回去</span></span><br><span class="line">    ball0.vx = vx0 * cos - vy0 * sin;</span><br><span class="line">    ball0.vy = vy0 * cos + vx0 * sin;</span><br><span class="line">    ball1.vx = vx1 * cos - vy1 * sin;</span><br><span class="line">    ball1.vy = vy1 * cos + vx1 * sin;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>同时把两小球y方向上的速断放开：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">balls.push(<span class="keyword">new</span> Ball(context,&#123;</span><br><span class="line">  x:<span class="number">100</span>,</span><br><span class="line">  y:<span class="number">190</span>,</span><br><span class="line">  vx:<span class="number">4</span>,</span><br><span class="line">  vy:<span class="number">2</span>,</span><br><span class="line">  <span class="comment">// ay:0.5,</span></span><br><span class="line">  color:<span class="string">'red'</span>,</span><br><span class="line">&#125;));</span><br><span class="line"></span><br><span class="line">balls.push(<span class="keyword">new</span> Ball(context,&#123;</span><br><span class="line">  x:canvas.width - <span class="number">100</span>,</span><br><span class="line">  y:<span class="number">190</span>,</span><br><span class="line">  vx:<span class="number">-3</span>,</span><br><span class="line">  vy:<span class="number">2</span>,</span><br><span class="line">  <span class="comment">// ay:0.5,</span></span><br><span class="line">  color:<span class="string">'blue'</span>,</span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
+<p>此时的效果如下：</p>
+<p><img src="/2020/07/28/Canvas系列（14）：实战-小球碰撞/16.gif" alt="小球碰撞"></p>
+<p>我们在计算小球旋转的时候有大量相同的代码，现在我们可以抽出一个方法，来优化一下上面的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">rotate</span> (<span class="params">x, y, sin, cos, reverse</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    x: (reverse) ? (x * cos + y * sin) : (x * cos - y * sin),</span><br><span class="line">    y: (reverse) ? (y * cos - x * sin) : (y * cos + x * sin)</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkCollision</span>(<span class="params">ball0,ball1</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> dx = ball1.x - ball0.x;</span><br><span class="line">  <span class="keyword">let</span> dy = ball1.y - ball0.y;</span><br><span class="line">  <span class="keyword">let</span> dist = <span class="built_in">Math</span>.sqrt(dx * dx + dy * dy);</span><br><span class="line">  <span class="comment">// 检测冲突</span></span><br><span class="line">  <span class="keyword">if</span> (dist &lt; ball0.radius + ball1.radius) &#123;</span><br><span class="line">    <span class="keyword">let</span> angle = <span class="built_in">Math</span>.atan2(dy, dx);</span><br><span class="line">    <span class="keyword">let</span> sin = <span class="built_in">Math</span>.sin(angle);</span><br><span class="line">    <span class="keyword">let</span> cos = <span class="built_in">Math</span>.cos(angle);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// boll0旋转后小球的位置</span></span><br><span class="line">    <span class="keyword">let</span> pos0 = &#123;<span class="attr">x</span>: <span class="number">0</span>, <span class="attr">y</span>: <span class="number">0</span>&#125;;</span><br><span class="line">    <span class="comment">// boll1旋转后小球的位置</span></span><br><span class="line">    <span class="keyword">let</span> pos1 = rotate(dx, dy, sin, cos, <span class="literal">true</span>);</span><br><span class="line">    <span class="comment">// ball0旋转后的速度</span></span><br><span class="line">    <span class="keyword">let</span> vel0 = rotate(ball0.vx, ball0.vy, sin, cos, <span class="literal">true</span>);</span><br><span class="line">    <span class="comment">// ball1旋转后的速度</span></span><br><span class="line">    <span class="keyword">let</span> vel1 = rotate(ball1.vx, ball1.vy, sin, cos, <span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> vxTotal = vel0.x - vel1.x;</span><br><span class="line">    vel0.x = ((ball0.mass - ball1.mass) * vel0.x + <span class="number">2</span> * ball1.mass * vel1.x) /</span><br><span class="line">              (ball0.mass + ball1.mass);</span><br><span class="line">    vel1.x = vxTotal + vel0.x;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 两小球的x坐标加上速度 计算出新的x坐标</span></span><br><span class="line">    pos0.x += vel0.x;</span><br><span class="line">    pos1.x += vel1.x;</span><br><span class="line">    <span class="comment">// 相对于ball0原点为圆心时 旋转回去的坐标</span></span><br><span class="line">    <span class="keyword">let</span> pos0F = rotate(pos0.x, pos0.y, sin, cos, <span class="literal">false</span>);</span><br><span class="line">    <span class="keyword">let</span> pos1F = rotate(pos1.x, pos1.y, sin, cos, <span class="literal">false</span>);</span><br><span class="line">    <span class="comment">// 相对于 原来的坐标</span></span><br><span class="line">    ball1.x = ball0.x + pos1F.x;</span><br><span class="line">    ball1.y = ball0.y + pos1F.y;</span><br><span class="line">    ball0.x = ball0.x + pos0F.x;</span><br><span class="line">    ball0.y = ball0.y + pos0F.y;</span><br><span class="line">    <span class="comment">// 速度旋转回去</span></span><br><span class="line">    <span class="keyword">let</span> vel0F = rotate(vel0.x, vel0.y, sin, cos, <span class="literal">false</span>);</span><br><span class="line">    <span class="keyword">let</span> vel1F = rotate(vel1.x, vel1.y, sin, cos, <span class="literal">false</span>);</span><br><span class="line">    ball0.vx = vel0F.x;</span><br><span class="line">    ball0.vy = vel0F.y;</span><br><span class="line">    ball1.vx = vel1F.x;</span><br><span class="line">    ball1.vy = vel1F.y;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上述代码基本上可以使用了，但是还是有点问题。在多个小球的情况下，当两个小球相撞的时候，上述33行和34行代码中因为加了速度，如果加的速度过大的话，就可以能会导致与其他地方的小球碰撞，为了规避这种问题的产生，碰撞后，碰撞的两个小球的位置刚好移动到没有碰上，也就是两小球刚好相切（外切）。修改上述方法33行和34代码改成下面这个样子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 速度的绝对值</span></span><br><span class="line"><span class="keyword">var</span> absV = <span class="built_in">Math</span>.abs(vel0.x) + <span class="built_in">Math</span>.abs(vel1.x);</span><br><span class="line"><span class="comment">// 小球重叠的距离 也就是两个小球最终总共需要移开的距离才能保证两球刚好相切（外切）</span></span><br><span class="line"><span class="comment">// 由于这里只走了一帧 所以这个距离也就是实际的速度之和</span></span><br><span class="line"><span class="keyword">let</span> overlap = (ball0.radius + ball1.radius) - <span class="built_in">Math</span>.abs(pos0.x - pos1.x);</span><br><span class="line"><span class="comment">// 速度 除以 absV 就是速度所占的比例 再乘以 overlap 是当前小球这一帧需要走的距离</span></span><br><span class="line"><span class="comment">// 两小球总过走的距离是 overlap</span></span><br><span class="line">pos0.x += vel0.x / absV * overlap;</span><br><span class="line">pos1.x += vel1.x / absV * overlap;</span><br></pre></td></tr></table></figure>
+<p>最后把小球变成多个就可以了：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> balls = [];</span><br><span class="line"><span class="keyword">let</span> colors = [<span class="string">'red'</span>,<span class="string">'blue'</span>,<span class="string">'yellow'</span>,<span class="string">'green'</span>,<span class="string">'orange'</span>];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">  balls.push(<span class="keyword">new</span> Ball(context,&#123;</span><br><span class="line">    x: (i + <span class="number">1</span>) * <span class="number">50</span>,</span><br><span class="line">    y: <span class="number">190</span>,</span><br><span class="line">    radius: <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">10</span> + <span class="number">15</span>),</span><br><span class="line">    vx: <span class="built_in">Math</span>.random() * <span class="number">6</span> - <span class="number">3</span>,</span><br><span class="line">    vy: <span class="built_in">Math</span>.random() * <span class="number">6</span> - <span class="number">3</span>,</span><br><span class="line">    color: colors[<span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * colors.length)],</span><br><span class="line">  &#125;));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>效果如下：</p>
+<p><img src="/2020/07/28/Canvas系列（14）：实战-小球碰撞/17.gif" alt="完整效果"></p>
+<p>完整代码请点击<a href="https://github.com/KaiOrange/canvas-demo/blob/master/14/05.html" target="_blank" rel="noopener">这里</a>。</p>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+        
+        <div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 <i class="fa fa-paw"></i> 感谢您的阅读-------------</div>
+
+</div>
+        
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Canvas/" rel="tag"># Canvas</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/07/14/Keep-APP技术研究/" rel="next" title="Keep APP技术研究">
+                <i class="fa fa-chevron-left"></i> Keep APP技术研究
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80Mjk3Mi8xOTUxOA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Orange">
+            
+              <p class="site-author-name" itemprop="name">Orange</p>
+              <p class="site-description motion-element" itemprop="description">励志改变人生，编程改变命运</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">72</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/KaiOrange" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://juejin.im/user/58e7b2f1da2f60005ff74b41" target="_blank" title="掘金">
+                      
+                        <i class="fa fa-fw fa-html5"></i>掘金</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#小球移动操作"><span class="nav-number">1.</span> <span class="nav-text">小球移动操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单轴碰撞"><span class="nav-number">2.</span> <span class="nav-text">单轴碰撞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双轴碰撞理论基础"><span class="nav-number">3.</span> <span class="nav-text">双轴碰撞理论基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双轴碰撞的代码实现"><span class="nav-number">4.</span> <span class="nav-text">双轴碰撞的代码实现</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Orange</span>
+
+  <span class="with-love">
+    <span><i class="fa fa-line-chart"></i></span>博客全站共111.1k字
+  </span>
+
+  <span class="with-love">
+    <span><i class="fa fa-shield"></i></span><a href="http://www.beian.miit.gov.cn/" target="_blank"> 浙ICP备19052357号</a>
+  </span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="footer-custom">由于作者技术水平有限，如有不正确的地方请及时<a href="https://github.com/KaiOrange/blog/issues/new">与我联系</a></div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/fastclick/1.0.6/fastclick.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/velocity/1.2.1/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/velocity/1.2.1/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var url = location.pathname.replace(/index\.html$/g,'')
+        if(url && url[url.length - 1] !== '/'){
+          url += '/'
+        }
+        
+          window.livereOptions = {
+            refer: 'https://www.kai666666.top' + url
+          }
+        
+
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("5hMjWYdBcTn2DNzg8Np0EiDt-gzGzoHsz", "tmetR6q0QiHA7NnHo19uXnAX");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <style>
+      mjx-mspace {
+        display: block;
+        margin-top: 10px;
+      }
+      mjx-math {
+        text-align: center;
+      }
+    </style>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+
+
+  
+
+  
+
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/clicklove.js"></script>
+  <!-- 注入环境变量 -->
+  <script type="text/javascript" src="/js/src/env.js"></script>
+  <!-- 页面定制化 -->
+  <script type="text/javascript" src="/js/src/customization.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/nito.model.json"},"display":{"position":"right","hOffset":65,"vOffset":0,"width":230,"height":300},"mobile":{"show":false},"dialog":{"enable":true,"hitokoto":true},"log":false});</script></body>
+</html>
