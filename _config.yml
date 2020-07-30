@@ -81,9 +81,10 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-- type: git
-  repository: git@github.com:KaiOrange/blog.git
-  branch: gh-pages
+# 因为使用了阿里云提交代码，所以不需要这个了
+# - type: git
+#   repository: git@github.com:KaiOrange/blog.git
+#   branch: gh-pages
 - type: baidu_url_submitter ## 这是新加的
 
 search:
@@ -99,7 +100,7 @@ baidusitemap:
     path: baidusitemap.xml
 
 baidu_url_submit:
-  count: 3 ## 提交最新的一个链接
+  count: 10 ## 提交最新的一个链接
   host: www.kai666666.top ## 在百度站长平台中注册的域名
   token: xhaWUNGurjcWxrtW ## 请注意这是您的秘钥， 所以请不要把博客源代码发布在公众仓库里!
   path: baidu_urls.txt ## 文本文档的地址， 新链接会保存在此文本文档里
