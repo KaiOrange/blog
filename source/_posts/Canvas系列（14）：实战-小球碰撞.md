@@ -1,5 +1,5 @@
 ---
-title: Canvas系列（14）：实战-两小球碰撞
+title: Canvas系列（14）：实战-小球碰撞
 date: 2020-07-28 14:00:50
 author: Orange
 tag:
