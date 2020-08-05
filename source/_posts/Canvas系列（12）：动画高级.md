@@ -43,7 +43,7 @@ function updateBall(){
 //...
 ```
 
-效果如下：
+[效果如下](https://canvas-demo.kai666666.top/12/01.html)：
 
 ![缓动动画](1.gif)
 
@@ -80,7 +80,7 @@ function updateBall(){
 //...
 ```
 
-效果如下：
+[效果如下](https://canvas-demo.kai666666.top/12/02.html)：
 
 ![带有角度的缓动动画](2.gif)
 
@@ -114,7 +114,7 @@ function updateBall(){
 //...
 ```
 
-效果如下：
+[效果如下](https://canvas-demo.kai666666.top/12/03.html)：
 
 ![缓动动画的其他使用场景](3.gif)
 
@@ -157,7 +157,7 @@ function updateBall(){
 //...
 ```
 
-效果如下：
+[效果如下](https://canvas-demo.kai666666.top/12/04.html)：
 
 ![弹性动画](4.gif)
 
@@ -207,7 +207,7 @@ function updateBall(){
 //...
 ```
 
-效果如下：
+[效果如下](https://canvas-demo.kai666666.top/12/05.html)：
 
 ![带有摩擦力的弹性动画](5.gif)
 

@@ -60,7 +60,7 @@ context.lineTo(290, 75);
 context.stroke();
 ```
 
-出来的效果如下：
+[出来的效果如下](https://canvas-demo.kai666666.top/01/01.html)：
 
 ![绘制一条线](2.jpeg)
 
@@ -98,7 +98,7 @@ toDataURL()|获取转换的位图字符串（后面会简绍）
 }
 ```
 
-现在的效果是：
+[现在的效果是](https://canvas-demo.kai666666.top/01/02.html)：
 
 ![CSS控制宽度](3.jpeg)
 
@@ -135,7 +135,8 @@ context.strokeStyle='blue';
 context.stroke();
 ```
 
-效果：
+[效果](https://canvas-demo.kai666666.top/01/03.html)：
+
 ![绘制2条线](5.jpeg)
 
 你可能已经看到了我们这里使用了`context.strokeStyle='blue';`把线段的颜色改成蓝色（而不是默认的黑色），这个属性一定要在stroke之前调用，否则都描边结束了才设置，是不会生效的，这样改变的是下面描边的颜色，就好比你拿黑色的笔画了一条线，结果你又拿起了一只蓝色的笔，然后你希望你刚刚话的线是蓝色的。
@@ -154,7 +155,8 @@ context.lineTo(90, 15);
 context.stroke();
 ```
 
-效果：
+[效果](https://canvas-demo.kai666666.top/01/04.html)：
+
 ![描边矩形](6.jpeg)
 
 我们绘制了一个宽高都为120px的矩形（其实也就是一个正方形）。由上可知`lineTo`划线的起点是**上一次移动到的地方或者上次划线结束的地方**，因此我们没有必要每次都`moveTo`当前位置。
@@ -200,7 +202,8 @@ context.fillStyle='blue';
 context.fill();
 ```
 
-效果：
+[效果](https://canvas-demo.kai666666.top/01/05.html)：
+
 ![描边矩形](7.jpeg)
 
 是不是很简单，你可能已经注意到了修改填充矩形的样式是`fillStyle`，其用法跟描边时是一样的。
@@ -227,13 +230,13 @@ context.fillStyle='rgba(0,0,255,0.5)';
 context.fill();
 ```
 
-效果如下，像不像CSS给了一个背景和一个边框？没错填充就类似于是设置背景，描边就类似于给个边框。
+[效果如下](https://canvas-demo.kai666666.top/01/06.html)，像不像CSS给了一个背景和一个边框？没错填充就类似于是设置背景，描边就类似于给个边框。
 
 ![描边和填充](8.jpeg)
 
 ## 绘制简易坐标系 ##
 
-为了更方便后面你的使用我们绘制一个简易的坐标系吧，效果如下：
+为了更方便后面你的使用我们绘制一个简易的坐标系吧，[效果如下](https://canvas-demo.kai666666.top/01/07.html)：
 
 ![简易坐标系](9.jpeg)
 

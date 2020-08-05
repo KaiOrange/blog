@@ -15,7 +15,7 @@ categories: Canvas
 
 ## 继续上章刚开始的例子 ##
 
-小球基本操作与上章刚开始的代码是差不多的，唯一的不同是`checkWalls`函数我们给x轴碰撞到墙壁的时候也添加了能量的损耗，具体代码如下如下：
+小球基本操作与上章刚开始的代码是差不多的，唯一的不同是`checkWalls`函数我们给x轴碰撞到墙壁的时候也添加了能量的损耗，[具体代码如下](https://canvas-demo.kai666666.top/15/01.html)：
 
 ```JavaScript
 // 获取元素
@@ -150,6 +150,8 @@ canvas.addEventListener('mousemove', (e) => {
 
 上述代码中我们通过鼠标在页面的坐标，然后减去Canvas左上角的位置来获取鼠标在Canvas中的位置，最后判断这个位置是否在小球内。
 
+[可以点这里看效果](https://canvas-demo.kai666666.top/15/02.html)。
+
 ## 封装获取鼠标在Canvas位置的方法 ##
 
 鼠标在Canvas中的位置对于Canvas的操作非常重要，所以我们这里就封装一个方法来获取鼠标的位置，具体如下：
@@ -186,7 +188,7 @@ canvas.addEventListener('mousemove', (e) => {
 }, false);
 ```
 
-我们定义了一个`captureMouse`的方法，它返回一个对象`mouse`，只要在任何地方使用`mouse.x`和`mouse.y`就可以获取到当前鼠标在Canvas中的位置，是不是很方便？当然pageX和pageY存在一定的兼容性问题，为了保证在更多的浏览器中使用，需要对其做兼容性处理，如下：
+我们定义了一个`captureMouse`的方法，它返回一个对象`mouse`，只要在任何地方使用`mouse.x`和`mouse.y`就可以获取到当前鼠标在Canvas中的位置，是不是很方便？当然pageX和pageY存在一定的兼容性问题，为了保证在更多的浏览器中使用，需要对其做兼容性处理，[如下](https://canvas-demo.kai666666.top/15/03.html)：
 
 ```JavaScript
 function captureMouse (element) {
@@ -280,7 +282,7 @@ function animate (){
 }
 ```
 
-此时的效果如下：
+[此时的效果如下](https://canvas-demo.kai666666.top/15/04.html)：
 
 ![拖动小球](1.gif)
 
@@ -339,6 +341,8 @@ function trackVelocity () {
   oldY = selectedBall.y;
 }
 ```
+
+[此时效果如下](https://canvas-demo.kai666666.top/15/05.html)：
 
 ![投掷小球](2.gif)
 

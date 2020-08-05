@@ -229,7 +229,7 @@ function animate(){
 requestAnimationFrame(animate);
 ```
 
-此时效果如下：
+[此时效果如下](https://canvas-demo.kai666666.top/13/01.html)：
 
 ![完整效果](4.gif)
 

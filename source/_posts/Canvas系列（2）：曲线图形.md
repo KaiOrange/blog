@@ -32,7 +32,8 @@ context.arc(150, 75, 60, Math.PI / 180 * 0, Math.PI / 180 * 90);
 context.stroke();
 ```
 
-结果如下：
+[效果如下](https://canvas-demo.kai666666.top/02/01.html)：
+
 ![描边弧线](1.jpeg)
 
 我们的代码是加在上一章最后的坐标系中的，如果直接使用arc画弧的话，那么起始点是上一个绘制的结束，也就是绘制坐标系的结束位置，为了让之前的代码的结束不在作为本次绘制的开始，我们使用了新的API`context.beginPath();`，用来开启一个新的路径，路径相关的知识会在下一章跟大家分享。我们这里绘制了一个圆心是(150,75)，半径是60，从0度到90度的弧。由上我们可以看出弧的角度是按照我们高中学的坐标系来的。所以，学习是有用的！！！
@@ -45,7 +46,8 @@ context.arc(150, 75, 60, Math.PI / 180 * 0, Math.PI / 180 * 90);
 context.fill();
 ```
 
-结果如下：
+[效果如下](https://canvas-demo.kai666666.top/02/02.html)：
+
 ![填充弧线](2.jpeg)
 
 描边结果有没有和你预想的不太一样，你脑海中的问题或许下章给你简答的。现在先考虑一下上面最后一个参数`anticlockwise`，它如果是true的时候表示逆时针绘制，false的时候是顺时针绘制，默认什么都不传相当于传了个`undefined`，当然也就是false了。我们把这个值设置为true，看看结果，如下：
@@ -81,7 +83,8 @@ context.arcTo(210, 135, 150, 135, 60);
 context.stroke();
 ```
 
-效果如图：
+[效果如下](https://canvas-demo.kai666666.top/02/03.html)：
+
 ![arcTo](7.jpeg)
 
 我把说明也绘制上，如下：
@@ -116,6 +119,8 @@ context.fillStyle='blue';
 context.fill();
 ```
 
+[效果如下](https://canvas-demo.kai666666.top/02/04.html)：
+
 ![圆角矩形](11.jpeg)
 
 ## 二次贝塞尔曲线 ##
@@ -146,6 +151,8 @@ context.quadraticCurveTo(210, 135, 100, 135);
 context.stroke();
 ```
 
+[效果如下](https://canvas-demo.kai666666.top/02/05.html)：
+
 ![二次贝塞尔曲线](12.jpeg)
 
 ## 三次贝塞尔曲线 ##
@@ -166,5 +173,6 @@ context.bezierCurveTo(100, 20, 200, 130, 250, 75);
 context.stroke();
 ```
 
-效果图如下：
+[效果图如下](https://canvas-demo.kai666666.top/02/06.html)：
+
 ![三次贝塞尔曲线](13.jpeg)

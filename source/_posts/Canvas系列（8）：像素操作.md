@@ -69,7 +69,7 @@ image.onload = function (){
 }
 ```
 
-出来的效果如下：
+[出来的效果如下](https://canvas-demo.kai666666.top/08/01.html)
 
 ![底片效果](2.jpeg)
 
@@ -108,7 +108,7 @@ image.onload = function (){
 }
 ```
 
-正如你看到的，像素处理都是一个模式，只是把中间处理像素的算法换了一下，此时的效果如下，是不是很酷？
+正如你看到的，像素处理都是一个模式，只是把中间处理像素的算法换了一下，[此时的效果如下](https://canvas-demo.kai666666.top/08/02.html)，是不是很酷？
 
 ![黑白效果](3.jpeg)
 
@@ -142,7 +142,7 @@ image.onload = function (){
 }
 ```
 
-此时的效果如下：
+[此时的效果如下](https://canvas-demo.kai666666.top/08/03.html)：
 
 ![变亮](5.jpeg)
 
@@ -170,7 +170,7 @@ image.onload = function (){
 }
 ```
 
-效果如下：
+[效果如下](https://canvas-demo.kai666666.top/08/04.html)：
 
 ![复古效果](7.jpeg)
 
@@ -195,7 +195,7 @@ image.onload = function (){
 }
 ```
 
-效果如下：
+[效果如下](https://canvas-demo.kai666666.top/08/05.html)：
 
 ![红色蒙层](8.jpeg)
 
@@ -219,7 +219,7 @@ image.onload = function (){
 }
 ```
 
-效果如下：
+[效果如下](https://canvas-demo.kai666666.top/08/06.html)：
 
 ![透明效果](9.jpeg)
 

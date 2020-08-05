@@ -40,7 +40,7 @@ context.shadowBlur=3;
 context.fillText("文字模糊", 10, 100);
 ```
 
-结果如下：
+[效果如下](https://canvas-demo.kai666666.top/09/01.html)：
 
 ![模糊](1.jpeg)
 
@@ -48,7 +48,7 @@ context.fillText("文字模糊", 10, 100);
 
 ## globalAlpha ##
 
-`globalAlpha`是设置全局的透明度，取值范围是`0~1`，0表示透明，1表示不透明。我们之前没有设置所绘制的图形的透明度，但是都是不透明的，所以猜都能猜出来默认值是1。它的值可以是字符串类型，也可以数值类型，我们直接在上面代码中第十行中加入代码`context.globalAlpha=0.5;`看到的效果如下：
+`globalAlpha`是设置全局的透明度，取值范围是`0~1`，0表示透明，1表示不透明。我们之前没有设置所绘制的图形的透明度，但是都是不透明的，所以猜都能猜出来默认值是1。它的值可以是字符串类型，也可以数值类型，我们直接在上面代码中第十行中加入代码`context.globalAlpha=0.5;`看到的[效果如下](https://canvas-demo.kai666666.top/09/02.html)：
 
 ![globalAlpha](2.jpeg)
 
@@ -72,7 +72,7 @@ context.fillStyle='blue';
 context.fillRect(35,35,50,50);
 ```
 
-结果如下：
+[效果如下](https://canvas-demo.kai666666.top/09/03.html)：
 
 ![xor](4.jpeg)
 
@@ -91,7 +91,7 @@ context.fillRect(35,35,50,50);
 context.clearRect(60, 60, 25, 25);
 ```
 
-结果如下：
+[效果如下](https://canvas-demo.kai666666.top/09/04.html)：
 
 ![清空区域](5.jpeg)
 
@@ -119,7 +119,7 @@ image.src = src;
 document.body.appendChild(image)
 ```
 
-结果如下：
+[效果如下](https://canvas-demo.kai666666.top/09/05.html)：
 
 ![toDataURL](6.jpeg)
 

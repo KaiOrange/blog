@@ -136,7 +136,7 @@ mathjax: true
 </html>
 ```
 
-效果如下：
+[此时效果如下](https://canvas-demo.kai666666.top/14/01.html)：
 
 ![初始效果](1.gif)
 
@@ -301,6 +301,8 @@ function animate (){
 
 animate();
 ```
+
+[此时效果点这里](https://canvas-demo.kai666666.top/14/02.html)。
 
 上述代码19行，如果没有传进来质量的话就默认是`this.mass = Math.pow(this.radius, 3) / Math.pow(20, 3);`，因为球体的体积公式和质量公式如下：
 
@@ -560,7 +562,7 @@ balls.push(new Ball(context,{
 }));
 ```
 
-此时的效果如下：
+[此时效果如下](https://canvas-demo.kai666666.top/14/03.html)：
 
 ![小球碰撞](16.gif)
 
@@ -621,6 +623,8 @@ function checkCollision(ball0,ball1) {
 }
 ```
 
+[此时效果点击这里](https://canvas-demo.kai666666.top/14/04.html)
+
 上述代码基本上可以使用了，但是还是有点问题。在多个小球的情况下，当两个小球相撞的时候，上述33行和34行代码中因为加了速度，如果加的速度过大的话，就可以能会导致与其他地方的小球碰撞，为了规避这种问题的产生，碰撞后，碰撞的两个小球的位置刚好移动到没有碰上，也就是两小球刚好相切（外切）。修改上述方法33行和34代码改成下面这个样子：
 
 ```JavaScript
@@ -652,7 +656,7 @@ for (let i = 0; i < 10; i++) {
 }
 ```
 
-效果如下：
+[此时效果如下](https://canvas-demo.kai666666.top/14/05.html)：
 
 ![完整效果](17.gif)
 
