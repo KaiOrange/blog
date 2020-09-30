@@ -46,10 +46,8 @@ var function_name = new Function(arg1, arg2, ..., argN, function_body);
 // 获取async函数的构造器
 var AsyncFunction = Object.getPrototypeOf(async function(){}).constructor;
 // 通过上面的构造器创建async方法
-var delayFn = new AsyncFunction("msg", `setTimeout(()=>{
-    console.log(msg);
-},1000)`);
+const fetchPage = new AsyncFunction("url", "return await fetch(url);");
 
 // 使用
-delayFn('async 方法！'); // 1秒后打印 “async 方法！”
+fetchPage("/").then(response => { ... }); // 请求具体的网络
 ```
