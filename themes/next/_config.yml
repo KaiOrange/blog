@@ -96,7 +96,7 @@ menu:
   #about: /about/ || user
   tags: /tags/ || tags
   categories: /categories/ || th
-  archives: /archives/ || archive
+  #archives: /archives/ || archive
   top: /top/ || signal
   we-favorites: /we-favorites/ || book
   links: /links/ || link
