@@ -1,6 +1,6 @@
 ---
 title: 《JavaScript ES6 函数式编程入门经典》读书笔记
-date: 2020-10-11 15:31:45
+date: 2020-10-18 22:00:00
 author: Orange
 tags:
   - JavaScript
