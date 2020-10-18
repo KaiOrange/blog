@@ -591,7 +591,7 @@ class Right extends Either {
 
 // 看不懂吧 那就再看一个例子，给一个数字取绝对值，如果小于0那么返回它的相反数 否则返回这个数字：
 function isLT0(num){
-	if(num >= 0){
+    if(num >= 0){
         return Either.of(num);// of其实就是right
     } else {
         return Either.left("小于0");// left说明是小于0的
