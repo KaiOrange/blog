@@ -162,17 +162,21 @@ console.log(1 + NaN);
 
 ```JavaScript
 console.log(NaN < 0);
-console.log(NaN = 0);
+console.log(NaN == 0);
 console.log(NaN > 0);
+console.log(NaN = 0);
+console.log(0 = 0);
 ```
 
 答案：
 > false
 > false
 > false
+> 0
+> 报错：Uncaught SyntaxError: Invalid left-hand side in assignment
 
 点评:
-**NaN和任何数字比较都是false。**
+**NaN和任何数字比较都是false。最后一个相当于是赋值操作，会返回0但是，NaN的值并不会改变，如果一个数字赋值为另一个数字则会报错。**
 
 ### 下面输出的是什么 ###
 
@@ -211,20 +215,20 @@ console.log(new Array(3));
 > [undefined, undefined, undefined]
 
 点评:
-**new Array的时候多个参数的时候会认为是数组的内容，一个参数的时候会认为是数组的长度。**
+**new Array的时候多个参数的时候会认为是数组的内容，一个参数的时候会认为是数组的长度。后一个有的浏览器也会打印`[empty × 3]`，其中每一个值都是undefined。**
 
 ### 下面输出的是什么 ###
 
 ```JavaScript
 function F1 (){
-	return 123;
+  return 123;
 }
 function F2 (){
-	return {name:"不告诉你"};
+  return {name:"不告诉你"};
 }
 
 function F3 (){
-	return this;
+  return this;
 }
 console.log(new F1());
 console.log(new F2());
@@ -243,14 +247,14 @@ console.log(new F3());
 
 ```JavaScript
 function fn (){
-	try{
-		return 0;
-		throw new Error("我就要抛出错误");
-	} catch (e){
-		return 1;
-	} finally {
-		return 2;
-	}
+  try{
+    return 0;
+    throw new Error("我就要抛出错误");
+  } catch (e){
+    return 1;
+  } finally {
+    return 2;
+  }
 }
 
 console.log(fn());
