@@ -13,7 +13,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://www.kai666666.top
+url: https://www.kai666666.com
 #root: /blog 因为配置了域名 所以就没有再使用blog路径了
 root: /
 permalink: :year/:month/:day/:title/
