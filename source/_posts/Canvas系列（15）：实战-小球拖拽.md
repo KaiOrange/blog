@@ -7,7 +7,7 @@ tag:
 categories: Canvas
 ---
 
-在[上一章](https://www.kai666666.top/2020/07/28/Canvas%E7%B3%BB%E5%88%97%EF%BC%8814%EF%BC%89%EF%BC%9A%E5%AE%9E%E6%88%98-%E5%B0%8F%E7%90%83%E7%A2%B0%E6%92%9E/)中我们实现的小球的碰撞，这章中我们继续玩玩小球，讲解一下小球的拖拽，为了避免代码的混乱本章中就不考虑小球碰撞的情况了，有兴趣的自己看看上一章。
+在[上一章](https://www.kai666666.com/2020/07/28/Canvas%E7%B3%BB%E5%88%97%EF%BC%8814%EF%BC%89%EF%BC%9A%E5%AE%9E%E6%88%98-%E5%B0%8F%E7%90%83%E7%A2%B0%E6%92%9E/)中我们实现的小球的碰撞，这章中我们继续玩玩小球，讲解一下小球的拖拽，为了避免代码的混乱本章中就不考虑小球碰撞的情况了，有兴趣的自己看看上一章。
 
 在本章开始的时候，我必须告诉大家一个沮丧事实，Canvas绘制的图形并没有事件来直接操作改图形，这是因为Canvas的整个标签是一个DOM元素，所以DOM操作的事件是作用的整个Canvas标签的，而不是绘制的图形。就比如我们点击Canvas中的小球，并没有直接的事件来监听小球被点击了；我们只能监听Canvas这个DOM元素被点击了，，但是我们可以通过其他方法来模拟一些事件来操作它们，比如我们可以计算鼠标在DOM元素中的位置来判断是否点击到小球上了。好了，开始本章吧！
 
@@ -15,7 +15,7 @@ categories: Canvas
 
 ## 继续上章刚开始的例子 ##
 
-小球基本操作与上章刚开始的代码是差不多的，唯一的不同是`checkWalls`函数我们给x轴碰撞到墙壁的时候也添加了能量的损耗，[具体代码如下](https://canvas-demo.kai666666.top/15/01.html)：
+小球基本操作与上章刚开始的代码是差不多的，唯一的不同是`checkWalls`函数我们给x轴碰撞到墙壁的时候也添加了能量的损耗，[具体代码如下](https://canvas-demo.kai666666.com/15/01.html)：
 
 ```JavaScript
 // 获取元素
@@ -150,7 +150,7 @@ canvas.addEventListener('mousemove', (e) => {
 
 上述代码中我们通过鼠标在页面的坐标，然后减去Canvas左上角的位置来获取鼠标在Canvas中的位置，最后判断这个位置是否在小球内。
 
-[可以点这里看效果](https://canvas-demo.kai666666.top/15/02.html)。
+[可以点这里看效果](https://canvas-demo.kai666666.com/15/02.html)。
 
 ## 封装获取鼠标在Canvas位置的方法 ##
 
@@ -188,7 +188,7 @@ canvas.addEventListener('mousemove', (e) => {
 }, false);
 ```
 
-我们定义了一个`captureMouse`的方法，它返回一个对象`mouse`，只要在任何地方使用`mouse.x`和`mouse.y`就可以获取到当前鼠标在Canvas中的位置，是不是很方便？当然pageX和pageY存在一定的兼容性问题，为了保证在更多的浏览器中使用，需要对其做兼容性处理，[如下](https://canvas-demo.kai666666.top/15/03.html)：
+我们定义了一个`captureMouse`的方法，它返回一个对象`mouse`，只要在任何地方使用`mouse.x`和`mouse.y`就可以获取到当前鼠标在Canvas中的位置，是不是很方便？当然pageX和pageY存在一定的兼容性问题，为了保证在更多的浏览器中使用，需要对其做兼容性处理，[如下](https://canvas-demo.kai666666.com/15/03.html)：
 
 ```JavaScript
 function captureMouse (element) {
@@ -282,7 +282,7 @@ function animate (){
 }
 ```
 
-[此时的效果如下](https://canvas-demo.kai666666.top/15/04.html)：
+[此时的效果如下](https://canvas-demo.kai666666.com/15/04.html)：
 
 ![拖动小球](1.gif)
 
@@ -342,7 +342,7 @@ function trackVelocity () {
 }
 ```
 
-[此时效果如下](https://canvas-demo.kai666666.top/15/05.html)：
+[此时效果如下](https://canvas-demo.kai666666.com/15/05.html)：
 
 ![投掷小球](2.gif)
 

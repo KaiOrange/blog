@@ -30,13 +30,13 @@ context.drawImage(Image, sX, sY, sWidth, sHeight, dX, dY, dWidth, dHeight);
 
 ```JavaScript
 var image = new Image();
-image.src = "https://www.kai666666.top/2019/06/19/Canvas系列（6）：绘制图片/lufei.jpeg";
+image.src = "https://www.kai666666.com/2019/06/19/Canvas系列（6）：绘制图片/lufei.jpeg";
 image.onload = function (){
   context.drawImage(image, 10, 10);
 }
 ```
 
-[可以看到如下效果](https://canvas-demo.kai666666.top/06/01.html)：
+[可以看到如下效果](https://canvas-demo.kai666666.com/06/01.html)：
 
 ![绘制图片](1.jpeg)
 
@@ -46,7 +46,7 @@ image.onload = function (){
 context.drawImage(image, 10, 10, 100, 100);
 ```
 
-[出来的效果是这样的](https://canvas-demo.kai666666.top/06/02.html)：
+[出来的效果是这样的](https://canvas-demo.kai666666.com/06/02.html)：
 
 ![绘制图片5个参数](2.jpeg)
 
@@ -56,7 +56,7 @@ context.drawImage(image, 10, 10, 100, 100);
 context.drawImage(image, 0, 0, 120, 120, 10, 10, 100, 100);
 ```
 
-[出来的效果是这样的](https://canvas-demo.kai666666.top/06/03.html)：
+[出来的效果是这样的](https://canvas-demo.kai666666.com/06/03.html)：
 
 ![绘制图片9个参数](3.jpeg)
 
@@ -70,7 +70,7 @@ context2.fillRect(10,10,30,30);
 context.drawImage(canvas2, 0, 0);
 ```
 
-[出来的效果是这样的](https://canvas-demo.kai666666.top/06/04.html)：
+[出来的效果是这样的](https://canvas-demo.kai666666.com/06/04.html)：
 
 ![绘制canvas](4.jpeg)
 
@@ -105,7 +105,7 @@ context.fillStyle = gradient;
 context.fillRect(10,10,280,130);
 ```
 
-[出来的效果是这样的](https://canvas-demo.kai666666.top/06/05.html)：
+[出来的效果是这样的](https://canvas-demo.kai666666.com/06/05.html)：
 
 ![线性渐变](5.jpeg)
 
@@ -134,7 +134,7 @@ context.fillStyle = gradient;
 context.fillRect(10,10,280,130);
 ```
 
-[出来的效果是这样的](https://canvas-demo.kai666666.top/06/06.html)：
+[出来的效果是这样的](https://canvas-demo.kai666666.com/06/06.html)：
 
 ![径向渐变](6.jpeg)
 
@@ -152,7 +152,7 @@ var pattern = context.createPattern(Image, repetition);
 context.fillStyle = pattern;
 ```
 
-我们现在做一个文字带有背景的例子，[效果如下](https://canvas-demo.kai666666.top/06/07.html)：：
+我们现在做一个文字带有背景的例子，[效果如下](https://canvas-demo.kai666666.com/06/07.html)：：
 
 ![绘制canvas](7.jpeg)
 
@@ -160,7 +160,7 @@ context.fillStyle = pattern;
 
 ```JavaScript
 var image = new Image();
-image.src = "https://www.kai666666.top/2019/06/19/Canvas系列（6）：绘制图片/lufei.jpeg";
+image.src = "https://www.kai666666.com/2019/06/19/Canvas系列（6）：绘制图片/lufei.jpeg";
 image.onload = function (){
   var pattern = context.createPattern(image, "repeat");
   context.font='30px 微软雅黑';

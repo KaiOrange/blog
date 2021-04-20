@@ -64,7 +64,7 @@ Keep使用了`vue + vue-router + vuex`这样的框架组合，它的页面链接
 
 ## 客户端事件 ##
 
-客户端事件是H5和客户端（这里只有移动端）交互的指令，其实就是一个特定协议的字符串，前端使用`location.href = 客户端事件字符串`来执行客户端事件，在Keep中为了方便调试，也可以扫码来执行这些事件。举个例子，打开webview的事件是`keep://webview/`后面跟着encode的URI就可以实现跳转页面了，比如要使用Keep来跳转本博客，就可以如下：`keep://webview/https%3a%2f%2fwww.kai666666.top%2f`，你可以使用[这个工具](http://tool.chinaz.com/tools/urlencode.aspx)来encode，把刚才的事件，转换为二维码，如下：
+客户端事件是H5和客户端（这里只有移动端）交互的指令，其实就是一个特定协议的字符串，前端使用`location.href = 客户端事件字符串`来执行客户端事件，在Keep中为了方便调试，也可以扫码来执行这些事件。举个例子，打开webview的事件是`keep://webview/`后面跟着encode的URI就可以实现跳转页面了，比如要使用Keep来跳转本博客，就可以如下：`keep://webview/https%3a%2f%2fwww.kai666666.com%2f`，你可以使用[这个工具](http://tool.chinaz.com/tools/urlencode.aspx)来encode，把刚才的事件，转换为二维码，如下：
 
 ![二维码](5.png)
 

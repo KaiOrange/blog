@@ -136,7 +136,7 @@ function animate(){
 requestAnimationFrame(animate);
 ```
 
-看到`animate`还是了吗，此函数是canvas动画的“套路”，一定要熟悉它，几乎所有动画相关的代码都有该函数的身影。[此时的效果如下](https://canvas-demo.kai666666.top/10/01.html)：
+看到`animate`还是了吗，此函数是canvas动画的“套路”，一定要熟悉它，几乎所有动画相关的代码都有该函数的身影。[此时的效果如下](https://canvas-demo.kai666666.com/10/01.html)：
 
 ![匀速直线运动](1.gif)
 
@@ -173,7 +173,7 @@ function drawLocus(){
 // ...
 ```
 
-[出来的效果如下](https://canvas-demo.kai666666.top/10/02.html)：
+[出来的效果如下](https://canvas-demo.kai666666.com/10/02.html)：
 
 ![匀速圆周运动](2.gif)
 
@@ -216,7 +216,7 @@ function drawLocus(){
 // ...
 ```
 
-[出来的效果如下](https://canvas-demo.kai666666.top/10/03.html)：
+[出来的效果如下](https://canvas-demo.kai666666.com/10/03.html)：
 
 ![椭圆运动](3.gif)
 
@@ -238,7 +238,7 @@ function updateBall(){
 
 ```
 
-[出来的效果如下](https://canvas-demo.kai666666.top/10/04.html)：
+[出来的效果如下](https://canvas-demo.kai666666.com/10/04.html)：
 
 ![左右来回运动](4.gif)
 
@@ -265,7 +265,7 @@ function updateBall(){
 }
 ```
 
-[出来的效果如下](https://canvas-demo.kai666666.top/10/05.html)：
+[出来的效果如下](https://canvas-demo.kai666666.com/10/05.html)：
 
 ![正弦运动](5.gif)
 
@@ -294,7 +294,7 @@ function updateBall(){
 }
 ```
 
-[出来的效果如下](https://canvas-demo.kai666666.top/10/06.html)：
+[出来的效果如下](https://canvas-demo.kai666666.com/10/06.html)：
 
 ![匀速直线运动](6.gif)
 

@@ -33,7 +33,7 @@ var openURL = function (url) {
   }
 };
 
-openURL("https://www.kai666666.top/");
+openURL("https://www.kai666666.com/");
 ```
 
 ## 运行 ##
@@ -49,7 +49,7 @@ node index.js
 往往在代码中直接写死地址是不好的，我们使用传过来的参数视为打开的URL，修改`index.js`文件最后1行代码：
 
 ```diff
-- openURL("https://www.kai666666.top/");
+- openURL("https://www.kai666666.com/");
 + let url = process.argv[2];
 + if (url) {
 +   openURL(url);
@@ -63,7 +63,7 @@ node index.js
 最后使用下面命令启动：
 
 ```Shell
-node index.js https://www.kai666666.top/
+node index.js https://www.kai666666.com/
 ```
 
 ## 更多 ##

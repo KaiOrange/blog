@@ -60,7 +60,7 @@ context.lineTo(290, 75);
 context.stroke();
 ```
 
-[出来的效果如下](https://canvas-demo.kai666666.top/01/01.html)：
+[出来的效果如下](https://canvas-demo.kai666666.com/01/01.html)：
 
 ![绘制一条线](2.jpeg)
 
@@ -98,7 +98,7 @@ toDataURL()|获取转换的位图字符串（后面会简绍）
 }
 ```
 
-[现在的效果是](https://canvas-demo.kai666666.top/01/02.html)：
+[现在的效果是](https://canvas-demo.kai666666.com/01/02.html)：
 
 ![CSS控制宽度](3.jpeg)
 
@@ -135,7 +135,7 @@ context.strokeStyle='blue';
 context.stroke();
 ```
 
-[效果](https://canvas-demo.kai666666.top/01/03.html)：
+[效果](https://canvas-demo.kai666666.com/01/03.html)：
 
 ![绘制2条线](5.jpeg)
 
@@ -155,7 +155,7 @@ context.lineTo(90, 15);
 context.stroke();
 ```
 
-[效果](https://canvas-demo.kai666666.top/01/04.html)：
+[效果](https://canvas-demo.kai666666.com/01/04.html)：
 
 ![描边矩形](6.jpeg)
 
@@ -202,7 +202,7 @@ context.fillStyle='blue';
 context.fill();
 ```
 
-[效果](https://canvas-demo.kai666666.top/01/05.html)：
+[效果](https://canvas-demo.kai666666.com/01/05.html)：
 
 ![描边矩形](7.jpeg)
 
@@ -230,13 +230,13 @@ context.fillStyle='rgba(0,0,255,0.5)';
 context.fill();
 ```
 
-[效果如下](https://canvas-demo.kai666666.top/01/06.html)，像不像CSS给了一个背景和一个边框？没错填充就类似于是设置背景，描边就类似于给个边框。
+[效果如下](https://canvas-demo.kai666666.com/01/06.html)，像不像CSS给了一个背景和一个边框？没错填充就类似于是设置背景，描边就类似于给个边框。
 
 ![描边和填充](8.jpeg)
 
 ## 绘制简易坐标系 ##
 
-为了更方便后面你的使用我们绘制一个简易的坐标系吧，[效果如下](https://canvas-demo.kai666666.top/01/07.html)：
+为了更方便后面你的使用我们绘制一个简易的坐标系吧，[效果如下](https://canvas-demo.kai666666.com/01/07.html)：
 
 ![简易坐标系](9.jpeg)
 

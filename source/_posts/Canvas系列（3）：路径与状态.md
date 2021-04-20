@@ -39,7 +39,7 @@ context.strokeStyle='#0000FF';
 context.stroke();
 ```
 
-[执行后的结果大概是这个样子的](https://canvas-demo.kai666666.top/03/01.html)：
+[执行后的结果大概是这个样子的](https://canvas-demo.kai666666.com/03/01.html)：
 
 ![颜色出现错误](1.jpeg)
 
@@ -72,7 +72,7 @@ context.stroke();
 ```
 
 
-[效果](https://canvas-demo.kai666666.top/03/02.html)：
+[效果](https://canvas-demo.kai666666.com/03/02.html)：
 
 ![正常渲染](5.jpeg)
 
@@ -92,7 +92,7 @@ context.lineTo(150, 75);
 context.stroke();
 ```
 
-[此时效果如下](https://canvas-demo.kai666666.top/03/03.html)：
+[此时效果如下](https://canvas-demo.kai666666.com/03/03.html)：
 
 ![描边扇形](6.jpeg)
 
@@ -106,7 +106,7 @@ context.arc(150, 75, 80, Math.PI / 180 * 0, Math.PI / 180 * 45);
 context.fill();
 ```
 
-上面没有闭合，直接填充，结果和闭合了以后是[一样的效果](https://canvas-demo.kai666666.top/03/04.html)：
+上面没有闭合，直接填充，结果和闭合了以后是[一样的效果](https://canvas-demo.kai666666.com/03/04.html)：
 
 ![填充扇形](7.jpeg)
 
@@ -149,7 +149,7 @@ context.rect(150, 75, 40, 40);
 context.fill();
 ```
 
-[此时结果如下](https://canvas-demo.kai666666.top/03/05.html)：
+[此时结果如下](https://canvas-demo.kai666666.com/03/05.html)：
 
 ![描边圆，填充矩形](8.jpeg)
 
@@ -168,7 +168,7 @@ context.rect(150, 75, 40, 40);
 context.fill();
 ```
 
-[此时结果如下，简直完美](https://canvas-demo.kai666666.top/03/06.html)：
+[此时结果如下，简直完美](https://canvas-demo.kai666666.com/03/06.html)：
 
 ![按照圆裁剪矩形](9.jpeg)
 
@@ -193,7 +193,7 @@ context.rect(190, 35, 80, 80);
 context.fill();
 ```
 
-[结果](https://canvas-demo.kai666666.top/03/07.html)：
+[结果](https://canvas-demo.kai666666.com/03/07.html)：
 
 ![再画一个矩形](10.jpeg)
 
@@ -225,7 +225,7 @@ context.rect(190, 35, 80, 80);
 context.fill();
 ```
 
-[一个刷新，完美](https://canvas-demo.kai666666.top/03/08.html)：
+[一个刷新，完美](https://canvas-demo.kai666666.com/03/08.html)：
 
 ![恢复状态](11.jpeg)
 

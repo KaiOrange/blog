@@ -36,7 +36,7 @@ function updateBall(){
 //...
 ```
 
-[效果如下](https://canvas-demo.kai666666.top/11/01.html)：
+[效果如下](https://canvas-demo.kai666666.com/11/01.html)：
 
 ![加速运动](1.gif)
 
@@ -63,7 +63,7 @@ function updateBall(){
 //...
 ```
 
-[效果如下](https://canvas-demo.kai666666.top/11/02.html)：
+[效果如下](https://canvas-demo.kai666666.com/11/02.html)：
 
 ![减速运动](2.gif)
 
@@ -102,7 +102,7 @@ function updateBall(){
 //...
 ```
 
-[效果如下](https://canvas-demo.kai666666.top/11/03.html)：
+[效果如下](https://canvas-demo.kai666666.com/11/03.html)：
 
 ![带角度的运动](3.gif)
 
@@ -134,7 +134,7 @@ function updateBall(){
 //...
 ```
 
-[效果如下](https://canvas-demo.kai666666.top/11/04.html)：
+[效果如下](https://canvas-demo.kai666666.com/11/04.html)：
 
 ![抛物线运动](4.gif)
 
@@ -176,7 +176,7 @@ function updateBall(){
 //...
 ```
 
-[效果如下](https://canvas-demo.kai666666.top/11/05.html)：
+[效果如下](https://canvas-demo.kai666666.com/11/05.html)：
 
 ![带反弹的抛物线运动](5.gif)
 
@@ -205,6 +205,6 @@ function updateBall(){
 //...
 ```
 
-[效果如下](https://canvas-demo.kai666666.top/11/06.html)：
+[效果如下](https://canvas-demo.kai666666.com/11/06.html)：
 
 ![摩擦力](6.gif)

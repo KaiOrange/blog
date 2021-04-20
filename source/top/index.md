@@ -19,7 +19,7 @@ comments: false
       time=result.time;
       title=result.title;
       url=result.url;
-      var content="<font color='#555'>"+"【热度："+time+"℃】</font>"+"<a href='"+"https://www.kai666666.top"+url+"'>"+title+"</a>"+"<br />";
+      var content="<font color='#555'>"+"【热度："+time+"℃】</font>"+"<a href='"+"https://www.kai666666.com"+url+"'>"+title+"</a>"+"<br />";
       document.getElementById("top").innerHTML+=content
     }
   }, function (error) {

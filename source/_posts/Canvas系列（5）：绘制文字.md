@@ -38,7 +38,7 @@ context.fillText("这里是fillText", 20, 80);
 context.fillText("这里是fillText", 20, 120,100);
 ```
 
-[出来的效果如下](https://canvas-demo.kai666666.top/05/01.html)：
+[出来的效果如下](https://canvas-demo.kai666666.com/05/01.html)：
 
 ![绘制文字](1.jpeg)
 
@@ -62,7 +62,7 @@ var text = "文本水平居中";
 context.fillText(text, ( canvas.width - context.measureText(text).width ) / 2, 80);
 ```
 
-上面`canvas`就是canvas标签的dom元素，然后水平的x需要计算一下，y这里就随便给了一个80px。[效果如下](https://canvas-demo.kai666666.top/05/02.html)：
+上面`canvas`就是canvas标签的dom元素，然后水平的x需要计算一下，y这里就随便给了一个80px。[效果如下](https://canvas-demo.kai666666.com/05/02.html)：
 
 ![文本居中](2.jpeg)
 
@@ -83,7 +83,7 @@ context.font='<font-style> <font-variant> <font-weight> <font-size / line-height
 context.font='italic bold 30px 微软雅黑';
 ```
 
-[效果如下](https://canvas-demo.kai666666.top/05/03.html)：
+[效果如下](https://canvas-demo.kai666666.com/05/03.html)：
 
 ![font属性](3.jpeg)
 
@@ -100,7 +100,7 @@ context.textAlign='center';
 context.fillText(text, canvas.width / 2, 80);
 ```
 
-[效果如下](https://canvas-demo.kai666666.top/05/04.html)：
+[效果如下](https://canvas-demo.kai666666.com/05/04.html)：
 
 ![textAlign属性居中](4.jpeg)
 
@@ -118,6 +118,6 @@ context.textBaseline='middle';
 context.fillText(text, canvas.width / 2, canvas.height / 2);
 ```
 
-[效果如下](https://canvas-demo.kai666666.top/05/05.html)：
+[效果如下](https://canvas-demo.kai666666.com/05/05.html)：
 
 ![水平垂直居中](5.jpeg)

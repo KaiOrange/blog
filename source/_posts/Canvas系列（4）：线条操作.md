@@ -36,7 +36,7 @@ context.lineWidth=10;
 context.stroke();
 ```
 
-[结果如下](https://canvas-demo.kai666666.top/04/01.html)：
+[结果如下](https://canvas-demo.kai666666.com/04/01.html)：
 
 ![改变线宽](1.jpeg)
 
@@ -50,7 +50,7 @@ context.lineWidth=20;
 context.stroke();
 ```
 
-[结果如下](https://canvas-demo.kai666666.top/04/02.html)：
+[结果如下](https://canvas-demo.kai666666.com/04/02.html)：
 
 ![矩形描边](2.jpeg)
 
@@ -83,7 +83,7 @@ context.lineCap='square'; // 方形
 context.stroke();
 ```
 
-[结果如下](https://canvas-demo.kai666666.top/04/03.html)：
+[结果如下](https://canvas-demo.kai666666.com/04/03.html)：
 
 ![线帽样式](3.jpeg)
 
@@ -100,7 +100,7 @@ context.stroke();
     context.stroke();
 ```
 
-[结果如下](https://canvas-demo.kai666666.top/04/04.html)：
+[结果如下](https://canvas-demo.kai666666.com/04/04.html)：
 
 ![中间不生效](4.jpeg)
 
@@ -121,7 +121,7 @@ context.lineJoin='bevel';
 context.stroke();
 ```
 
-[结果如下](https://canvas-demo.kai666666.top/04/05.html)：
+[结果如下](https://canvas-demo.kai666666.com/04/05.html)：
 
 ![斜角](5.jpeg)
 
@@ -140,7 +140,7 @@ context.setLineDash([10,5]);
 context.stroke();
 ```
 
-[结果如下](https://canvas-demo.kai666666.top/04/06.html)：
+[结果如下](https://canvas-demo.kai666666.com/04/06.html)：
 
 ![改变线宽](7.jpeg)
 

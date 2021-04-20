@@ -32,7 +32,7 @@ context.arc(150, 75, 60, Math.PI / 180 * 0, Math.PI / 180 * 90);
 context.stroke();
 ```
 
-[效果如下](https://canvas-demo.kai666666.top/02/01.html)：
+[效果如下](https://canvas-demo.kai666666.com/02/01.html)：
 
 ![描边弧线](1.jpeg)
 
@@ -46,7 +46,7 @@ context.arc(150, 75, 60, Math.PI / 180 * 0, Math.PI / 180 * 90);
 context.fill();
 ```
 
-[效果如下](https://canvas-demo.kai666666.top/02/02.html)：
+[效果如下](https://canvas-demo.kai666666.com/02/02.html)：
 
 ![填充弧线](2.jpeg)
 
@@ -83,7 +83,7 @@ context.arcTo(210, 135, 150, 135, 60);
 context.stroke();
 ```
 
-[效果如下](https://canvas-demo.kai666666.top/02/03.html)：
+[效果如下](https://canvas-demo.kai666666.com/02/03.html)：
 
 ![arcTo](7.jpeg)
 
@@ -119,7 +119,7 @@ context.fillStyle='blue';
 context.fill();
 ```
 
-[效果如下](https://canvas-demo.kai666666.top/02/04.html)：
+[效果如下](https://canvas-demo.kai666666.com/02/04.html)：
 
 ![圆角矩形](11.jpeg)
 
@@ -151,7 +151,7 @@ context.quadraticCurveTo(210, 135, 100, 135);
 context.stroke();
 ```
 
-[效果如下](https://canvas-demo.kai666666.top/02/05.html)：
+[效果如下](https://canvas-demo.kai666666.com/02/05.html)：
 
 ![二次贝塞尔曲线](12.jpeg)
 
@@ -173,6 +173,6 @@ context.bezierCurveTo(100, 20, 200, 130, 250, 75);
 context.stroke();
 ```
 
-[效果图如下](https://canvas-demo.kai666666.top/02/06.html)：
+[效果图如下](https://canvas-demo.kai666666.com/02/06.html)：
 
 ![三次贝塞尔曲线](13.jpeg)

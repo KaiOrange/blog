@@ -8,7 +8,7 @@ tags:
 categories: 读书笔记
 ---
 
-这本书和之前讲的[《JavaScript函数式编程指南》](https://www.kai666666.top/2019/03/10/%E3%80%8AJavaScript%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/)内容上有很大的重叠部分，就算是函数式编程的一个回顾吧。本书将的很多概念性的东西写的非常透彻，有必要再记录一遍，书也很薄（只有172页，图片看着厚很可能是出版社为了诱导消费者买书😂），值得一读！为了讲清楚函数式编程，书中的例子都是采用最精简的代码，并没有考虑代码的效率，甚至与我们常用的API稍微有点区别。
+这本书和之前讲的[《JavaScript函数式编程指南》](https://www.kai666666.com/2019/03/10/%E3%80%8AJavaScript%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/)内容上有很大的重叠部分，就算是函数式编程的一个回顾吧。本书将的很多概念性的东西写的非常透彻，有必要再记录一遍，书也很薄（只有172页，图片看着厚很可能是出版社为了诱导消费者买书😂），值得一读！为了讲清楚函数式编程，书中的例子都是采用最精简的代码，并没有考虑代码的效率，甚至与我们常用的API稍微有点区别。
 
 ![《JavaScript ES6 函数式编程入门经典》](1.jpg)
 
@@ -38,7 +38,7 @@ categories: 读书笔记
         return result
     }
 
-    every([NaN, NaN, NaN], isNaN) // true 
+    every([NaN, NaN, NaN], isNaN) // true
     every([NaN, NaN, 1], isNaN) // false
     ```
 
@@ -52,7 +52,7 @@ categories: 读书笔记
         return result
     }
 
-    some([NaN,NaN, 4], isNaN) // true 
+    some([NaN,NaN, 4], isNaN) // true
     some([3,4, 4], isNaN) // false
     ```
 
@@ -129,7 +129,7 @@ closureFn();// 打印 "visible" 和 5
 高阶函数举例（续）：
 
 1. tap（接收一个value返回一个函数，当函数执行时第一个参数是value）
-   
+
     ```JavaScript
     const tap = (value) =>
         (fn) => (
@@ -141,19 +141,19 @@ closureFn();// 打印 "visible" 和 5
     ```
 
 2. unary （将多参函数转化为一个参数的函数）
-   
+
     ```JavaScript
     const unary = (fn) =>
         fn.length === 1
             ? fn
-            : (arg) => fn(arg) 
+            : (arg) => fn(arg)
 
     ['1', '2', '3'].map(parseInt);// 经典面试题 因为parseInt接受的第二个参数表示多少进制 导致最后返回的是 [1, NaN, NaN,]
     ['1', '2', '3'].map(unary(parseInt));// 返回 [1, 2, 3]
     ```
 
 3. once （函数只运行一次）
-   
+
     ```JavaScript
     const once = (fn) => {
         let done = false;
@@ -163,7 +163,7 @@ closureFn();// 打印 "visible" 和 5
         }
     }
 
-    
+
     var doPayment = once(() => {
         console.log("Payment is done")
     })
@@ -176,11 +176,11 @@ closureFn();// 打印 "visible" 和 5
     ```
 
 4. memoized （函数记忆化）
-   
+
     ```JavaScript
     const memoized = (fn) => {
         const lookupTable = {};
-            
+
         return (arg) => lookupTable[arg] || (lookupTable[arg] = fn(arg));
     }
 
@@ -205,14 +205,14 @@ closureFn();// 打印 "visible" 和 5
 ### 闭包与高阶函数 ###
 
 1. map（将数组转化为一个新的数组）
-   
+
     ```JavaScript
     const map = (array,fn) => {
         let results = []
         for(const value of array)
             results.push(fn(value))
 
-        return results;  
+        return results;
     }
 
     let squaredArray = map([1,2,3], (x) => x * x);
@@ -220,14 +220,14 @@ closureFn();// 打印 "visible" 和 5
     ```
 
 2. filter（过滤函数）
-   
+
     ```JavaScript
     const filter = (array,fn) => {
         let results = []
         for(const value of array)
             (fn(value)) ? results.push(value) : undefined
 
-        return results;  
+        return results;
     }
 
     // 实例：返回数组中的基数
@@ -236,14 +236,14 @@ closureFn();// 打印 "visible" 和 5
 
 
 3. concatAll（数组扁平化，实际上就是我们常用的flatten，作用是将多个数组，合并成一个数组）
-   
+
     ```JavaScript
     const concatAll = (array) => {
         let results = []
         for(const value of array)
             results.push.apply(results, value);
 
-        return results;  
+        return results;
     }
 
     concatAll([[1, 2, 3], [3, 4, 5]]); // 结果为 [1, 2, 3, 3, 4, 5]
@@ -251,7 +251,7 @@ closureFn();// 打印 "visible" 和 5
 
 
 4. reduce（累计计算）
-   
+
     ```JavaScript
     const reduce = (array, fn, initialValue) => {
         let accumlator;
@@ -268,7 +268,7 @@ closureFn();// 打印 "visible" 和 5
             for(const value of array)
                 accumlator = fn(accumlator,value)
 
-        return accumlator	
+        return accumlator
     }
 
     reduce([1,2,3,4,5],(acc,val) => acc + val,0); // 计算加法 返回 15
@@ -277,15 +277,15 @@ closureFn();// 打印 "visible" 和 5
 
 
 5. zip（合并两个指定的函数）
-   
+
     ```JavaScript
     const zip = (leftArr,rightArr,fn) => {
         let index, results = [];
 
         for(index = 0;index < Math.min(leftArr.length, rightArr.length);index++)
             results.push(fn(leftArr[index],rightArr[index]));
-        
-        return results; 
+
+        return results;
     }
 
     zip([1, 2, 3],[4, 5, 6], (x, y) => x + y)); // 返回 [5, 7, 9]
@@ -347,7 +347,7 @@ const curryN =(fn) => {
     }
 
     return function curriedFn(...args){
-      
+
       //make it bold
       if(args.length < fn.length){
         return function(){
@@ -388,9 +388,9 @@ const partial = function (fn,...partialArgs){
 };
 
 // 使用偏函数 函数1秒后执行
-// 本书中的例子使用undefined来表示后续需要传入的参数 
+// 本书中的例子使用undefined来表示后续需要传入的参数
 // 这里setTimeout第一个参数由调用时候决定 第二个参数固定永远是1000 表示1秒后调用
-let delayTenMsPartial = partial(setTimeout, undefined, 1000); 
+let delayTenMsPartial = partial(setTimeout, undefined, 1000);
 delayTenMsPartial(() => console.log("Do X. . .  task"))
 delayTenMsPartial(() => console.log("Do Y . . . . task"))
 ```
@@ -459,11 +459,11 @@ const Container = function(val) {
 // 这里为了方便创建对象 添加了一个of方法
 Container.of = function(value) {
   return new Container(value);
-} 
+}
 
 // 只要提供了map方法 使用Container创建的对象就是函子
 // map方法实现需要根据实际情况来确定 这里提供了一种实现
-Container.prototype.map = function(fn){ 
+Container.prototype.map = function(fn){
   return Container.of(fn(this.value));
 }
 
@@ -650,6 +650,6 @@ fullName.next(); // 返回 {value: 123, done: false}
 // 注意第一个nuxt调用的时候会执行代码到第一个yield处
 // 当第二次执行next的时候才会给第一个yield传参
 fullName.next('anto'); // 返回 {value: 456, done: false}
-fullName.next('aravinth'); // 打印 "antoaravinth" 返回 {value: undefined, done: true} 
+fullName.next('aravinth'); // 打印 "antoaravinth" 返回 {value: undefined, done: true}
 
 ```

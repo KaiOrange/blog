@@ -102,7 +102,7 @@ comments: true
       document.getElementById('we-favorites').innerHTML = html;
     }
   };
-  xhr.open("GET",'https://wef.kai666666.top/index.json',true);
+  xhr.open("GET",'https://wef.kai666666.com/index.json',true);
   xhr.send(null);
 })();
 </script>

@@ -27,7 +27,7 @@ context.translate(20, 20);
 context.fillRect(10,10,20,20);
 ```
 
-[效果](https://canvas-demo.kai666666.top/07/01.html)：
+[效果](https://canvas-demo.kai666666.com/07/01.html)：
 
 ![平移形变](1.jpeg)
 
@@ -49,7 +49,7 @@ context.fillStyle='red';
 context.fillRect(10,10,20,20);
 ```
 
-[效果](https://canvas-demo.kai666666.top/07/02.html)：
+[效果](https://canvas-demo.kai666666.com/07/02.html)：
 
 ![使用保存状态](2.jpeg)
 
@@ -71,7 +71,7 @@ context.strokeRect(20, 20, 50, 50);
 context.restore();
 ```
 
-[效果](https://canvas-demo.kai666666.top/07/03.html)：
+[效果](https://canvas-demo.kai666666.com/07/03.html)：
 
 ![缩放](3.jpeg)
 
@@ -96,7 +96,7 @@ context.strokeRect(80, 20, 50, 50);
 context.restore();
 ```
 
-[效果](https://canvas-demo.kai666666.top/07/04.html)：
+[效果](https://canvas-demo.kai666666.com/07/04.html)：
 
 ![旋转](4.jpeg)
 
