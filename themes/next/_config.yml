@@ -385,12 +385,12 @@ changyan:
 # You can get your appid and appkey from https://leancloud.cn
 # more info please open https://valine.js.org
 valine:
-  enable: false
-  appid:  # your leancloud application appid
-  appkey:  # your leancloud application appkey
-  notify: false # mail notifier , https://github.com/xCss/Valine/wiki
+  enable: true
+  appid:  5hMjWYdBcTn2DNzg8Np0EiDt-gzGzoHsz # your leancloud application appid
+  appkey: tmetR6q0QiHA7NnHo19uXnAX # your leancloud application appkey
+  notify: true # mail notifier , https://github.com/xCss/Valine/wiki
   verify: false # Verification code
-  placeholder: Just go go # comment box placeholder
+  placeholder: 来了老弟，留下点东西吧~ # comment box placeholder
   avatar: mm # gravatar style
   guest_info: nick,mail,link # custom comment header
   pageSize: 10 # pagination size
@@ -402,8 +402,8 @@ valine:
 
 # Support for LiveRe comments system.
 # You can get your uid from https://livere.com/insight/myCode (General web site)
-livere_uid: MTAyMC80Mjk3Mi8xOTUxOA==
-livere_refer: https://www.kai666666.com
+# livere_uid: MTAyMC80Mjk3Mi8xOTUxOA==
+# livere_refer: https://www.kai666666.com
 
 # Gitment
 # Introduction: https://imsun.net/posts/gitment-introduction/
@@ -882,18 +882,13 @@ mylinks:
   site: https://tstrs.me/
   info: SatyLeo的自留地。
 
-- nickname: Brain's Blog
-  avatar: https://cdn.lichangao.com//handsomeavatar.jpeg
-  site: https://blog.lichangao.com/
-  info: 月色真美，只要心还跳。
-
 - nickname: 云淡风轻
   avatar: https://ioliu.cn/images/avatar.jpg
   site: https://ioliu.cn/
   info: 一个安静的角落。
 
 - nickname: 惊蛰
-  avatar: https://blog.jingzhe.xyz/jingzhe/jpg/1593256062295.jpeg
+  avatar: https://ae01.alicdn.com/kf/Ua26a9ebfe30847ff8d4d7d7c7647c61cH.jpg
   site: https://blog.jingzhe.xyz/
   info: 惊蛰的博客。
 
