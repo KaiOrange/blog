@@ -265,3 +265,143 @@ console.log(fn());
 
 点评:
 **finally一定会执行，即使有return也阻止不了。**
+### 实现如下效果 ###
+
+```JavaScript
+// 调用eat()的时候打印eat 调用work()的时候打印work 调用sleep的时候休息对应的秒数
+let paint = new Paint()
+paint.eat().work().sleep(3).eat().work()
+```
+
+答案1（同步阻塞式）：
+
+```JavaScript
+class Paint {
+
+  eat() {
+    console.log('eat')
+    return this
+  }
+
+  work() {
+    console.log('work')
+    return this
+  }
+
+  sleep(t) {
+    let date = +new Date()
+
+    while (+new Date() - date < t * 1000) {
+
+    }
+
+    console.log('sleep')
+
+    return this
+  }
+}
+
+let paint = new Paint()
+paint.eat().work().sleep(3).eat().work()
+```
+
+点评:
+**同步阻塞的时候，使用sleep则不会执行其他的代码，面试官看到这会直接让你改成异步的，异步的一种实现如下：**
+
+答案2（Promise链式调用）：
+
+```JavaScript
+class Paint {
+
+  constructor() {
+    this.chain = Promise.resolve()
+  }
+
+  eat() {
+    this.chain = this.chain.then(()=>{
+      console.log('eat')
+    })
+
+    return this
+  }
+
+  work() {
+    this.chain = this.chain.then(()=>{
+      console.log('work')
+    })
+    return this
+  }
+
+  sleep(t) {
+    this.chain = this.chain.then(()=>{
+      return new Promise(resolve => {
+        setTimeout(() => {
+          console.log('sleep')
+          resolve()
+        }, t * 1000);
+      })
+    })
+
+    return this
+  }
+}
+
+let paint = new Paint()
+paint.eat().work().sleep(3).eat().work()
+```
+
+点评:
+**这里使用了Promise来做异步操作，每次使用上一个Promise的then返回的Promise作为新的Promise，代码简单。不出意外的话面试官又会问，如果不使用Promise怎么实现呢？**
+
+答案3（自己调用法）：
+
+```JavaScript
+class Paint {
+
+  constructor() {
+    this.fns = []
+    setTimeout(() => {
+      this.next()
+    });
+  }
+
+  next() {
+    let fn = this.fns.shift()
+    fn && fn()
+  }
+
+  eat() {
+    this.fns.push(() => {
+      console.log('eat')
+      this.next()
+    })
+
+    return this
+  }
+
+  work() {
+    this.fns.push(() => {
+      console.log('work')
+      this.next()
+    })
+    return this
+  }
+
+  sleep(t) {
+    this.fns.push(() => {
+      setTimeout(() => {
+        console.log('sleep')
+        this.next()
+      }, t * 1000);
+    })
+
+    return this
+  }
+}
+
+let paint = new Paint()
+paint.eat().work().sleep(3).eat().work()
+```
+
+点评:
+**这个代码最重要的就是在构造方法使用宏任务去调用`this.next()`，保证第一次可以正常调用，如果`paint.eat().work().sleep(3).eat().work()`也在宏任务中则不会执行，这是需要手动去调用`this.next()`**
