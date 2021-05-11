@@ -405,3 +405,27 @@ paint.eat().work().sleep(3).eat().work()
 
 点评:
 **这个代码最重要的就是在构造方法使用宏任务去调用`this.next()`，保证第一次可以正常调用，如果`paint.eat().work().sleep(3).eat().work()`也在宏任务中则不会执行，这是需要手动去调用`this.next()`**
+
+### 下面代码打印什么 ###
+
+```JavaScript
+console.log(Boolean(null))
+console.log(Boolean(0))
+console.log(null == 0)
+console.log(null > 0)
+console.log(null < 0)
+console.log(null >= 0)
+console.log(null <= 0)
+```
+
+答案：
+> false
+> false
+> false
+> false
+> false
+> true
+> true
+
+点评:
+**`Boolean(null)`和`Boolean(0)`不用解释了是false；`null == 0`这个是比较坑的，null和0==比较的时候，null相当于并没有隐式转换（>和<会隐式转换），所以为false；>和<会把隐式转换null为0，0>0和0<0都是false；`null >= 0`实际比较的是`!(null < 0)`而不是`null > 0 && null == 0`，所以返回的是true；null<=0相同。**
