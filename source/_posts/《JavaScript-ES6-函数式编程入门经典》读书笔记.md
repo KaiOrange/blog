@@ -379,8 +379,8 @@ const partial = function (fn,...partialArgs){
     return function(...fullArguments) {
         let arg = 0;
         for (let i = 0; i < args.length && arg < fullArguments.length; i++) {
-        if (args[i] === undefined) {
-            args[i] = fullArguments[arg++];
+            if (args[i] === undefined) {
+                args[i] = fullArguments[arg++];
             }
         }
         return fn.apply(this, args);
