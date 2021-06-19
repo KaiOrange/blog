@@ -3,11 +3,11 @@ title: vue2你该知道的一切（上）
 date: 2021-06-19 09:53:19
 author: Orange
 tags:
-  - CSS
-categories: 读书笔记
+  - Vue
+categories: JavaScript
 ---
 
-Vue知识点众多，这两章记录一下Vue2.x版本的常规使用方法。如果你是一名使用Vue框架开发的前端工程师，那么这两章的内容会让你对Vue的知识点记得更牢固。
+Vue知识点众多，这[两章](https://kai666666.com/2021/06/19/vue2%E4%BD%A0%E8%AF%A5%E7%9F%A5%E9%81%93%E7%9A%84%E4%B8%80%E5%88%87%EF%BC%88%E4%B8%8B%EF%BC%89/#more)记录一下Vue2.x版本的常规使用方法。如果你是一名使用Vue框架开发的前端工程师，那么这两章的内容会让你对Vue的知识点记得更牢固。
 
 ----
 
@@ -106,7 +106,7 @@ v-if多条件判断：
 ```HTML
 <div id="app">
   <ul>
-    <li v-for="(item, index) in dogs">{{ 1 + index + ':' + item }}</li>
+    <li v-for="(item, index) in dogs" :key="index">{{ 1 + index + ':' + item }}</li>
   </ul>
 </div>
 <script>
@@ -124,7 +124,7 @@ v-if多条件判断：
 ```HTML
 <div id="app">
   <ul>
-    <li v-for="(value, key) in obj">{{ key + ':' + value }}</li>
+    <li v-for="(value, key) in obj" :key="key">{{ key + ':' + value }}</li>
   </ul>
 </div>
 <script>
@@ -146,7 +146,7 @@ v-if多条件判断：
 ```HTML
 <div id="app">
   <ul>
-    <li v-for="num in 10">{{ num }}</li>
+    <li v-for="num in 10" :key="num">{{ num }}</li>
   </ul>
 </div>
 <script>
