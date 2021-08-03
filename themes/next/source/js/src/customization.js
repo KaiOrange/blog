@@ -5,7 +5,7 @@ $(document).ready(function () {
     $("#github-corner svg").css({top:-80});
   } else if ($env.isPC) {
     // $("body").append('<script type="text/javascript" src="https://cdn.bootcss.com/canvas-nest.js/2.0.4/canvas-nest.js" ></script>');
-    $("body").append('<script type="text/javascript" src="https://cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>');
+    $("body").append('<script async type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>');
   } else if ($env.isAndroid) {
     var isFirstBrowse = localStorage.getItem('isFirstBrowse') !== 'false';
     // 非第一次浏览有30%的概率试图去唤起快应用
