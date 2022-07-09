@@ -46,10 +46,6 @@ categories: Node
         # 切换分支
         - name: Checkout
           uses: actions/checkout@master
-        # 下载 git submodule
-        - uses: srt32/git-actions@v0.0.3
-          with:
-            args: git submodule update --init --recursive
         # 使用 node:10
         - name: use Node.js 10
           uses: actions/setup-node@v1
