@@ -3,10 +3,15 @@ title: 文章热度排行
 comments: false
 ---
 <div id="top"></div>
-<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<!-- <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script> -->
+<script src="https://unpkg.com/leancloud-storage@4.14.0/dist/av-min.js"></script>
 <script type="text/javascript">
   (function () {
-    AV.initialize("5hMjWYdBcTn2DNzg8Np0EiDt-gzGzoHsz", "tmetR6q0QiHA7NnHo19uXnAX");
+    AV.initialize({
+      appId: "5hMjWYdBcTn2DNzg8Np0EiDt-gzGzoHsz",
+      appKey: "tmetR6q0QiHA7NnHo19uXnAX",
+      serverURLs: "https://leancloud-api.kai666666.com",
+    });
     var time=0
     var title=""
     var url=""

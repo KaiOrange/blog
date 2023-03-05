@@ -1,8 +1,16 @@
 {% if theme.leancloud_visitors.enable %}
 
   {# custom analytics part create by xiamo #}
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("{{theme.leancloud_visitors.app_id}}", "{{theme.leancloud_visitors.app_key}}");</script>
+  {# <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script> #}
+  <script src="https://unpkg.com/leancloud-storage@4.14.0/dist/av-min.js"></script>
+
+  <script>
+    AV.initialize({
+      appId:  "{{theme.leancloud_visitors.app_id}}",
+      appKey: "{{theme.leancloud_visitors.app_key}}",
+      serverURLs:"{{theme.leancloud_visitors.serverURL}}",
+    });
+  </script>
   <script>
     function showTime(Counter) {
       var query = new AV.Query(Counter);
@@ -15,7 +23,7 @@
 
       query.containedIn('url', entries);
       query.find()
-        .done(function (results) {
+        .then(function (results) {
           var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
 
           if (results.length === 0) {
@@ -40,7 +48,7 @@
             }
           }
         })
-        .fail(function (object, error) {
+        .catch(function (object, error) {
           console.log("Error: " + error.code + " " + error.message);
         });
     }

@@ -92,14 +92,14 @@ index_with_subtitle: false
 # Value before `||` delimeter is the target link.
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, question icon will be loaded.
 menu:
-  home: / || home
+  home: /|| home
   #about: /about/ || user
-  tags: /tags/ || tags
-  categories: /categories/ || th
-  #archives: /archives/ || archive
-  top: /top/ || signal
-  we-favorites: /we-favorites/ || book
-  links: /links/ || link
+  tags: /tags/|| tags
+  categories: /categories/|| th
+  #archives: /archives/|| archive
+  top: /top/|| signal
+  we-favorites: /we-favorites/|| book
+  links: /links/|| link
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
@@ -545,6 +545,7 @@ leancloud_visitors:
   enable: true
   app_id: 5hMjWYdBcTn2DNzg8Np0EiDt-gzGzoHsz
   app_key: tmetR6q0QiHA7NnHo19uXnAX
+  serverURL: https://leancloud-api.kai666666.com
 
 # Another tool to show number of visitors to each article.
 # visit https://console.firebase.google.com/u/0/ to get apiKey and projectId
@@ -707,7 +708,7 @@ pace: true
 pace_theme: pace-theme-center-simple
 
 # Canvas-nest
-canvas_nest: false
+canvas_nest: true
 
 # three_waves
 three_waves: false
