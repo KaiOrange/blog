@@ -97,7 +97,7 @@ menu:
   tags: /tags/|| tags
   categories: /categories/|| th
   #archives: /archives/|| archive
-  top: /top/|| signal
+  # top: /top/|| signal
   we-favorites: /we-favorites/|| book
   links: /links/|| link
   #schedule: /schedule/ || calendar
@@ -542,7 +542,7 @@ rating:
 # Show number of visitors to each article.
 # You can visit https://leancloud.cn get AppID and AppKey.
 leancloud_visitors:
-  enable: true
+  enable: false
   app_id: 5hMjWYdBcTn2DNzg8Np0EiDt-gzGzoHsz
   app_key: tmetR6q0QiHA7NnHo19uXnAX
   serverURL: https://leancloud-api.kai666666.com
