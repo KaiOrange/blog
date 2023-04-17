@@ -201,7 +201,9 @@ console.log(str);// "我是一个帅哥"
 ```
 
 ### 经典案例2 ###
-写一个函数匹配字符串非"123"，若非"123"则返回true，是"123"返回false。
+
+写一个函数匹配字符串非`123`，若非`123`返回true，是`123`返回false。
+
 ```JavaScript
 function isNot123(str) {
   return /^(?!123$).*/gi.test(str); // 负向预查非123结尾的任意字符串

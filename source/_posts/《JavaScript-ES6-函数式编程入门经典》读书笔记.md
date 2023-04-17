@@ -34,7 +34,7 @@ categories: 读书笔记
     const every = (arr,fn) => {
         let result = true;
         for(const value of arr)
-        result = result && fn(value)
+            result = result && fn(value)
         return result
     }
 
@@ -48,7 +48,7 @@ categories: 读书笔记
     const some = (arr,fn) => {
         let result = false;
         for(const value of arr)
-        result = result || fn(value)
+            result = result || fn(value)
         return result
     }
 
@@ -118,6 +118,7 @@ var fn = (arg) => {
         console.log(outer);
         console.log(arg);
     }
+    return innerFn;
 }
 
 var closureFn = fn(5);
@@ -134,7 +135,6 @@ closureFn();// 打印 "visible" 和 5
     const tap = (value) =>
         (fn) => (
             typeof(fn) === 'function' && fn(value),
-            console.log(value)
         )
 
     tap("fun")(value => console.log("value is " + value));// 打印 "value is fun"
@@ -430,7 +430,7 @@ let oddOrEvenWords = composeN(oddOrEven,count,splitIntoSpaces);
 console.log("Even or odd via compose ?",oddOrEvenWords("hello your reading about composition"));
 ```
 
-上述组合函数参数是从右往左依次调用的，如果是从左往右那么就叫做**管道**了，也有成为序列。管道是组合的复制品，唯一修改的地方就是数据流的方向。
+上述组合函数参数是从右往左依次调用的，如果是从左往右那么就叫做**管道**了，也有称为序列。管道是组合的复制品，唯一修改的地方就是数据流的方向。
 
 ```JavaScript
 const pipe = (...fns) =>
@@ -504,7 +504,7 @@ MayBe.prototype.map = function(fn) {
 
 // MayBe函子的使用
 MayBe.of("string").map((x) => x.toUpperCase()).value // 返回 "STRING"
-MayBe.of(null).map((x) => x.toUpperCase()).value // 返回 null 注意这里索然返回了null 但是程序还可以运行
+MayBe.of(null).map((x) => x.toUpperCase()).value // 返回 null 注意这里虽然返回了null 但是程序还可以运行
 // map 可以连用
 MayBe.of("George").map((x) => x.toUpperCase()).map((x) => "Mr. " + x).value //返回 "Mr. GEORGE"
 MayBe.of("George").map(() => undefined).map((x) => "Mr. " + x).value // 返回 null 运行过程中某一步返回空也不会导致程序奔溃

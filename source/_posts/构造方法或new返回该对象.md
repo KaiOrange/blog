@@ -7,7 +7,7 @@ tags:
 categories: JavaScript
 ---
 
-一个小技巧，调用构造方法或都new返回该对象：
+一个小技巧，调用构造方法或new都返回该对象：
 
 ```JavaScript
 function Person(){
