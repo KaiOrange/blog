@@ -43,7 +43,7 @@ get|获取属性的函数|undefined
         writable:false
     });
     obj.a = "123";//由于writable是false，这里会静默失败
-    console.log(obj.a);//a  
+    console.log(obj.a);//a
     ```
 2. configurable
     configurable表示是否可配置，如果其值设置为`false`，那么将属性描述符重新设置的时候会报错TypeError（无论是否是在严格模式下）；同时`delete`该属性的时候会静默失败，严格模式会报错TypeError。
@@ -135,13 +135,13 @@ get|获取属性的函数|undefined
     });
     for (var key in obj) {
         console.log(obj[key]);// 依次打印"a" "c"
-    }  
+    }
     ```
 
     通常判断一个属性是否属于一个对象我们可以使用`in操作符`和`hasOwnProperty方法`，对于不可枚举的属性，他们返回的都是true，如上面的不可枚举的属性`b`：
     ```JavaScript
     console.log("b" in obj);// true
-    console.log(obj.hasOwnProperty("b"));// true  
+    console.log(obj.hasOwnProperty("b"));// true
     ```
     那么如何区分某个属性是不可枚举的呢？可以利用对象的`propertyIsEnumerable`方法。
     ```JavaScript
@@ -197,18 +197,19 @@ get|获取属性的函数|undefined
     });
     obj.a = 4;
     console.log(obj.a);// 16
-    
+
     Object.defineProperty(obj,"a",{
         writable:true,
         value:321
     });
-    
+
     console.log(obj.a);// 321
     ```
 
 **补充**
 
 1. 在调用`Object.defineProperty`方法创建一个**新的属性**的时候，如果不指定`writable`，`configurable`，`enumerable`的时候默认值是false，如果只是修改已定义的属性的时候那么就是默认值true。
+
     ```JavaScript
     var obj = {
         a:"111"
@@ -221,12 +222,13 @@ get|获取属性的函数|undefined
     });
     console.log(Object.keys(obj));//b是新的 所以是不可枚举的 所以打印["a"]
     ```
+
 2. 获取属性描述符，可以使用`Object.getOwnPropertyDescriptor`方法。
 
     ```JavaScript
     Object.getOwnPropertyDescriptor(obj,"a");
-    ```  
-    
+    ```
+
 3. 批量设置多个属性描述符的时候，可以使用`Object.defineProperties`方法。
 
     ```JavaScript
@@ -234,4 +236,4 @@ get|获取属性的函数|undefined
         a:{value:"aaa",writable:false},
         b:{value:"bbb",writable:false},
     });
-    ``` 
+    ```
