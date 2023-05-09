@@ -8,6 +8,8 @@ tags:
 categories: JavaScript
 ---
 
+## 属性描述符 ##
+
 属性描述符是ES5中的一个重要的概念。它可以对对象做一些特定的高级操作，今天我们就学习一下ES5中的属性描述符。
 ES5中的属性描述符是由`Object类`的一个静态方法`defineProperty`来设置的，该方法接收三个参数，分别是：**属性操作的对象、属性名和一个属性描述符的对象**。我们来看一个简单的例子：
 ```JavaScript
@@ -206,7 +208,64 @@ get|获取属性的函数|undefined
     console.log(obj.a);// 321
     ```
 
-**补充**
+## 三个方法 ##
+
+
+### Object.preventExtensions ###
+
+`Object.preventExtensions`表示禁止扩展，调用后不能给对象添加新的属性，如果添加了非严格模式下会静默失败，严格模式下会报错（TypeError）。
+
+  ```JavaScript
+  var obj = {
+      a: 1
+  };
+  Object.preventExtensions(obj);
+  obj.b = 12;
+  console.log(obj); // 非严格模式下打印 {a: 1}
+  ```
+
+### Object.seal ###
+
+`Object.preventExtensions`方法不能扩展，但是它可以删除属性。`Object.seal`是密封的意思，调用后不但不能扩展还不能删除而且不可配置。相当于在`Object.preventExtensions`的基础上标记了`configurable: false`。
+
+  ```JavaScript
+  var obj = {
+      a: 1
+  };
+  Object.seal(obj);
+  delete obj.b;
+  console.log(obj); // 非严格模式下打印 {a: 1}
+  ```
+
+### Object.freeze ###
+
+`Object.seal`后不可删除属性，但是可以修改属性。`Object.freeze`表示冻结，当冻结一个对象后，就无法修改对象的属性值了。相当于`Object.seal`的基础上标记了`writable: false`。
+
+  ```JavaScript
+  var obj = {
+      a: 1
+  };
+  Object.freeze(obj);
+  obj.a = 123;
+  console.log(obj); // 非严格模式下打印 {a: 1}
+  ```
+
+注意`Object.freeze`冻结是潜冻结，如果某个属性是对象，那么该对象的属性值仍然可以修改，如下：
+
+  ```JavaScript
+  var obj = {
+      a: {b:1}
+  };
+  Object.freeze(obj);
+  obj.a.b = 2;
+  console.log(obj); // 打印 {a: { b: 2 }}
+  ```
+
+一张图总结三者关系：
+
+![三者关系](1.png)
+
+## 补充 ##
 
 1. 在调用`Object.defineProperty`方法创建一个**新的属性**的时候，如果不指定`writable`，`configurable`，`enumerable`的时候默认值是false，如果只是修改已定义的属性的时候那么就是默认值true。
 
