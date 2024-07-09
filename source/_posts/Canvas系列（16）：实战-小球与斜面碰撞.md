@@ -335,5 +335,3 @@ function trackVelocity () {
 [此时的效果如下](https://canvas-demo.kai666666.com/16/04.html)：
 
 ![完整效果](9.gif)
-
-> PS：我的博客即将同步至腾讯云+社区，邀请大家一同入驻：https://cloud.tencent.com/developer/support-plan?invite_code=1sfdnjsw8b22
