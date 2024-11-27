@@ -209,26 +209,26 @@ animate()
 
 ## 粒子爆炸后颜色逐渐变暗 ##
 
-`Particle` 类中我们添加了一个生命值的属性 `lifeSpan`，根据它的大小来显示爆炸后烟花的颜色，由于 `hsl` 颜色的第三个值刚好就是明亮度，我们之前使用的是 `50%` ，现在我们可以把明亮度的值从 `lifeSpan` 映射到`50% ~ 0%`，代码改动也不多，如下：
+`Particle` 类中我们添加了一个生命值的属性 `lifespan`，根据它的大小来显示爆炸后烟花的颜色，由于 `hsl` 颜色的第三个值刚好就是明亮度，我们之前使用的是 `50%` ，现在我们可以把明亮度的值从 `lifespan` 映射到`50% ~ 0%`，代码改动也不多，如下：
 
 ```JavaScript
 class Particle {
   constructor(context, options = {}){
     // ... 其他代码
     this.isExplode = options.isExplode ?? false
-    this.lifeSpan = 100
+    this.lifespan = 100
   }
 
   update() {
     if (this.isExplode) {
-      this.lifeSpan -= 2;
+      this.lifespan -= 2;
     }
     // ... 其他代码
   }
 
   draw() {
     // ... 其他代码
-    this.context.fillStyle = `hsl(${this.hColor} 100% ${this.lifeSpan / 2}%)`;
+    this.context.fillStyle = `hsl(${this.hColor} 100% ${this.lifespan / 2}%)`;
     // ... 其他代码
   }
 }
@@ -304,7 +304,7 @@ class Particle {
   // ... 其他代码
 
   isDone() {
-    return this.lifeSpan <= 0
+    return this.lifespan <= 0
   }
 }
 
@@ -364,7 +364,7 @@ class Particle {
   // ... 其他代码
   update() {
     if (this.isExplode) {
-      this.lifeSpan -= 2;
+      this.lifespan -= 2;
       this.vx *= 0.98;
       this.vy *= 0.98;
     }
