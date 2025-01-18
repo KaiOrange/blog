@@ -76,7 +76,7 @@ context.stroke();
 ---|---
 width|长度
 height|宽度
-getContext('2d')|获取2D上下文，如果是WebGL可以传webgl
+getContext('2d')|获取2D上下文，如果是WebGL可以传webgl
 toDataURL()|获取转换的位图字符串（后面会简绍）
 
 第二步中传递的是`2d`，这样会返回一个绘制2D图形的上下文，也就是`context`对象。因为canvas是画布的意思，有人也把上下文对象成为画笔。如果要绘制3D图像怎么办？可以传一个`webgl`来获取WebGL的上下文，这样就可以绘制3D效果了（WebGL是基于OpenGL，是已存在的一套技术，所以并没有使用3D来获取3D的上下文，有可能以后开发出性能更加优越的3D绘制系统的话可能会取代WebGL，当然短期内是不会的，毕竟WebGL加上部分库用起来也很方便，性能也挺不错的）。
